@@ -1,1 +1,5 @@
-This would be the dashboard here.....
+<% if current_user.role == "admin" %>
+  <%= "I am admin"  %>
+<% elsif current_user.role == "student" %>
+  <%=  "I am student" %>
+<% end %>
