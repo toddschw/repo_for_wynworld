@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   resources :companies
+
+  # get 'cohort/index'
+  # get 'cohort/show'
+
+  resources :cohort
+
   devise_for :users
   root 'dashboard#index'
 

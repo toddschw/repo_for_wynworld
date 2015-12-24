@@ -1,0 +1,7 @@
+<h1>Cohorts </h1>
+
+<ul>
+<% @cohorts.each do |cohort| %>
+  <li><%= link_to cohort.name, cohort %></li>
+<% end %>
+</ul>

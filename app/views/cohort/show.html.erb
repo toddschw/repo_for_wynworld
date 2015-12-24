@@ -1,0 +1,9 @@
+<h1>Cohort#show</h1>
+<p>Find me in app/views/cohort/show.html.erb</p>
+
+<ul>
+<% @cohort.users.each do |student| %>
+  <li><%= student.fname %>
+  <%= student.lname %></li>
+<% end %>
+</ul>
