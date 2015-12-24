@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # get 'cohort/index'
+  # get 'cohort/show'
+
+  resources :cohort
+
+
   devise_for :users
   root 'dashboard#index'
 
