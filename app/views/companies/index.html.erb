@@ -2,6 +2,13 @@
 
 <h1>Listing Companies</h1>
 
+
+<%= @companies.inspect %>
+
+
+
+
+
 <table>
   <thead>
     <tr>
@@ -11,6 +18,10 @@
       <th>Description</th>
       <th>Website</th>
       <th>Hp</th>
+      <th>Preferences1</th>
+      <th>Preferences2</th>
+      <th>Preferences3</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +35,11 @@
         <td><%= company.description %></td>
         <td><%= company.website %></td>
         <td><%= company.hp %></td>
+        <td><%= company.preferences["github"] %></td>
+        <td><%= company.preferences["twitter"] %></td>
+        <td><%= company.preferences["instagram"] %></td>
+
+
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
