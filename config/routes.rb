@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # Search
   get 'search' => 'search#index'
-
+  get 'results' => 'search#results'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
