@@ -1,5 +1,5 @@
 
-<h1>Welcome to Wynworld Mock, <%= current_user.fname %>! </h1>
+<h1>Welcome to Mock Wynworld, <%= current_user.fname %>! </h1>
   <%# Basic info on role (ie Student or Admin)
   and Cohort %>
     <%# @role %>
@@ -7,12 +7,12 @@
 
 
 
-  <%= image_tag("http://previews.123rf.com/images/millisenta/millisenta1101/millisenta110100062/8754228-street-map-of-a-generic-city-Stock-Vector.jpg", height: '320') %><br>
-    <%= link_to "WynAlums", user_index_path %>
-    <%= link_to "Cohorts", cohort_index_path %><br><br>
+<%= image_tag("http://previews.123rf.com/images/millisenta/millisenta1101/millisenta110100062/8754228-street-map-of-a-generic-city-Stock-Vector.jpg", height: '320') %><br>
+    <%= link_to "WynAlums", user_index_path %> |
+    <%= link_to "Cohorts", cohort_index_path %> |
+    <%= link_to "Companies Where We work", companies_path %><br><br>
 
 
-<%= render partial: "search/index" %>
+<%= render partial: "search/index" %><Br>
 
-
-  - View Jobs (stretch goal)<br>
+View Jobs (stretch goal)<br>

@@ -1,1 +1,9 @@
-<%= @users.inspect %>
+<h1>WynAlums</h1>
+
+<ul>
+<% @users.each do |user| %>
+  <li><%= user.lname %>,
+      <%= user.fname %>
+  </li>
+<% end %>
+</ul>

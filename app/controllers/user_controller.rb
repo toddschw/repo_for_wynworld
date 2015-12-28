@@ -1,7 +1,9 @@
 class UserController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.where("role != ?", "admin")
+    @users.order!(lname: :asc)
+
   end
 
 end
