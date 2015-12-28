@@ -8,8 +8,11 @@
 
 
   <%= image_tag("http://previews.123rf.com/images/millisenta/millisenta1101/millisenta110100062/8754228-street-map-of-a-generic-city-Stock-Vector.jpg", height: '320') %><br>
-  - <%= link_to "WynAlums", user_index_path %>
-    <%= link_to "Cohorts", cohort_index_path %>
-  - <%= link_to "Search for an Alumni", search_path %><br>
+    <%= link_to "WynAlums", user_index_path %>
+    <%= link_to "Cohorts", cohort_index_path %><br><br>
+
+
+<%= render partial: "search/index" %>
+
 
   - View Jobs (stretch goal)<br>
