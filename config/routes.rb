@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'search' => 'search#index'
   get 'results' => 'search#results'
 
+  #users
+  get 'user/index' => 'user#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,4 +6,14 @@
   <%= user.lname %>
   <%= user.email %></li>
 <% end %>
+
+<% if @company %>
+  <% @company.each do |company| %>
+    <li><%= company.name %></li>
+  <% end %>
+<% end %>
+
+
+
+
 <ul>

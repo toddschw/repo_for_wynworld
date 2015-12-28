@@ -10,7 +10,8 @@ class SearchController < ApplicationController
 
     #conduct the search in the controller
     @user = User.where("fname like ?", "%#{query_term}%")
-
+    @company = Company.where("name like ?", "%#{query_term}%")
+    
 
 
   end
