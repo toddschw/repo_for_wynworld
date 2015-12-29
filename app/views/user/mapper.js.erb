@@ -4,30 +4,20 @@ $(function() {
 
   console.log("smoke test");
 
-    var y = [];
-  <% @users.each do | user | %>
+  var map2 = L.map('map2').setView([38.7006009, -86.5933281], 3);
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map2);
 
-    y.push( "<%= user.location %>");
-  <% end %>
-
-    y.push("hooray");
-
-  alert(y);
-
-   var map2 = L.map('map2').setView([38.7006009, -96.5933281], 3);
-   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map2);
-   L.marker([40.7364586, -74.0454719]).addTo(map2)
-
-   console.log(map2);
+  console.log(map2);
 
 
+    var coordinates = [];
+    <% @users.each do | user | %>
+      // console.log("<%= user.latitude %>, <%= user.longitude %>");
+ L.marker([40.7364586, -74.0454719]).addTo(map2);
 
 
-
-
-
-
-
+    <% end %>
+    console.log(map2);
 
 
 });

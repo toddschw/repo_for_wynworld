@@ -80,18 +80,20 @@ $(function() {
  // L.marker([25.7822569, -80.3711658]).addTo(map)
 </script>
 
-<script type="text/javascript">
+<script>
 $(function() {
 
   $("#maptestlink").click(function(event) {
       event.preventDefault();
-      alert("hiiii");
-      var map = L.map('map').setView([38.7006009, -96.5933281], 3);
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
-      L.marker([40.7364586, -74.0454719]).addTo(map)
-      L.marker([25.7822569, -80.3711658]).addTo(map)
+      $.ajax({
+        url: "/user/mapper.js",
+        });
+      //
+      // var map2 = L.map('map2').setView([38.7006009, -96.5933281], 3);
+      // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+      // L.marker([40.7364586, -74.0454719]).addTo(map)
+      // L.marker([25.7822569, -80.3711658]).addTo(map)
 
-      console.log(map2);
 
     });
 });
