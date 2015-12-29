@@ -12,7 +12,30 @@
     <%= link_to "Cohorts", cohort_index_path %> |
     <%= link_to "Companies Where We work", companies_path %><br><br>
 
+<%= link_to "Populate Map", root_path, id: "mapPinPush" %><Br><br>
+
 
 <%= render partial: "search/index" %><Br>
 
 View Jobs (stretch goal)<br>
+
+
+<!-- JQuery -->
+<script type="text/javascript">
+$(function() {
+
+  $("#mapPinPush").mouseover(function() {
+
+      $.ajax({
+        url: "/user/index",
+        data: {
+          q: "calculus"
+        },
+        success: function( data ) {
+            var filtered_data = $(data).filter("#user_data_for_map").prepend("<h2>Here is the data</h2>");
+            $( "#mapPinPush" ).html( filtered_data );
+        }
+      });
+    });
+});
+</script>

@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225173234) do
+ActiveRecord::Schema.define(version: 20151228224706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20151225173234) do
     t.boolean  "hp"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.json     "orgtype"
+    t.hstore   "preferences"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151225173234) do
     t.string   "fname"
     t.string   "lname"
     t.integer  "cohort_id"
+    t.string   "location"
   end
 
   add_index "users", ["cohort_id"], name: "index_users_on_cohort_id", using: :btree
