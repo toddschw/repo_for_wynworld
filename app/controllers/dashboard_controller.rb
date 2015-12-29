@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
       @role =  "Student"
     end
 
-    @cohortName = current_user.cohort.name 
+    @cohortName = current_user.cohort 
 
 
   end

@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # we're using devise for authentication
 gem 'devise'
+#Faker to populate database
+gem 'faker', '~> 1.6', '>= 1.6.1'
 
 
 # Use ActiveModel has_secure_password
