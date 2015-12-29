@@ -6,17 +6,24 @@
     <%# @cohortName %>
 
 
-
+<!-- map static image-->
 <%= image_tag("http://previews.123rf.com/images/millisenta/millisenta1101/millisenta110100062/8754228-street-map-of-a-generic-city-Stock-Vector.jpg", height: '320') %><br>
-    <%= link_to "WynAlums", user_index_path %> |
-    <%= link_to "Cohorts", cohort_index_path %> |
-    <%= link_to "Companies Where We work", companies_path %><br><br>
 
-<%= link_to "Populate Map", root_path, id: "mapPinPush" %><Br><br>
+<!-- links to other pages -->
+<%= link_to "WynAlums", user_index_path %> |
+<%= link_to "Cohorts", cohort_index_path %> |
+<%= link_to "Companies Where We work", companies_path %><br><br>
 
+<!-- an Ajax call to get user data-->
+<%= link_to "Populate Map (Click Me)", root_path, id: "mapPinPush" %>
 
+<!-- empty div for contents of ajax call -->
+<div></div>
+
+<!-- the search form --><br>
 <%= render partial: "search/index" %><Br>
 
+<!-- stretch goal - the jobs board -->
 View Jobs (stretch goal)<br>
 
 
@@ -24,16 +31,13 @@ View Jobs (stretch goal)<br>
 <script type="text/javascript">
 $(function() {
 
-  $("#mapPinPush").mouseover(function() {
-
+  $("#mapPinPush").click(function(event) {
+      event.preventDefault();
       $.ajax({
         url: "/user/index",
-        data: {
-          q: "calculus"
-        },
         success: function( data ) {
             var filtered_data = $(data).filter("#user_data_for_map").prepend("<h2>Here is the data</h2>");
-            $( "#mapPinPush" ).html( filtered_data );
+            $( "div" ).html( filtered_data );
         }
       });
     });
