@@ -1,3 +1,5 @@
+
+
 $(function() {
 
   console.log("smoke test");
@@ -12,19 +14,17 @@ $(function() {
 
   alert(y);
 
-   function newmap(){
-    console.log('yo');
-};
+   var map2 = L.map('map2').setView([38.7006009, -96.5933281], 3);
+   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map2);
+   L.marker([40.7364586, -74.0454719]).addTo(map2)
+
+   console.log(map2);
 
 
-  // var newmap = "Testing for a new map";
-
-  // function newmap () {
-  //   console.log('function logging');
-  // }
 
 
-  newmap();
+
+
 
 
 
