@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   devise_for :users
   root 'dashboard#index'
 
+  # Search
+  get 'search' => 'search#index'
+  get 'results' => 'search#results'
 
+  #users
+  get 'user/index' => 'user#index'
+  get 'user/mapper' => 'user#mapper'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

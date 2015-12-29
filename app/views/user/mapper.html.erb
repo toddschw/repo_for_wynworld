@@ -1,0 +1,11 @@
+
+
+<ul id="user_data_for_map">
+<% @users.each do |user| %>
+  <li><%= user.lname %>,
+      <%= user.fname %> -
+      <%= user.location %>
+
+  </li>
+<% end %>
+</ul>

@@ -1,11 +1,3 @@
-/*MapBox Map*/
-  // function mapbox(){
-  //   L.mapbox.accessToken = 'pk.eyJ1IjoiZ2FuaWV0bzEiLCJhIjoiY2lpcWRleWthMDI1dXVpa3BvOGliMWJlMSJ9.SAis88xtZPzXZFBgg7UdKw';
-  //   var map = L.mapbox.map('map', 'ganieto1.oi4c63p9')
-  //     .setView([38.1264953, -97.1080468], 3);
-  //     console.log('hello')
-  // };
-
 function leaflet(){
   var map = L.map('map').setView([38.7006009, -96.5933281], 3);
   console.log("THIS SHIT?");
