@@ -1,0 +1,33 @@
+$(function() {
+
+  console.log("smoke test");
+
+    var y = [];
+  <% @users.each do | user | %>
+
+    y.push( "<%= user.location %>");
+  <% end %>
+
+    y.push("hooray");
+
+  alert(y);
+
+   function newmap(){
+    console.log('yo');
+};
+
+
+  // var newmap = "Testing for a new map";
+
+  // function newmap () {
+  //   console.log('function logging');
+  // }
+
+
+  newmap();
+
+
+
+
+
+});

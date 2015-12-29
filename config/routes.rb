@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   #users
   get 'user/index' => 'user#index'
+  get 'user/mapper' => 'user#mapper'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

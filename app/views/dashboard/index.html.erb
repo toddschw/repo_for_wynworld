@@ -5,9 +5,12 @@
     <%# @role %>
     <%# @cohortName %>
 
+<!-- dynamic map -->
+    <div id="map">
 
-<!-- map static image-->
-<%= image_tag("http://previews.123rf.com/images/millisenta/millisenta1101/millisenta110100062/8754228-street-map-of-a-generic-city-Stock-Vector.jpg", height: '320') %><br>
+   </div>
+<!-- end map -->
+
 
 <!-- links to other pages -->
 <%= link_to "WynAlums", user_index_path %> |
@@ -28,7 +31,7 @@ View Jobs (stretch goal)<br>
 
 
 <!-- JQuery -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(function() {
 
   $("#mapPinPush").click(function(event) {
@@ -42,4 +45,31 @@ $(function() {
       });
     });
 });
+</script> -->
+
+<!-- Another JQuery points to UserController#mapper -->
+<script type="text/javascript">
+$(function() {
+
+  $("#mapPinPush").click(function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: "/user/mapper.js",
+        // success: function( data ) {
+        //     var filtered_data = $(data).filter("#user_data_for_map").prepend("<h2>Here is the data</h2>");
+        //     $( "div" ).html( filtered_data );
+        // }
+      });
+    });
+});
+</script>
+
+<script>
+ var map = L.map('map').setView([38.7006009, -96.5933281], 3);
+ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+  L.marker([40.7364586, -74.0454719]).addTo(map)
+  L.marker([25.7822569, -80.3711658]).addTo(map)
 </script>
