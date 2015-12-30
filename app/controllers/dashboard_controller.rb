@@ -9,9 +9,10 @@ class DashboardController < ApplicationController
       @role =  "Student"
     end
 
-    @cohortName = current_user.cohort.name 
-
-
+    @cohortName = current_user.cohort
+    @user = User.all
+    @lat = 25.7822569
+    @long = -80.3711658
   end
 
 
