@@ -2,6 +2,18 @@
 
 <ul>
 <% @cohorts.each do |cohort| %>
-  <li><%= link_to cohort.name, cohort %></li>
+  <% if cohort.location == "Miami" %>
+    <li><%= link_to cohort.name, cohort %></li>
+  <% end %>
+<% end %>
+</ul>
+
+
+
+<ul>
+<% @cohorts.each do |cohort| %>
+  <% if cohort.location == "Fort Lauderdale" %>
+    <li><%= link_to cohort.name, cohort %></li>
+  <% end %>
 <% end %>
 </ul>

@@ -7,9 +7,20 @@ Rails.application.routes.draw do
   resources :cohort
 
   devise_for :users
+
+  # Dashboard
+    #root
   root 'dashboard#index'
+  get 'ind_employment' => 'dashboard#ind_employment'
 
 
+  # Search
+  get 'search' => 'search#index'
+  get 'results' => 'search#results'
+
+  #users
+  get 'user/index' => 'user#index'
+  get 'user/mapper' => 'user#mapper'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

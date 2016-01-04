@@ -1,3 +1,6 @@
 class Company < ActiveRecord::Base
-  store_accessor :preferences
+
+  has_many :employments
+   has_many :users, through: :employments
+
 end
