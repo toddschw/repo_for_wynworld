@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     #root
   root 'dashboard#index'
   get 'ind_employment' => 'dashboard#ind_employment'
-
+  get 'ind_list' => 'dashboard#ind_list'
+  get 'cohort_list' => 'dashboard#cohort_list'
 
   # Search
   get 'search' => 'search#index'

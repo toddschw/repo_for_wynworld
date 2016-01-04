@@ -21,7 +21,15 @@ class DashboardController < ApplicationController
 
   end
 
+  def ind_list
+    @users = User.where("role != ?", "admin")
+    @users.order!(lname: :asc)
+  end
 
+  def cohort_list
+    @cohorts = Cohort.all
+    @cohorts.order!(name: :asc)
+  end
 
 
 
