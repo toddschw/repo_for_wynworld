@@ -1,1 +1,21 @@
 <h1>Employment History for <%= "#{@user.fname} #{@user.lname}" %> </h1>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Job Title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employments.each do |employment| %>
+      <tr>
+        <td><%= employment.company.name %></td>
+        <td><%= employment.jobtitle %></td>
+      <tr>
+    <% end %>
+  </tbody>
+</table>

@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
 
   def ind_employment
     @user = User.find params[:id]
-
+    @employments = @user.employments
   end
 
   def ind_list
