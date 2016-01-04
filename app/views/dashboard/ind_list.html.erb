@@ -1,7 +1,7 @@
 <ul>
 <% @users.each do |user| %>
-  <li><%= user.lname %>,
-      <%= user.fname %>
+  <% path_to_each_person = "ind_employment" + "/#{user.id}" %>
+  <li><%= link_to "#{user.lname}, #{user.fname}", path_to_each_person %>
   </li>
 <% end %>
 </ul>

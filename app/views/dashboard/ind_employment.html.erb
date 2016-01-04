@@ -1,7 +1,1 @@
-
-
-<% @cohort.users.each do |user| %>
-  <% user.companies.each do |company| %>
-    <%= company.name %>
-  <% end %> 
-<% end %>
+<h1>Employment History for <%= "#{@user.fname} #{@user.lname}" %> </h1>
