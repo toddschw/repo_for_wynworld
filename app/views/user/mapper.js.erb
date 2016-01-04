@@ -1,21 +1,21 @@
-
-
-$(function() {
-
-  console.log("smoke test");
-
-  var map2 = L.map('map2').setView([38.7006009, -86.5933281], 3);
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map2);
-
-
-
-    var coordinates = [];
-    <% @users.each do | user | %>
-      L.marker([<%= user.latitude %>,<%= user.longitude %>]).addTo(map2);
-    <% end %>
-
-    console.log(map2);
-
-    $("h1").append(map2);
-
-});
+// 
+//
+// $(function() {
+//
+//   console.log("smoke test");
+//
+//   var map2 = L.map('map2').setView([38.7006009, -86.5933281], 3);
+//   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map2);
+//
+//
+//
+//     var coordinates = [];
+//     <% @users.each do | user | %>
+//       L.marker([<%= user.latitude %>,<%= user.longitude %>]).addTo(map2);
+//     <% end %>
+//
+//     console.log(map2);
+//
+//     $("h1").append(map2);
+//
+// });
