@@ -15,6 +15,13 @@ class DashboardController < ApplicationController
     @long = -80.3711658
   end
 
+  def ind_employment
+    @user = User.find 1
+    @cohort = Cohort.find 1
+
+  end
+
+
 
 
 

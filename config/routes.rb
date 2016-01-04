@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :cohort
 
   devise_for :users
+
+  # Dashboard
+    #root
   root 'dashboard#index'
+  get 'ind_employment' => 'dashboard#ind_employment'
+
 
   # Search
   get 'search' => 'search#index'

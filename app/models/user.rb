@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
 
   belongs_to :cohort
 
+  has_many :employments
+   has_many :companies, through: :employments
+
+
 end
