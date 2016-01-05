@@ -2,11 +2,14 @@
 
 <!-- Employment Status -->
 <h2>
-  <% if @user.status["seeking"] == "false" %>
-    <%= "Not Seeking Work" %>
+  Current Status:
+  <% if @user.status["seeking"] == "true" %>
+    <%= "Looking" %>
+  <% else %>
+    <%= "Not Looking" %>
+    <!-- reason for not looking -->
+    - <%= @user.status["reason"] %>
   <% end %>
-
-
 </h2>
 
 
