@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160105181648) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.hstore   "preferences"
+    t.string   "orgtype"
   end
 
   create_table "employments", force: :cascade do |t|
@@ -43,6 +44,9 @@ ActiveRecord::Schema.define(version: 20160105181648) do
     t.string   "jobtitle",   default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "roletype"
+    t.string   "rolenature"
+    t.string   "rolesource"
   end
 
   add_index "employments", ["company_id"], name: "index_employments_on_company_id", using: :btree
