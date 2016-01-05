@@ -1,5 +1,13 @@
 <h1>Employment History for <%= "#{@user.fname} #{@user.lname}" %> </h1>
 
+<!-- Employment Status -->
+<h2>
+  <% if @user.status["seeking"] == "false" %>
+    <%= "Not Seeking Work" %>
+  <% end %>
+
+
+</h2>
 
 
 <table>
