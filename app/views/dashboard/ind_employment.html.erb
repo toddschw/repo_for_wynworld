@@ -9,6 +9,7 @@
       <th>Job Title</th>
       <th>Type of Role</th>
       <th>Nature of Role</th>
+      <th>Type of Organization</th>
 
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= employment.jobtitle %></td>
         <td><%= employment.roletype %></td>
         <td><%= employment.rolenature %></td>
+        <td><%= employment.company.orgtype %></td>
 
       <tr>
     <% end %>
