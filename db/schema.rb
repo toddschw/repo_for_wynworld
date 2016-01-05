@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104192846) do
+ActiveRecord::Schema.define(version: 20160105163712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,14 +35,18 @@ ActiveRecord::Schema.define(version: 20160104192846) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.hstore   "preferences"
+    t.string   "orgtype"
   end
 
   create_table "employments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "company_id"
-    t.string   "jobtitle",   default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "jobtitle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "roletype"
+    t.string   "rolenature"
+    t.string   "rolesource"
   end
 
   add_index "employments", ["company_id"], name: "index_employments_on_company_id", using: :btree
