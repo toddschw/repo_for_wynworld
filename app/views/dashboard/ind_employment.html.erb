@@ -1,7 +1,21 @@
+<h1>Employment History for <%= "#{@user.fname} #{@user.lname}" %> </h1>
 
 
-<% @cohort.users.each do |user| %>
-  <% user.companies.each do |company| %>
-    <%= company.name %>
-  <% end %> 
-<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Job Title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employments.each do |employment| %>
+      <tr>
+        <td><%= employment.company.name %></td>
+        <td><%= employment.jobtitle %></td>
+      <tr>
+    <% end %>
+  </tbody>
+</table>
