@@ -4,6 +4,6 @@
 <%= form_tag results_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :q %>
-    <%= submit_tag "Search" %>
+    <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
