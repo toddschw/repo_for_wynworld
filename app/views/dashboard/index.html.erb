@@ -98,11 +98,15 @@ $(function() {
       //   url: "/user/mapper.js",
       //   });
       //
-      var coordinates = [];
-      <%@user.each do |user|%>
-       L.marker([<%=user.latitude%>, <%=user.longitude%>]).addTo(map)
-       <%end%>
-
+      // var coordinates = [];
+      // <%#@user.each do |user|%>
+      //  L.marker([<%#=user.latitude%>, <%#=user.longitude%>]).addTo(map)
+      //  <%#end%>
+      //
+       var coordinates = [];
+       <%@company.each do |company|%>
+        L.marker([<%=company.latitude%>, <%=company.longitude%>]).addTo(map)
+        <%end%>
 
     });
 });
