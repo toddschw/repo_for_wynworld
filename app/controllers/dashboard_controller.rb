@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
     end
     @cohortName = current_user.cohort
     @company = Company.all
-    # @user = User.all
+    @user = User.all
     @lat = 25.7822569
     @long = -80.3711658
   end
