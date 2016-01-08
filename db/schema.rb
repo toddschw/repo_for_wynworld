@@ -76,11 +76,13 @@ ActiveRecord::Schema.define(version: 20160107044743) do
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
+    t.hstore   "status"
   end
 
   add_index "users", ["cohort_id"], name: "index_users_on_cohort_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["status"], name: "index_users_on_status", using: :gist
 
   add_foreign_key "employments", "companies"
   add_foreign_key "employments", "users"

@@ -1,5 +1,16 @@
-<h1>Employment History for <%= "#{@user.fname} #{@user.lname}" %> </h1>
+<h1> <%= "#{@user.fname} #{@user.lname}" %> </h1>
 
+<!-- Employment Status -->
+<h2>
+  Current Status:
+  <% if @user.status["seeking"] == "true" %>
+    <%= "Looking" %>
+  <% else %>
+    <%= "Not Looking" %>
+    <!-- reason for not looking -->
+    - <%= @user.status["reason"] %>
+  <% end %>
+</h2>
 
 
 <table>
@@ -10,6 +21,7 @@
       <th>Type of Role</th>
       <th>Nature of Role</th>
       <th>Type of Organization</th>
+      <th>Source of Offer</th>
 
     </tr>
   </thead>
@@ -22,6 +34,7 @@
         <td><%= employment.roletype %></td>
         <td><%= employment.rolenature %></td>
         <td><%= employment.company.orgtype %></td>
+        <td><%= employment.rolesource %></td>
 
       <tr>
     <% end %>
