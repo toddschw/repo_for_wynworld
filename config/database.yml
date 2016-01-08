@@ -77,7 +77,12 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
+
+
 #
+# heroku config:set WYNWORLD_DATABASE_PASSWORD=Ateam
+# COPY companies FROM '/Users/wuji/Desktop/wynworld/company.csv' DELIMITER ',' CSV;
+# PGPASSWORD=DdNSaCks6JEY3AqsyphOIx6IWP psql -h ec2-54-204-12-25.compute-1.amazonaws.com -U jgtujhkbgjbkex d9ivsshmdgigij -c "\copy companies FROM '/Users/wuji/Desktop/wynworld/company.csv' WITH CSV;"
 production:
   <<: *default
   database: wynworld_production
