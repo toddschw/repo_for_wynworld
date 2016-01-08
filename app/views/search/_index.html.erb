@@ -1,4 +1,9 @@
-<%= form_tag(results_path, method: "get") do %>
-<%= text_field_tag :q, "Search...", size: 50 %>
-<%= submit_tag("Search") %>
+
+
+
+<%= form_tag results_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :q %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>

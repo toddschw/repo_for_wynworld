@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229203850) do
+ActiveRecord::Schema.define(version: 20160105182216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
@@ -33,8 +34,23 @@ ActiveRecord::Schema.define(version: 20151229203850) do
     t.boolean  "hp"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.json     "orgtype"
+    t.hstore   "preferences"
+    t.string   "orgtype"
   end
+
+  create_table "employments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.string   "jobtitle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "roletype"
+    t.string   "rolenature"
+    t.string   "rolesource"
+  end
+
+  add_index "employments", ["company_id"], name: "index_employments_on_company_id", using: :btree
+  add_index "employments", ["user_id"], name: "index_employments_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -56,11 +72,15 @@ ActiveRecord::Schema.define(version: 20151229203850) do
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
+    t.hstore   "status"
   end
 
   add_index "users", ["cohort_id"], name: "index_users_on_cohort_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["status"], name: "index_users_on_status", using: :gist
 
+  add_foreign_key "employments", "companies"
+  add_foreign_key "employments", "users"
   add_foreign_key "users", "cohorts"
 end

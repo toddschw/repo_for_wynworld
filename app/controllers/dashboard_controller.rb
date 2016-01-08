@@ -15,6 +15,20 @@ class DashboardController < ApplicationController
     @long = -80.3711658
   end
 
+  def ind_employment
+    @user = User.find params[:id]
+    @employments = @user.employments
+  end
+
+  def ind_list
+    @users = User.where("role != ?", "admin")
+    @users.order!(lname: :asc)
+  end
+
+  def cohort_list
+    @cohorts = Cohort.all
+    @cohorts.order!(name: :asc)
+  end
 
 
 
