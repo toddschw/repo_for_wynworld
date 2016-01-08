@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
   geocoded_by :full_address
-  after_validation :geocode
+  after_validation :geocode, if: :full_address_changed?
 
   has_many :employments
   has_many :users, through: :employments
