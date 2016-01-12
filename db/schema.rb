@@ -17,6 +17,16 @@ ActiveRecord::Schema.define(version: 20160108191928) do
   enable_extension "plpgsql"
   enable_extension "hstore"
 
+  create_table "alumnis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "alums", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
     t.string   "location"

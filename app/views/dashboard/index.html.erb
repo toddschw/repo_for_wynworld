@@ -5,6 +5,8 @@
     <%# @role %>
     <%# @cohortName %>
 
+  <%= link_to 'Edit User', edit_user_registration_path %>
+
 <!--  map (initial) -->
     <div id="map">
    </div>
@@ -81,33 +83,10 @@ $(function() {
 </script>
 
 <script>
- var map = L.map('map').setView([38.7006009, -96.5933281], 3);
+ var map = L.map('map').setView([38.7006009, -96.5933281], 4);
  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
- // L.marker([40.7364586, -74.0454719]).addTo(map)
- // L.marker([25.7822569, -80.3711658]).addTo(map)
-</script>
-
-
-<script>
-$(function() {
-
-  $("#maptestlink").click(function(event) {
-      event.preventDefault();
-
-      // $.ajax({
-      //   url: "/user/mapper.js",
-      //   });
-      //
-      // var coordinates = [];
-      // <%#@user.each do |user|%>
-      //  L.marker([<%#=user.latitude%>, <%#=user.longitude%>]).addTo(map)
-      //  <%#end%>
-      //
-       var coordinates = [];
-       <%@company.each do |company|%>
-        L.marker([<%=company.latitude%>, <%=company.longitude%>]).addTo(map)
-        <%end%>
-
-    });
-});
+ <%@user.each do |user|%>
+  L.marker([<%=user.latitude%>, <%=user.longitude%>]).addTo(map)
+  //.bindPopup('<%=user.fname%>')
+  <%end%>
 </script>
