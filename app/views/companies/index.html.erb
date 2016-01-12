@@ -2,13 +2,6 @@
 
 <h1>Listing Companies</h1>
 
-
-<%= @companies.inspect %>
-
-
-
-
-
 <table>
   <thead>
     <tr>
@@ -39,7 +32,7 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= company.name %></td>
+        <td><%= link_to company.name, company %></td>
         <td><%= company.street1 %></td>
         <td><%= company.street2 %></td>
         <td><%= company.city %></td>
