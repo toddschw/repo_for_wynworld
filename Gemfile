@@ -25,7 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # we're using devise for authentication
 gem 'devise'
 gem 'geocoder'
-
+gem 'will_paginate', '~> 3.1'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

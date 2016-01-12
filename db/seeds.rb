@@ -9,25 +9,38 @@
 User.destroy_all
 Cohort.destroy_all
 
+User.create!(
+name: 'German Nieto',
+email: "german@german.com",
+role: "Student",
+location: "Miami",
+latitude: 25.7753,
+longitude: -80.2089,
+password: 'password',
+password_confirmation: 'password',
+admin: true
+)
 50.times do |n|
 User.create!(
+name: 'Bill Cosby',
 email: "test#{n}@test.com",
 role: "Student",
-fname: "Keith",
-lname: "Bob",
-cohort_id: 104,
 location: "Miami",
 latitude: 25.7753,
 longitude: -80.2089,
 password: 'password',
 password_confirmation: 'password'
 )
+end
 Cohort.create!(
 name: 'MIA 3',
 location: 'Miami',
 graddate: '1/3/2016'
 )
+Company.create!(
+)
+Employment.create!(
+)
 
-end
 
 p "Created #{User.count} Users"
