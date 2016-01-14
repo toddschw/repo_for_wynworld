@@ -17,16 +17,6 @@ ActiveRecord::Schema.define(version: 20160108191928) do
   enable_extension "plpgsql"
   enable_extension "hstore"
 
-  create_table "alumnis", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "alums", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
@@ -63,9 +53,9 @@ ActiveRecord::Schema.define(version: 20160108191928) do
   create_table "employments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "company_id"
-    t.string   "jobtitle",   default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "jobtitle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "roletype"
     t.string   "rolenature"
     t.string   "rolesource"
