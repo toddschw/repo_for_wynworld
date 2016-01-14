@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :locations
+  # get 'user/index'
+  #
+  # get 'user/show'
+
+  # resources :locations
   resources :companies
+  # resources :users
 
   # get 'cohort/index'
   # get 'cohort/show'
@@ -22,7 +27,9 @@ Rails.application.routes.draw do
   get 'results' => 'search#results'
 
   #users
-  get 'user/index' => 'user#index'
-  get 'user/mapper' => 'user#mapper'
+  get 'user/index' => 'users#index'
+  get 'user/mapper' => 'users#mapper'
+  get '/users/:id', to: 'users#show', as: 'user'
+
 
 end
