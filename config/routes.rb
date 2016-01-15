@@ -15,11 +15,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'registrations'}
 
   # Dashboard
-    #root
-  root 'dashboard#index'
+  root 'dashboard#index'  #root
   get 'cohort_list' => 'dashboard#cohort_list'
   get 'ind_list' => 'dashboard#ind_list'
-  get 'ind_employment/:id' => 'dashboard#ind_employment'
+  get 'ind_employment/:id' => 'dashboard#ind_employment', as: 'ind_emp'
 
 
   # Search

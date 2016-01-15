@@ -1,9 +1,12 @@
-<h1>Cohort#show</h1>
-<p>Find me in app/views/cohort/show.html.erb</p>
+<h1>Cohort:<%= @cohort.name %> </h1>
+
+<h3>Graduation Date: <%= @cohort.graddate %></h3>
+
+<hr>
 
 <ul>
 <% @cohort.users.each do |student| %>
-  <li><%= student.fname %>
-  <%= student.lname %></li>
+  <li><%= link_to "#{student.fname + " " + student.lname}", root_path %> -
+  <%= student.id %></li>
 <% end %>
 </ul>
