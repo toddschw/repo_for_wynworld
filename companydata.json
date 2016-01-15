@@ -590,6 +590,36 @@
     "contact_first":"",
     "contact_last":"",
     "contact_email":""
-  }
+  },
+  {
+   "id":60,
+   "name":"Wyncode",
+   "city":"Fort Lauderdale",
+   "note":"",
+   "orgtype":"Start-up",
+   "contact_first":"",
+   "contact_last":"",
+   "contact_email":""
+ },
+ {
+   "id":61,
+   "name":"Freelance",
+   "city":"Anycity",
+   "note":"",
+   "orgtype":"Start-up",
+   "contact_first":"",
+   "contact_last":"",
+   "contact_email":""
+ },
+ {
+   "id":62,
+   "name":"Florida Crystals",
+   "city":"West Palm Beach",
+   "note":"",
+   "orgtype":"Other Industries",
+   "contact_first":"",
+   "contact_last":"",
+   "contact_email":""
+ }
 ]
 }
