@@ -28,4 +28,5 @@ class DashboardController < ApplicationController
     @cohorts = Cohort.all
     @cohorts.order!(name: :asc)
   end
+
 end

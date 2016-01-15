@@ -26,11 +26,11 @@ Students can visit these links -->:
 <%= link_to "Employers", companies_path %><br><br>
 
 <!-- links to other pages, for admin  consumption -->
-<% if current_user.admin? %>
-Admins can visit these links -->:
-<%= link_to "Placement Stats by Cohort", cohort_list_path %> |
-<%= link_to "Placement Stats by Individual", ind_list_path %> <Br><Br>
-<% end %>
+<%# if current_user.admin? %>
+<!-- Admins can visit these links -->
+<%#= link_to "Placement Stats by Cohort", cohort_index_path %> 
+<%#= link_to "Placement Stats by Individual", ind_list_path %> <Br><Br>
+<%# end %>
 
 
 <!-- an Ajax call to get user data-->

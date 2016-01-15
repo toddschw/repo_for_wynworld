@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>id</th>
       <th>Name</th>
-        <th>id</th>
       <!-- <th>Street1</th>
       <th>Street2</th>
       <th>City</th>
@@ -33,9 +33,8 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= link_to company.name, company %></td>
         <td><%= company.id %></td>
-
+        <td><%= link_to company.name, company %></td>
         <td><%#= company.street1 %></td>
         <td><%#= company.street2 %></td>
         <td><%#= company.city %></td>
@@ -48,8 +47,10 @@
         <td><%#= company.latitude %></td>
         <td><%#= company.longitude %></td>
         <td><%#= link_to 'Show', company %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%#= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

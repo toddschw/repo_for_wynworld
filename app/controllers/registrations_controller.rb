@@ -10,4 +10,8 @@ class RegistrationsController < Devise::RegistrationsController
      params.require(:user).permit(:fname, :lname, :email, :latitude, :longitude, :password, :password_confirmation, :current_password)
    end
 
+   def admin_user
+      redirect_to root_url unless current_user.admin
+   end
+
 end
