@@ -12,6 +12,9 @@
 <% @cohorts.each do |cohort| %>
   <% if cohort.location == "Fort Lauderdale" %>
     <li><%= link_to cohort.name, cohort %></li>
+    <% if current_user.admin? %>
+      <%= link_to "Statistics", stats_path(cohort) %>
+      <% end %>
   <% end %>
 <% end %>
 </ul>
