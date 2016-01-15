@@ -26,17 +26,15 @@ Students can visit these links -->:
 <%= link_to "Employers", companies_path %><br><br>
 
 <!-- links to other pages, for admin  consumption -->
-Admins can visit these links -->:
-<%= link_to "Placement Stats by Cohort", cohort_list_path %> |
-<%= link_to "Placement Stats by Individual", ind_list_path %> <Br><Br>
+<%# if current_user.admin? %>
+<!-- Admins can visit these links -->
+<%#= link_to "Placement Stats by Cohort", cohort_index_path %> 
+<%#= link_to "Placement Stats by Individual", ind_list_path %> <Br><Br>
+<%# end %>
 
 
 <!-- an Ajax call to get user data-->
 <%#= link_to "Populate Map (Click Me)", root_path, id: "mapPinPush" %>
-
-<!-- on page javascript to manipualte mpa -->
-<%= link_to "Populate Map", root_path, id: "maptestlink" %>
-
 
 <!-- empty div for contents of ajax call -->
 <div></div>

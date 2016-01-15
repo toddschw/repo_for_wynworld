@@ -1,9 +1,23 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
+
+    <div class="field">
+      <%= f.label :fname %> <br />
+      <%= f.text_field :fname, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :lname %><br />
+      <%= f.text_field :lname, autocomplete: "off" %>
+    </div>
+
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -28,13 +42,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :fname %> <br />
-    <%= f.password_field :fname, autocomplete: "off" %>
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :lname %><br />
-    <%= f.password_field :lname, autocomplete: "off" %>
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autocomplete: "off" %>
   </div>
 
   <div class="actions">
@@ -42,8 +61,10 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<% if current_user.admin? %>
+<%= button_to "Delete User", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%end%>
 <%= link_to "Back", :back %>
+
+</div>
+</div>

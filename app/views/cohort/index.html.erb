@@ -1,19 +1,32 @@
 <h1>Cohorts </h1>
 
-<ul>
-<% @cohorts.each do |cohort| %>
-  <% if cohort.location == "Miami" %>
-    <li><%= link_to cohort.name, cohort %></li>
-  <% end %>
-<% end %>
-</ul>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <% if current_user.admin? %>
+        <th>90 Days Placement Rate</th>
+        <th>Current Employment Rate</th>
+        <th>How Many Have Gotten Fired</th>
+        <th>Salary Rate</th>
+        <%end%>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-
-<ul>
-<% @cohorts.each do |cohort| %>
-  <% if cohort.location == "Fort Lauderdale" %>
-    <li><%= link_to cohort.name, cohort %></li>
-  <% end %>
-<% end %>
-</ul>
+  <tbody>
+    <% @cohorts.each do |cohort| %>
+      <tr>
+        <td><%= link_to cohort.name, cohort %></td>
+        <% if current_user.admin? %>
+        <td><%= "100%" %></td>
+        <td><%= "0%" %></td>
+        <td><%= "100%" %></td>
+        <td><%= "$1,000,000 Pesos" %></td>
+        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
