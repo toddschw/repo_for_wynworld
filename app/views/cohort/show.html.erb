@@ -2,11 +2,26 @@
 
 <h3>Graduation Date: <%= @cohort.graddate %></h3>
 
+# In Cohort:  14 <br>
+# Employed: 9  <br>
+# Not Seeking: 2 <Br>
+# Looking: 3  <Br><Br>
+
+% 90 Days Placement Rate: 55% <Br>
+
+% Employed as of today: 82%<br>
+
+
+
+
+
+
+
 <hr>
 
 <ul>
 <% @cohort.users.each do |student| %>
-  <li><%= link_to "#{student.fname + " " + student.lname}", root_path %> -
+  <li><%= link_to "#{student.fname + " " + student.lname}", ind_emp_path(student.id) %> -
   <%= student.id %></li>
 <% end %>
 </ul>

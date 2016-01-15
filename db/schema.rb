@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109211604) do
+ActiveRecord::Schema.define(version: 20160115210247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20160109211604) do
     t.string   "roletype"
     t.string   "rolenature"
     t.string   "rolesource"
+    t.integer  "salary"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   add_index "employments", ["company_id"], name: "index_employments_on_company_id", using: :btree

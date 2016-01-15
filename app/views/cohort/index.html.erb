@@ -3,7 +3,7 @@
 <ul>
 <% @cohorts.each do |cohort| %>
   <% if cohort.location == "Miami" %>
-    <li><%= link_to cohort.name, cohort %></li>
+    <li><%= link_to cohort.name, cohort %> - <%= cohort.id %></li>
   <% end %>
 <% end %>
 </ul>
@@ -13,7 +13,7 @@
 <ul>
 <% @cohorts.each do |cohort| %>
   <% if cohort.location == "Fort Lauderdale" %>
-    <li><%= link_to cohort.name, cohort %></li>
+    <li><%= link_to cohort.name, cohort %>- <%= cohort.id %></li>
   <% end %>
 <% end %>
 </ul>

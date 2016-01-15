@@ -1,19 +1,20 @@
 <h1> <%= "#{@user.fname} #{@user.lname}" %> </h1>
 
 <!-- Employment Status -->
+
 <h2>
-  Current Status:
-  <% if @user.status["seeking"] == "true" %>
-    <%= "Looking" %>
-  <% else %>
-    <%= "Not Looking" %>
+  Current Status: [commented out]
+  <%# if @user.status["seeking"] == "true" %>
+    <%#= "Looking" %>
+  <%# else %>
+    <%#= "Not Looking" %>
     <!-- reason for not looking -->
-    - <%= @user.status["reason"] %>
-  <% end %>
+    - <%#= @user.status["reason"] %>
+  <%# end %>
 </h2>
 
 
-<table>
+<table border=1>
   <thead>
     <tr>
       <th>Company</th>
@@ -22,6 +23,9 @@
       <th>Nature of Role</th>
       <th>Type of Organization</th>
       <th>Source of Offer</th>
+      <th>Salary</th>
+      <th>Begin</th>
+      <th>End</th>
 
     </tr>
   </thead>
@@ -35,6 +39,11 @@
         <td><%= employment.rolenature %></td>
         <td><%= employment.company.orgtype %></td>
         <td><%= employment.rolesource %></td>
+        <td><%= employment.salary %></td>
+        <td><%= employment.start_date %></td>
+        <td><%= if !employment.end_date.nil?
+          employment.end_date
+        end %></td>
 
       <tr>
     <% end %>
