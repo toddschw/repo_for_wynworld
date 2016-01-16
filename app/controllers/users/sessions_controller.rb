@@ -1,5 +1,4 @@
 class Users::SessionsController < Devise::SessionsController
-  layout "welcome"
 
   def index
     @user = User.all
