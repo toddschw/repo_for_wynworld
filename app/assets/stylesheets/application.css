@@ -16,3 +16,5 @@
 
 
 #map { height: 380px; }
+@import "bootstrap-sprockets"
+@import "bootstrap"
