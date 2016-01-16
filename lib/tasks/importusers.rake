@@ -1,7 +1,7 @@
 task :importusers => :environment do
     require 'json'
 
-    file = File.read('userdata.json')
+    file = File.read('userdatafllc2.json')
     data_hash = JSON.parse(file)
 
     data_hash.each do | key, value |
