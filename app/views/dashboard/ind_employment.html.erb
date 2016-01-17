@@ -1,17 +1,25 @@
 <h1> <%= "#{@user.fname} #{@user.lname}" %> </h1>
 
-<!-- Employment Status -->
 
-<h2>
-  Current Status: [commented out]
-  <%# if @user.status["seeking"] == "true" %>
-    <%#= "Looking" %>
-  <%# else %>
-    <%#= "Not Looking" %>
+<!-- Basic Info: Start -->
+<p>Name: <%= @user.fname %> <%= @user.lname %>
+<p>Email: <%= @user.email %>
+<p>Slack: <%#= needs to be filled in %>
+<p>Location: <%= @user.location %>
+<p>Social links</p>
+<p>Github: <%= @user.email %>
+<p>LinkedIn: <%= @user.email %>
+<p>Portfolio Site: <%= @user.email %>
+
+<p>Status:
+  <% if @user.status["seeking"] == "true" %>
+    <%= "Looking" %>
+  <% else %>
+    <%= "Not Looking" %>
     <!-- reason for not looking -->
-    - <%#= @user.status["reason"] %>
-  <%# end %>
-</h2>
+    - <%= @user.status["reason"] %>
+  <% end %>
+<!-- Basic Info: End -->
 
 
 <table border=1>
