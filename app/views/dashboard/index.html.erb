@@ -5,7 +5,6 @@
     <%# @role %>
     <%# @cohortName %>
 
-  <%= link_to 'Edit User', edit_user_registration_path %>
 
 <!--  map (initial) -->
     <div id="map">
@@ -13,8 +12,8 @@
 <!-- end map -->
 
 <!--  map (after) -->
-    <div id="map2">
-   </div>
+    <!-- <div id="map2">
+   </div> -->
 <!-- end map -->
 
 
@@ -25,6 +24,8 @@ Students can visit these links -->:
 <%= link_to "Cohorts", cohort_index_path %> |
 <%= link_to "Employers", companies_path %><br><br>
 
+
+
 <!-- the search form -->
 <%= render partial: "search/index" %>
 <div id="search_results"></div>
@@ -34,36 +35,10 @@ Students can visit these links -->:
 <!-- Admins can visit these links -->
 <%#= link_to "Placement Stats by Cohort", cohort_index_path %>
 <%#= link_to "Placement Stats by Individual", ind_list_path %> <Br><Br>
-<%# end %>
 
-
-<!-- an Ajax call to get user data-->
-<%#= link_to "Populate Map (Click Me)", root_path, id: "mapPinPush" %>
-
-<!-- empty div for contents of ajax call -->
 <div></div>
 
 
-<!-- stretch goal - the jobs board -->
-
-
-
-<!-- JQuery -->
-<!-- <script type="text/javascript">
-$(function() {
-
-  $("#mapPinPush").click(function(event) {
-      event.preventDefault();
-      $.ajax({
-        url: "/user/index",
-        success: function( data ) {
-            var filtered_data = $(data).filter("#user_data_for_map").prepend("<h2>Here is the data</h2>");
-            $( "div" ).html( filtered_data );
-        }
-      });
-    });
-});
-</script> -->
 
 <!-- Another JQuery points to UserController#mapper -->
 <script type="text/javascript">
@@ -84,9 +59,9 @@ $(function() {
 
 <script>
  var map = L.map('map').setView([38.7006009, -96.5933281], 4);
- L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
- <%@user.each do |user|%>
-  L.marker([<%=user.latitude%>, <%=user.longitude%>]).addTo(map)
-  //.bindPopup('<%=user.fname%>')
-  <%end%>
+ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',{minZoom:4}).addTo(map);
+ <%#@user.each do |user|%>
+
+  L.marker([<%=@germ.latitude%>, <%=@germ.longitude%>]).addTo(map)
+  <%#end%>
 </script>
