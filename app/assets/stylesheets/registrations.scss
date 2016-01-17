@@ -1,5 +1,38 @@
 // css codes for devise pages.
 
 .welcome-container {
+  padding: 0;
+  margin: 0;
+  height: 50vh;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;;
+  flex-flow: column nowrap;;
+  align-items: center;
+
+  .hello{
+    // display: flex;
+    text-align: center;
+  }
+
+  .sign-in-box{
+    display: flex;
+  }
+
+  .shared-links{
+    justify-content: space-between;
+    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    order: -1;
+    align-self: flex-end;
+  }
+
 }
