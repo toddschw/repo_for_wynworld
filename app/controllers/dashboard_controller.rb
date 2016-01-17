@@ -12,6 +12,7 @@ class DashboardController < ApplicationController
     @user = User.all
     @lat = 25.7822569
     @long = -80.3711658
+    @germ = User.find 1
   end
 
   def ind_employment

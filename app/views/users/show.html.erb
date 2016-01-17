@@ -1,2 +1,9 @@
 <h1>User#show</h1>
 <p>Find me in app/views/user/show.html.erb</p>
+<h1> Hello my name is <%= @users.fname %> </h1>
+
+<% if current_user.admin? || @users == current_user%>
+
+<%= link_to 'Edit User', edit_user_path(@users) %>
+
+<%end %>
