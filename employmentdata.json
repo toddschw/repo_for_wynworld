@@ -7,7 +7,7 @@
     "company_id":61,
     "start_date":"10/25/2015",
     "roletype":"Developer",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":"Self-sourced"
   },
   {
@@ -16,7 +16,7 @@
     "company_id":53,
     "start_date":"10/20/2015",
     "roletype":"",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":"Hiring Partner"
   },
   {
@@ -34,7 +34,7 @@
     "company_id":10,
     "start_date":"10/14/2015",
     "roletype":"Developer",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":"Hiring Partner"
   },
   {
@@ -43,7 +43,7 @@
     "company_id":8,
     "start_date":"9/30/2015",
     "roletype":"Developer",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":"Hiring Partner"
   },
   {
@@ -52,7 +52,7 @@
     "company_id":60,
     "start_date":"9/28/2015",
     "roletype":"Developer",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":"Hiring Partner"
   },
   {
@@ -61,7 +61,7 @@
     "company_id":47,
     "start_date":"9/28/2015",
     "roletype":"Developer",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":"Self-sourced"
   },
   {
@@ -70,7 +70,7 @@
     "company_id":15,
     "start_date":"9/21/2015",
     "roletype":"Developer",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":"Hiring Partner"
   },
   {
@@ -79,7 +79,7 @@
     "company_id":61,
     "start_date":"8/27/2015",
     "roletype":"",
-    "rolenature":"Full-time",
+    "rolenature":"Full-Time",
     "rolesource":""
   }
 ]

@@ -17,16 +17,23 @@
 
   <tbody>
     <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= link_to cohort.name, cohort %></td>
-        <% if current_user.admin? %>
-        <td><%= "100%" %></td>
-        <td><%= "0%" %></td>
-        <td><%= "100%" %></td>
-        <td><%= "$1,000,000 Pesos" %></td>
-        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-        <% end %>
-      </tr>
+
+        <% if cohort.location == "Miami" or "Fort Lauderdale" %>
+          <tr>
+            <td><%= link_to cohort.name, cohort %></td>
+            <% if current_user.admin? %>
+            <td><%= "100%" %></td>
+            <td><%= "0%" %></td>
+            <td><%= "100%" %></td>
+            <td><%= "$1,000,000 Pesos" %></td>
+            <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
+            <% end %>
+          </tr>
+      <% end %>
     <% end %>
+
+
+
+
   </tbody>
 </table>

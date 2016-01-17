@@ -10,9 +10,15 @@ class SearchController < ApplicationController
 
     #conduct the search in the controller
     @user = User.where("fname like ?", "%#{query_term}%")
-    @company = Company.where("name like ?", "%#{query_term}%")
-    
 
+    # Don't include companies in search results, for now
+    # @company = Company.where("name like ?", "%#{query_term}%")
+
+    respond_to do |format|
+            format.html { render plain: "This is HTML" }
+            format.js
+            format.json { render json: @user }
+        end
 
   end
 

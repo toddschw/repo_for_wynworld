@@ -592,6 +592,7 @@
     "contact_email":""
   },
   {
+<<<<<<< HEAD
     "id":60,
     "name":"Wyncode",
     "city":"Fort Lauderdale",
@@ -620,7 +621,26 @@
     "contact_first":"",
     "contact_last":"",
     "contact_email":""
+  },
+  {
+    "id":63,
+    "name":"Udacity",
+    "city":"Mountain View",
+    "note":"",
+    "orgtype":"",
+    "contact_first":"",
+    "contact_last":"",
+    "contact_email":""
+  },
+  {
+    "id":64,
+    "name":"Entrepreneur",
+    "city":"Anycity",
+    "note":"",
+    "orgtype":"",
+    "contact_first":"",
+    "contact_last":"",
+    "contact_email":""
   }
-
 ]
 }

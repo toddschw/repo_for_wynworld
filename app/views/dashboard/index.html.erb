@@ -25,10 +25,14 @@ Students can visit these links -->:
 <%= link_to "Cohorts", cohort_index_path %> |
 <%= link_to "Employers", companies_path %><br><br>
 
+<!-- the search form -->
+<%= render partial: "search/index" %>
+<div id="search_results"></div>
+
 <!-- links to other pages, for admin  consumption -->
 <%# if current_user.admin? %>
 <!-- Admins can visit these links -->
-<%#= link_to "Placement Stats by Cohort", cohort_index_path %> 
+<%#= link_to "Placement Stats by Cohort", cohort_index_path %>
 <%#= link_to "Placement Stats by Individual", ind_list_path %> <Br><Br>
 <%# end %>
 
@@ -39,8 +43,6 @@ Students can visit these links -->:
 <!-- empty div for contents of ajax call -->
 <div></div>
 
-<!-- the search form --><br>
-<%= render partial: "search/index" %>
 
 <!-- stretch goal - the jobs board -->
 

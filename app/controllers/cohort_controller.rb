@@ -5,7 +5,7 @@ class CohortController < ApplicationController
 
   def index
     @cohorts = Cohort.all
-    @cohorts.order!(name: :asc)
+    @cohorts.order!(name: :desc)
   end
 
   def show
