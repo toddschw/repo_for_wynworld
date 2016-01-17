@@ -1,6 +1,15 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
+      <p>
+       <form>
+         <legend>Search</legend>
+         <div class='col-xs-4'>
+             <input type='text' class='form-control' value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword' >
+         </div>
+       </form>
+     </p>
+
 <table>
   <thead>
     <tr>
@@ -17,7 +26,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user %></td>
+        <td><%= link_to user.fname, user %></td>
         <td><%= user.location %></td>
         <td><%= user.email %></td>
         <td><%#= user.cohort.name %></td>
@@ -30,4 +39,4 @@
 </table>
 
 
-<%#= will_paginate %>
+<%= will_paginate %>
