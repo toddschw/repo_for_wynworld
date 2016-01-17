@@ -6,13 +6,18 @@ class SearchController < ApplicationController
   def results
 
     # use a named variable called query_term for term
-    query_term = params[:q]
+    query_term = params[:q].downcase
 
-    #conduct the search in the controller
-    @user = User.where("fname like ?", "%#{query_term}%")
 
-    # Don't include companies in search results, for now
-    # @company = Company.where("name like ?", "%#{query_term}%")
+
+    #conduct the search 
+    if !query_term.blank?
+      @user = User.where("lower(fname) like ? or lower(lname) like ?", "%#{query_term}%","%#{query_term}%")
+      # account for no results
+      if @user.empty?
+        @user = nil
+      end
+    end
 
     respond_to do |format|
             format.html { render plain: "This is HTML" }
