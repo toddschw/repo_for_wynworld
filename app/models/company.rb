@@ -7,4 +7,5 @@ class Company < ActiveRecord::Base
   def full_address
     [street1, city, state, zip].compact.join(', ')
   end
+  scope :search, ->(name) { where('name LIKE ?', "%#{name.capitalize}%") if name.present? }
 end

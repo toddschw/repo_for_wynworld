@@ -9,5 +9,13 @@ class User < ActiveRecord::Base
 
   store_accessor :status
 
+  # scope :filter, ->(chicken){
+  #   joins(:genres).where('genres.name = ?', chicken) if chicken.present?
+  # }
+  scope :filter, ->(chicken){
+    joins(:companies).where('companies.name = ?', chicken) if chicken.present?
+  }
+  scope :search, ->(fname){where('fname LIKE ?', "%#{fname.capitalize}%") if fname.present?}
+
 
 end
