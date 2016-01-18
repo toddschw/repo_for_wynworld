@@ -1,23 +1,21 @@
+
+.container {
+  display: flex;
+  // background-color: red;
+  flex-direction: column;
+}
+
+.top-bar{
+  display: flex;
+  width: 100vw;
+  border-bottom: solid black 2px;
+}
 // body {
 //   background-color: #fff;
 //   font-family: verdana, arial, helvetica, sans-serif;
 //   font-size: 13px;
 //   line-height: 18px;
 // }
-.container {
-  display: flex;
-  // background-color: red;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.nav-bar{
-  display: flex;
-  width: 100vw;
-  border-bottom: solid black 2px;
-  background-color: red;
-
-}
 //
 // p, ol, ul, td {
 //   font-family: verdana, arial, helvetica, sans-serif;
