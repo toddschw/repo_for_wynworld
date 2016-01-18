@@ -1,18 +1,10 @@
 
 <h1>Welcome to Wynworld, <%= current_user.fname %>! </h1>
 
-
 <!--  map (initial) -->
     <div id="map">
    </div>
 <!-- end map -->
-
-<!--  map (after) -->
-    <!-- <div id="map2">
-   </div> -->
-<!-- end map -->
-
-
 
 <!-- search form -->
 <%= render partial: "search/index" %>
@@ -30,30 +22,28 @@
 
 
 
-
-
-<!-- Another JQuery points to UserController#mapper -->
+<!-- Mapping -->
 <script type="text/javascript">
 $(function() {
 
-  $("#mapPinPush").click(function(event) {
-      event.preventDefault();
-      $.ajax({
-        url: "/user/mapper.js",
-        // success: function( data ) {
-        //     var filtered_data = $(data).filter("#user_data_for_map").prepend("<h2>Here is the data</h2>");
-        //     $( "div" ).html( filtered_data );
-        // }
-      });
-    });
-});
-</script>
-
-<script>
  var map = L.map('map').setView([38.7006009, -96.5933281], 4);
- L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',{minZoom:4}).addTo(map);
- <%#@user.each do |user|%>
+ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(map);
 
-  L.marker([<%=@germ.latitude%>, <%=@germ.longitude%>]).addTo(map)
-  <%#end%>
+  <% @company.each do |company| %>
+    <% if !company.latitude.nil? %>
+      L.marker([<%= company.latitude %>, <%= company.longitude %>]).addTo(map)
+        <% marker_info = "#{company.name} " %>
+          <% unless company.users.empty? %>
+            <% company.users.each do |user| %>
+              <% marker_info << " " << user.fname << " " << user.lname %>
+            <% end %>
+        <% end %>
+        .bindPopup('<%= marker_info %>')
+    <% end %>
+    console.log('<%= marker_info %>');
+
+  <% end %>
+
+
+});
 </script>
