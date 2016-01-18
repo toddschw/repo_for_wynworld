@@ -6,6 +6,9 @@
    </div>
 <!-- end map -->
 
+
+
+
 <!-- search form -->
 <%= render partial: "search/index" %>
 <div id="search_results"></div>
@@ -35,8 +38,9 @@
 <script type="text/javascript">
 $(function() {
 
+
  var map = L.map('map').setView([38.7006009, -96.5933281], 4);
- L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(map);
+ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 4}).addTo(map);
 
   <% @company.each do |company| %>
     <% if !company.longitude.nil? %>
