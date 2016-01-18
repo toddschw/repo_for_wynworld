@@ -6,7 +6,7 @@ $(function() {
   $('#search_results').append("No Results");
 <% else %>
    <% @user.each do |user| %>
-     var a_user = '<a href="/ind_employment/<%= user.id %>"><%= user.fname << " " << user.lname %></a>';
+     var a_user = '<a href="/users/<%= user.id %>"><%= user.fname << " " << user.lname %></a>';
      $('#search_results').append(a_user);
      $('#search_results').append("<br>");
    <% end %>

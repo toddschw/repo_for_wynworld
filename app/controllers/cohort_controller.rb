@@ -65,5 +65,9 @@ class CohortController < ApplicationController
     redirect_to root_url unless current_user.admin?
   end
 
+  def cohort_params
+    params.require(:cohort).permit(:name,:location, :graddate)
+  end
+
 
 end

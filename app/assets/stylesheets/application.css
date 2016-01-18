@@ -15,8 +15,9 @@
  */
 
 
-#map { height: 380px; }
-#map2 { height: 180px; }
+#map { height: 380px;}
+       /*width: 80%;
+        margin-left: 10%;}*/
 
 @import "bootstrap-sprockets"
 @import "bootstrap"

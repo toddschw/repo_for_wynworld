@@ -20,7 +20,12 @@
 
 <ul>
 <% @cohort.users.each do |student| %>
-  <li><%= link_to "#{student.fname + " " + student.lname}", ind_emp_path(student.id) %> -
+  <li><%= link_to "#{student.fname + " " + student.lname}", user_path(student.id) %> -
   <%= student.id %></li>
 <% end %>
 </ul>
+
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_cohort_path(@cohort) %> |
+<%end %>
+<%= link_to 'Back', cohort_index_path %>
