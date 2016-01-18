@@ -2,24 +2,17 @@
   <%= "#{@user.fname} #{@user.lname}" %>
 </h1>
 <div class="profile-stat">
-  <div class="profile-pic">
-    <%= image_tag @user.picurl, size: "250", class: "img-cir" %>
-  </div>
   <!-- Basic Info: Start -->
-  <div class="basic-stat"></div>
+  <div class="basic-stat">
   <p>Name:
     <%= @user.fname %>
     <%= @user.lname %></p>
   <p>Email:
     <%= @user.email %></p>
   <p>Slack:
-    <%= @user.name %></p>
+    <%= @user.fname %>@slack.com</p>
   <p>Location:
-    <% @employments.each do |employment| %>
-    <%= @employments.company.city %>
-    ,
-    <%= @employments.company.state %></p>
-  <% end %>
+    <%= @user.location %></p>
   <p>Status:
     <% if @user.status["seeking"] == "true" %>
     <%= "Looking" %>
@@ -27,6 +20,20 @@
     <%= "Not Looking" %>
     (<%= @user.status["reason"] %>)
     <% end %></p>
+    </div>
+    <!-- Profile pic -->
+    <div class="profile-pic">
+      <%# Edit Profile Link %>
+      <!-- <div "class="profile-edit"> -->
+      <% if (current_user.admin || @user == current_user)  %>
+      <%= link_to "EDIT", edit_user_path(@user) %>
+      <% end %>
+      <!-- </div> -->
+      <hr>
+      <%= image_tag @user.picurl, size: "250", class: "img-cir" %>
+
+    </div>
+
   </div>
 </div>
 <!-- Basic Info: End -->
@@ -43,13 +50,7 @@
 </div>
 <!-- Social Info: End -->
 
-<%# Edit Profile Link %>
-<div "class=" Profile-edit">
-<% if (current_user.admin || @user == current_user)  %>
-<%= link_to "Edit Profile", edit_user_path(@user) %>
-<% end %>
-</div>
-<hr>
+
 
 <%# Job History %>
 <div class="profile-hist">
