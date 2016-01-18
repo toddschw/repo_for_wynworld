@@ -9,13 +9,15 @@ class DashboardController < ApplicationController
     end
     @cohortName = current_user.cohort
     @company = Company.all
-    @user = User.all
+    @users = User.all
+    @user = current_user
     @lat = 25.7822569
     @long = -80.3711658
     @germ = User.find 1
   end
 
   def ind_employment
+
     @user = User.find params[:id]
     @employments = @user.employments
   end
@@ -29,5 +31,6 @@ class DashboardController < ApplicationController
     @cohorts = Cohort.all
     @cohorts.order!(name: :asc)
   end
+
 
 end

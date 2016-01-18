@@ -2,24 +2,30 @@
 
 
 <!-- Basic Info: Start -->
-<p>Name: <%= @user.fname %> <%= @user.lname %>
-<p>Email: <%= @user.email %>
-<p>Slack: <%#= needs to be filled in %>
-<p>Location: <%= @user.location %>
+<p>Name: <%= @user.fname %> <%= @user.lname %></p>
+<p>Email: <%= @user.email %></p>
+<p>Slack: <%#= needs to be filled in %></p>
+<p>Location: <%= @user.location %></p>
 <p>Social links</p>
-<p>Github: <%= @user.email %>
-<p>LinkedIn: <%= @user.email %>
-<p>Portfolio Site: <%= @user.email %>
-
-<p>Status:
+<p>Github: <%= @user.email %></p>
+<p>LinkedIn: <%= @user.email %></p>
+<p>Portfolio Site: <%= @user.email %></p>
+<p>Status:  </p>
   <%# if @user.status["seeking"] == "true" %>
     <%#= "Looking" %>
   <%# else %>
     <%#= "Not Looking" %>
     <!-- reason for not looking -->
-    - <%#= @user.status["reason"] %>
+      <%#= @user.status["reason"] %>
   <%# end %>
 <!-- Basic Info: End -->
+
+<%# Edit Profile Link %>
+<% if (current_user.admin || @user == current_user)  %>
+ <%= link_to "Edit Profile", edit_user_path(@user) %>
+<% end %> <hr>
+
+
 
 
 <table border=1>
