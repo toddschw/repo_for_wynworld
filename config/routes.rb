@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   get 'user/index' => 'users#index'
   get 'user/mapper' => 'users#mapper'
   get '/users/:id', to: 'users#show', as: 'user'
+  get '/users/:id/edit' => 'users#edit', as: 'edit_user'
+  patch '/users/:id' => 'users#update'
+  put '/users/:id' => 'users#update'
+
 
 
 end
