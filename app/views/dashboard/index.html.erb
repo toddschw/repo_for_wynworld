@@ -17,14 +17,14 @@
 <!-- links -->
 <br>
 <% if !@user.admin %>
-  <%= link_to "View Me", ind_emp_path(@user) %> |
+  <%= link_to "View Me", user_path(@user) %> |
 <% end %>
 <%= link_to "View WynAlums List", user_index_path %> |
 <%= link_to "View WynAlumns by Cohort", cohort_index_path %> |
 <%= link_to "Employers", companies_path %><br><br>
 
 <% if !@user.admin %>
-  <h2>Your Cohort</h2>
+  <h2>My Cohort</h2>
   <% @user.cohort.users.each do |user| %>
     <%= user.fname %>
     <%= user.lname %><br>
