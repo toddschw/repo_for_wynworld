@@ -15,11 +15,7 @@
   <p>Slack:
     <%= @user.name %></p>
   <p>Location:
-    <% @employments.each do |employment| %>
-    <%= @employments.company.city %>
-    ,
-    <%= @employments.company.state %></p>
-  <% end %>
+    <%= @user.location %></p>
   <p>Status:
     <%# if @user.status["seeking"] == "true" %>
     <%#= "Looking" %>
