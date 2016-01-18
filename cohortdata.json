@@ -1,0 +1,64 @@
+{
+  "cohorts": [
+    {
+      "id": 18,
+      "name": "MIAC1",
+      "location": "Miami",
+      "graddate": "2014-06-02"
+    },
+
+      "id": 9
+      "name": "MIAC2",
+      "location": "Miami",
+      "graddate": "2014-09-15"
+    },
+    {
+      "id": 10,
+      "name": "MIAC3",
+      "location": "Miami",
+      "graddate": "2014-12-07"
+    },
+    {
+      "id": 11,
+      "name": "MIAC4",
+      "location": "Miami",
+      "graddate": "2015-03-25"
+    },
+    {
+      "id": 12,
+      "name": "MIAC5",
+      "location": "Miami",
+      "graddate": "2015-06-04"
+    },
+    {
+      "id": 13,
+      "name": "MIAC6",
+      "location": "Miami",
+      "graddate": "2015-12-05"
+    },
+    {
+      "id": 14,
+      "name": "MIAC7",
+      "location": "Miami",
+      "graddate": "2015-12-05"
+    },
+    {
+      "id": 15,
+      "name": "FLLC1",
+      "location": "Fort Lauderdale",
+      "graddate": "2015-06-19"
+    },
+    {
+      "id": 16,
+      "name": "FLLC2",
+      "location": "Fort Lauderdale",
+      "graddate": "2015-08-27"
+    },
+    {
+      "id": 17,
+      "name": "FLLC3",
+      "location": "Fort Lauderdale",
+      "graddate": "2015-12-05"
+    }
+  ]
+}
