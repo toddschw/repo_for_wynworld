@@ -1,35 +1,59 @@
-<h1> <%= "#{@user.fname} #{@user.lname}" %> </h1>
-
-
-<%= image_tag @user.picurl, size: "250" %>
-
-<!-- Basic Info: Start -->
-<p>Name: <%= @user.fname %> <%= @user.lname %></p>
-<p>Email: <%= @user.email %></p>
-<p>Slack: <%#= needs to be filled in %></p>
-<p>Location: <%= @user.location %></p>
-<p>Social links</p>
-<p>Github: <%= @user.email %></p>
-<p>LinkedIn: <%= @user.email %></p>
-<p>Portfolio Site: <%= @user.email %></p>
-<p>Status:
-  <% if @user.status["seeking"] == "true" %>
+<h1>
+  <%= "#{@user.fname} #{@user.lname}" %>
+</h1>
+<div class="profile-stat">
+  <div class="profile-pic">
+    <%= image_tag @user.picurl, size: "250", class: "img-cir" %>
+  </div>
+  <!-- Basic Info: Start -->
+  <div class="basic-stat"></div>
+  <p>Name:
+    <%= @user.fname %>
+    <%= @user.lname %></p>
+  <p>Email:
+    <%= @user.email %></p>
+  <p>Slack:
+    <%= @user.name %></p>
+  <p>Location:
+    <% @employments.each do |employment| %>
+    <%= @employments.company.city %>
+    ,
+    <%= @employments.company.state %></p>
+  <% end %>
+  <p>Status:
+    <% if @user.status["seeking"] == "true" %>
     <%= "Looking" %>
-  <% else %>
-    <%= "Not Looking" %> (<%= @user.status["reason"] %>)
-  <% end %></p>
+    <% else %>
+    <%= "Not Looking" %>
+    (<%= @user.status["reason"] %>)
+    <% end %></p>
+  </div>
+</div>
 <!-- Basic Info: End -->
+<!-- Social Info: End -->
+
+<div class="profile-social">
+<p>Social links</p>
+<p>Github:
+  <%= @user.email %></p>
+<p>LinkedIn:
+  <%= @user.email %></p>
+<p>Portfolio Site:
+  <%= @user.email %></p>
+</div>
+<!-- Social Info: End -->
 
 <%# Edit Profile Link %>
-<div style="width:100px;border:1px solid;">
+<div "class=" Profile-edit">
 <% if (current_user.admin || @user == current_user)  %>
- <%= link_to "Edit Profile", edit_user_path(@user) %>
-<% end %></div> <hr>
-
-
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+<% end %>
+</div>
+<hr>
 
 <%# Job History %>
-<table border=1>
+<div class="profile-hist">
+<table>
   <thead>
     <tr>
       <th>Company</th>
@@ -47,20 +71,21 @@
 
   <tbody>
     <% @employments.each do |employment| %>
-      <tr>
-        <td><%= employment.company.name %></td>
-        <td><%= employment.jobtitle %></td>
-        <td><%= employment.roletype %></td>
-        <td><%= employment.rolenature %></td>
-        <td><%= employment.company.orgtype %></td>
-        <td><%= employment.rolesource %></td>
-        <td><%= employment.salary %></td>
-        <td><%= employment.start_date %></td>
-        <td><%= if !employment.end_date.nil?
+    <tr>
+      <td><%= employment.company.name %></td>
+      <td><%= employment.jobtitle %></td>
+      <td><%= employment.roletype %></td>
+      <td><%= employment.rolenature %></td>
+      <td><%= employment.company.orgtype %></td>
+      <td><%= employment.rolesource %></td>
+      <td><%= employment.salary %></td>
+      <td><%= employment.start_date %></td>
+      <td><%= if !employment.end_date.nil?
           employment.end_date
         end %></td>
 
       <tr>
-    <% end %>
-  </tbody>
-</table>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

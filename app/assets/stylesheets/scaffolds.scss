@@ -1,6 +1,17 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar{
+  display: flex;
+  // width: 100vw;
+  border-bottom: solid black 2px;
+  justify-content: space-between;
+}
 body {
   background-color: #fff;
-  color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
