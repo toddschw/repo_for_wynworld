@@ -45,17 +45,33 @@
 
 .profile-hist {
   background-color: #aaa;
-    padding: 10px 30px;
+    padding: 10px 5px;
 
-    table, th, td {
-      border: 1px solid white;
-      border-collapse: collapse;
-      background-color: white;
-    }
-    th {
-      color: #0ff;
-      background-color: #555;
-      padding: 4px 8px;
-      font-weight: 100;
-    }
+}
+
+table{
+  border: 1px solid white;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+
+  th {
+    color: #0ff;
+    background-color: #555;
+    padding: 4px 8px;
+    font-weight: 100;
+  }
+  td{
+    border: 1px solid dimgray;
+    padding: 4px 8px;
+  }
+  tr:nth-child(even){
+    background-color: #ddd;
+  }
+}
+table.user-index-table th{
+  width: 20%;
+}
+table.user-index-table th{
+  width: 10%;
 }
