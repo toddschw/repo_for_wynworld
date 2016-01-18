@@ -30,3 +30,7 @@
     <% end %>
   </tbody>
 </table>
+
+<% if current_user.admin?%>
+<%= link_to 'New Cohort', new_cohort_path %>
+<%end%>

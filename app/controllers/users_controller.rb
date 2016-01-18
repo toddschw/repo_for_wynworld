@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_user, only: [:edit, :update, :destroy, :show]
-  before_action :admin_user, only: [:edit, :update, :destroy, :new, :create, :show]
+  before_action :admin_user, only: [:edit, :update, :destroy, :new, :create]
 
 
   def index
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @employments = @user.employments
   end
 
   def edit

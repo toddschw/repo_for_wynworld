@@ -1,3 +1,92 @@
-<p>Profile Updated</p>
+<h1>
+  <%= "#{@user.fname} #{@user.lname}" %>
+</h1>
+<div class="profile-stat">
+  <div class="profile-pic">
+    <%= image_tag @user.picurl, size: "250", class: "img-cir" %>
+  </div>
+  <!-- Basic Info: Start -->
+  <div class="basic-stat"></div>
+  <p>Name:
+    <%= @user.fname %>
+    <%= @user.lname %></p>
+  <p>Email:
+    <%= @user.email %></p>
+  <p>Slack:
+    <%= @user.name %></p>
+  <p>Location:
+    <% @employments.each do |employment| %>
+    <%= @employments.company.city %>
+    ,
+    <%= @employments.company.state %></p>
+  <% end %>
+  <p>Status:
+    <%# if @user.status["seeking"] == "true" %>
+    <%#= "Looking" %>
+    <%# else %>
+    <%#= "Not Looking" %>
+    (<%#= @user.status["reason"] %>)
+    <%# end %></p>
+  </div>
+</div>
+<!-- Basic Info: End -->
+<!-- Social Info: End -->
 
-<%#= link_to "Back", ind_emp_path(@user)
+<div class="profile-social">
+<p>Social links</p>
+<p>Github:
+  <%= @user.email %></p>
+<p>LinkedIn:
+  <%= @user.email %></p>
+<p>Portfolio Site:
+  <%= @user.email %></p>
+</div>
+<!-- Social Info: End -->
+
+<%# Edit Profile Link %>
+<div "class= Profile-edit">
+<% if (current_user.admin || @user == current_user)  %>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+</div>
+<hr>
+
+<%# Job History %>
+<div class="profile-hist">
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Job Title</th>
+      <th>Type of Role</th>
+      <th>Nature of Role</th>
+      <th>Type of Organization</th>
+      <th>Source of Offer</th>
+      <th>Salary</th>
+      <th>Begin</th>
+      <th>End</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employments.each do |employment| %>
+    <tr>
+      <td><%= employment.company.name %></td>
+      <td><%= employment.jobtitle %></td>
+      <td><%= employment.roletype %></td>
+      <td><%= employment.rolenature %></td>
+      <td><%= employment.company.orgtype %></td>
+      <td><%= employment.rolesource %></td>
+      <td><%= employment.salary %></td>
+      <td><%= employment.start_date %></td>
+      <td><%= if !employment.end_date.nil?
+          employment.end_date
+        end %></td>
+
+      <tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<%end%>

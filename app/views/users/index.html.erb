@@ -26,7 +26,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.fname, ind_emp_path(user) %></td>
+        <td><%= link_to user.fname, user_path(user) %></td>
         <td><%= user.location %></td>
         <td><%= user.email %></td>
         <td><%#= user.cohort.name %></td>
