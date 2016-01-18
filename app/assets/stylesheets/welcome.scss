@@ -44,6 +44,17 @@
     flex-wrap: wrap;
     order: -1;
     align-self: flex-end;
-  }
+    a {
+      color: #fff;
+      text-decoration: none;
 
+      &:visited {
+          color: #aaa;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+  }
 }

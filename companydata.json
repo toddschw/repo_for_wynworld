@@ -274,7 +274,7 @@
   {
     "id":28,
     "name":"FlexShopper",
-    "city":"N/A",
+    "city":"Boca Raton",
     "note":"",
     "orgtype":"E-Commerce",
     "contact_first":"",
@@ -394,7 +394,7 @@
   {
     "id":40,
     "name":"Vitacost",
-    "city":"N/A",
+    "city":"Boca Raton",
     "note":"",
     "orgtype":"E-Commerce",
     "contact_first":"",
@@ -605,7 +605,7 @@
   {
     "id":61,
     "name":"Freelance",
-    "city":"Anycity",
+    "city":"Miami",
     "note":"",
     "orgtype":"Start-up",
     "contact_first":"",
@@ -635,7 +635,7 @@
   {
     "id":64,
     "name":"Entrepreneur",
-    "city":"Anycity",
+    "city":"Miami",
     "note":"",
     "orgtype":"",
     "contact_first":"",

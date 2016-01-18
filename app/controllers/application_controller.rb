@@ -6,11 +6,21 @@ class ApplicationController < ActionController::Base
 
 protected
 
-def layout_by_resource
-  if devise_controller? && resource_name == :user && action_name == "new"
-    "welcome"
-  else
-    "application"
+  def layout_by_resource
+    if devise_controller? && resource_name == :user && action_name == "new"
+      "welcome"
+    else
+      "application"
+    end
   end
-end
+
+  # def layout_by_resource
+  #    if devise_controller?
+  #      puts "devise controller in use"
+  #    end
+  # end
+  #
+
+
+
 end
