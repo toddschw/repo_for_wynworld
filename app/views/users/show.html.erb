@@ -9,7 +9,7 @@
     <%= @user.fname %>
     <%= @user.lname %></p>
   <p>Email:
-    <%= @user.email %></p>
+    <%= mail_to @user.email %></p>
   <p>Location:
     <%= @user.location %></p>
   <p>Status:
@@ -24,13 +24,13 @@
     <div class="profile-social">
       <h2>Social links</h2>
     <p>Github:
-      <%= @user.email %></p>
+      <%= link_to @user.Social_links["github"],@user.Social_links["github"]  %></p>
     <p>LinkedIn:
-      <%= @user.email %></p>
+      <%= link_to @user.Social_links["linkedin"], @user.Social_links["linkedin"] %></p>
     <p>Portfolio Site:
-      <%= @user.email %></p>
+      <%= @user.Social_links["portfolio"] %></p>
     <p>Slack:
-      <%= @user.fname %>@slack.com</p>
+      <%= @user.Social_links["slack"] %></p>
     </div>
 
 
