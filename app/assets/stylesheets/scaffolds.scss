@@ -1,14 +1,14 @@
 
 .container {
   display: flex;
-  // background-color: red;
   flex-direction: column;
 }
 
 .top-bar{
   display: flex;
-  width: 100vw;
+  // width: 100vw;
   border-bottom: solid black 2px;
+  justify-content: space-between;
 }
 // body {
 //   background-color: #fff;
