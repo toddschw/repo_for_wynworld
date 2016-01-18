@@ -45,7 +45,7 @@ $(function() {
   <% @company.each do |company| %>
     <% if !company.longitude.nil? %>
       L.marker([<%= company.latitude %>, <%= company.longitude %>]).addTo(map)
-        <% marker_info = "#{company.name} #{company.latitude} #{company.longitude} " %>
+        <% marker_info = "#{company.name} " %>
           <% unless company.users.empty? %>
             <% company.users.each do |user| %>
               <% marker_info << " " << user.fname << " " << user.lname %>
