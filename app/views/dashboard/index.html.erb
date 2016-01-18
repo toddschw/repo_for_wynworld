@@ -20,6 +20,14 @@
 <%= link_to "View WynAlumns by Cohort", cohort_index_path %> |
 <%= link_to "Employers", companies_path %><br><br>
 
+<% if !@user.admin %>
+  <h2>Your Cohort</h2>
+  <% @user.cohort.users.each do |user| %>
+    <%= user.fname %>
+    <%= user.lname %><br>
+
+    <% end %>
+<% end %>
 
 
 
@@ -31,9 +39,9 @@ $(function() {
  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(map);
 
   <% @company.each do |company| %>
-    <% if !company.latitude.nil? %>
+    <% if !company.longitude.nil? %>
       L.marker([<%= company.latitude %>, <%= company.longitude %>]).addTo(map)
-        <% marker_info = "#{company.name} " %>
+        <% marker_info = "#{company.name} #{company.latitude} #{company.longitude} " %>
           <% unless company.users.empty? %>
             <% company.users.each do |user| %>
               <% marker_info << " " << user.fname << " " << user.lname %>
