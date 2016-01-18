@@ -1,6 +1,8 @@
 <h1> <%= "#{@user.fname} #{@user.lname}" %> </h1>
 
 
+<%= image_tag @user.picurl, size: "250" %>
+
 <!-- Basic Info: Start -->
 <p>Name: <%= @user.fname %> <%= @user.lname %></p>
 <p>Email: <%= @user.email %></p>
@@ -26,7 +28,7 @@
 
 
 
-
+<%# Job History %>
 <table border=1>
   <thead>
     <tr>
