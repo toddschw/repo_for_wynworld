@@ -32,22 +32,14 @@ ActiveRecord::Schema.define(version: 20160118145907) do
     t.string   "description"
     t.string   "website"
     t.boolean  "hp"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "orgtype"
     t.string   "street1"
     t.string   "street2"
     t.integer  "zip"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "contact_first"
-    t.string   "contact_last"
-    t.text     "note"
-    t.string   "contact_email"
-    t.string   "tech_contact_f"
-    t.string   "tech_contact_l"
-    t.string   "tech_email"
-    t.string   "contact_phone"
   end
 
   create_table "employments", force: :cascade do |t|
