@@ -10,20 +10,19 @@
 <p>Github: <%= @user.email %></p>
 <p>LinkedIn: <%= @user.email %></p>
 <p>Portfolio Site: <%= @user.email %></p>
-<p>Status:  </p>
-  <%# if @user.status["seeking"] == "true" %>
-    <%#= "Looking" %>
-  <%# else %>
-    <%#= "Not Looking" %>
-    <!-- reason for not looking -->
-      <%#= @user.status["reason"] %>
-  <%# end %>
+<p>Status:
+  <% if @user.status["seeking"] == "true" %>
+    <%= "Looking" %>
+  <% else %>
+    <%= "Not Looking" %> (<%= @user.status["reason"] %>)
+  <% end %></p>
 <!-- Basic Info: End -->
 
 <%# Edit Profile Link %>
+<div style="width:100px;border:1px solid;">
 <% if (current_user.admin || @user == current_user)  %>
  <%= link_to "Edit Profile", edit_user_path(@user) %>
-<% end %> <hr>
+<% end %></div> <hr>
 
 
 

@@ -1,10 +1,10 @@
-<%= form_for(@users) do |f| %>
-  <% if @users.errors.any? %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@users.errors.count, "error") %> prohibited this company from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this company from being saved:</h2>
 
       <ul>
-      <% @users.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -23,6 +23,11 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit %>
