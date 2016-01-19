@@ -1,12 +1,13 @@
 .dash-menu {
   display: flex;
-  // width: 100%;
+  flex-flow: row nowrap;
+  width: 100%;
 
 }
 
 .left {
   display: flex;
-  // align-self: flex-start;
+  flex-direction: column;
   width: 50%;
 }
 
@@ -26,4 +27,8 @@ margin: 0 2px;
     color: #065;
   }
 
+}
+
+#search_results {
+  padding: 5px 10px;
 }

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'search' => 'search#index'
   get 'results' => 'search#results'
 
+
   #users
   get 'user/index' => 'users#index'
   get 'user/mapper' => 'users#mapper'
