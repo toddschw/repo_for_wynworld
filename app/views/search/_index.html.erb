@@ -3,7 +3,7 @@
 
 <%= form_tag results_path, remote:true, :method => 'get' do %>
   <p>
-    <%= text_field_tag :q %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= text_field_tag :q, placeholder='Search Wyncoders'%>
+    <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
   </p>
 <% end %>
