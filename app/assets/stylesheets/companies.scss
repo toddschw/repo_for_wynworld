@@ -1,0 +1,38 @@
+
+.com-stat {
+  }
+.com-full{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100;
+
+}
+    .com-left {
+      width: 50%;
+      padding: 20px 20px;
+      background-color: #ccc;
+      border: 5px solid #eee;
+
+    .inline {
+      display: flex;
+      justify-content: space-between;;
+    }
+  }
+  .com-right{
+    width: 30%;
+    padding: 20px 20px;
+    background-color: #ccc;
+    border: 5px solid #eee;
+  }
+
+
+.com-type{
+  background-color: #ccc;
+  padding: 30px 20px;
+}
+
+.com-contact{
+  background-color: #ccc;
+  padding: 30px 20px;
+
+}

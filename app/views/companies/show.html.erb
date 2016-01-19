@@ -1,44 +1,53 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @company.name %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @company.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @company.state %>
-</p>
-
-<p>
+</h1>
+<div class="com-stat">
+    <strong>Name:</strong>
+    <%= @company.name %>
+    <br>
+    <strong>Address:</strong>
+    <%= "#{@company.street1} #{@company.street2}" %>
+    <br>
+    <div class="inline"></div>
+    <strong>City:</strong>
+    <%= @company.city %>
+    <strong>State:</strong>
+    <%= @company.state %>
+     <strong>Zip:</strong>
+    <%= @company.zip %>
+    </div>
+    </div>
+<div class="com-type">
   <strong>Description:</strong>
   <%= @company.description %>
-</p>
-
-<p>
+<br>
   <strong>Website:</strong>
   <%= @company.website %>
-</p>
-
-<p>
-  <strong>Hp:</strong>
+<br>
+  <strong>Hiring partner?:</strong>
   <%= @company.hp %>
-</p>
-<p>
-  <strong>latitude:</strong>
-  <%= @company.latitude %>
-</p>
-<p>
-  <strong>longitude:</strong>
-  <%= @company.longitude %>
-</p>
+  <br>
+  <strong>company Type</strong>
+  <%= @company.orgtype %>
+  </div>
+
+  <div class="com-contact">
+  <strong>Contact Name:</strong>
+  <%= "#{@company.contact_first} #{@company.contact_last}" %>
+  <br>
+  <strong>Contact Number:</strong>
+  <%= @company.contact_phone %>
+  <br>
+  <strong>Contact Email:</strong>
+  <%= @company.contact_email %>
+  <br>
+  <strong>Note:</strong>
+  <%= @company.note %>
+  </div>
 
 <% if current_user.admin? %>
-<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Edit', edit_company_path(@company) %>
+|
 <%end %>
 <%= link_to 'Back', companies_path %>
