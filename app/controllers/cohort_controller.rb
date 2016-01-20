@@ -1,7 +1,11 @@
 class CohortController < ApplicationController
-  before_action :set_cohort, only: [:show, :statistics, :edit, :update, :destroy]
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:edit, :update, :destroy, :new, :create]
 
+
+  def new
+    @cohort = Cohort.new
+  end
 
   def index
     @cohorts = Cohort.all
@@ -12,9 +16,6 @@ class CohortController < ApplicationController
   end
 
   def edit
-  end
-
-  def show
   end
 
   def update
@@ -35,10 +36,6 @@ class CohortController < ApplicationController
       format.html { redirect_to companies_url, notice: 'Cohort was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def new
-    @cohort = Cohort.new
   end
 
   def create

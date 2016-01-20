@@ -1,31 +1,21 @@
-<h1>Cohort:<%= @cohort.name %> </h1>
-<h3>Graduation Date: <%= @cohort.graddate %></h3>
+Cohort: <%= @cohort.name %><Br>
+Location: <%= @cohort.location %><br>
+Graduation Date: <%= @cohort.graddate %><br><br>
 
-# In Cohort:  14 <br>
-# Employed: 9  <br>
-# Not Seeking: 2 <Br>
-# Looking: 3  <Br><Br>
-
-% 90 Days Placement Rate: 55% <Br>
-
-% Employed as of today: 82%<br>
+*****
+Cohort Employment stats need to go here
+****
 
 
-
-
-
-
-
-<hr>
+</header>
 
 <ul>
 <% @cohort.users.each do |student| %>
-  <li><%= link_to "#{student.fname + " " + student.lname}", user_path(student.id) %> -
-  <%= student.id %></li>
+  <li><%= link_to "#{student.fname + " " + student.lname}", user_path(student.id) %></li>
 <% end %>
 </ul>
 
 <% if current_user.admin? %>
-<%= link_to 'Edit', edit_cohort_path(@cohort) %> |
-<%end %>
+<%= link_to 'Edit Cohort Details', edit_cohort_path(@cohort) %>
+<% end %>
 <%= link_to 'Back', cohort_index_path %>
