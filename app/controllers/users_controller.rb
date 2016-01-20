@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @employments = @user.employments
+    @employments = @user.employments.order(:start_date)
+
   end
 
   def edit
