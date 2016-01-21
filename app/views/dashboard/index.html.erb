@@ -1,3 +1,4 @@
+
 <h1>Welcome to Wynworld,
   <%= current_user.fname %>!
 </h1>
@@ -12,8 +13,6 @@
   <%= render partial: "search/index" %>
   <div id="search_results"></div>
   </div>
-
-
 
 
   <!-- links -->
@@ -35,16 +34,13 @@
     <th>Name</th>
     <th>Currently Working At</th>
   </thead>
-
   <tbody>
-
-
     <% @users.each do |user| %>
     <tr>
       <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
       <td>
         <% unless user.employments.empty? %>
-        <%= user.employments.last.company.name %>
+        <%= user.employments.first.company.name %>
         <% end %>
       </tr>
       <% end %>
@@ -52,30 +48,24 @@
   </table>
 
 
-  <!-- Mapping -->
   <script type="text/javascript">
-    $(function () {
+  $(function () {
 
-      var map = L.map('map').setView([38.7006009, -96.5933281], 4);
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 4}).addTo(map);
+    var map = L.map('map').setView([38.7006009, -96.5933281], 4);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 4}).addTo(map);
 
-      <% @company.each do |company| %>
-      <% unless company.users.empty? %>
+    <% @users.each do |user| %>
+      <% unless user.employments.empty? %>
+        <% if !user.employments.first.company.longitude.nil? %>
+          L.marker([<%= user.employments.first.company.latitude %>, <%= user.employments.first.company.longitude %>]).addTo(map)
+          <% marker_info = "#{user.employments.first.company.name} " %>
+          <% marker_info << "#{user.employments.first.user.fname} " %>
+          <% marker_info << "#{user.employments.first.user.lname} " %>
 
-          <% if !company.longitude.nil? %>
-          L.marker([<%= company.latitude %>, <%= company.longitude %>])
-            .addTo(map)
-            <% marker_info = "#{company.name} " %>
-            <% unless company.users.empty? %>
-            <% company.users.each do |user| %>
-            <% marker_info << " " << user.fname << " " << user.lname %>
-            <% end %>
-            <% end %>
-            .bindPopup('<%= marker_info %>')
-         <% end %>
-            console.log('<%= marker_info %>');
-      <% end %>
-      <% end %>
-
-    });
-  </script>
+          .bindPopup('<%= marker_info %>')
+        <% end %>
+          console.log('<%= marker_info %>');
+    <% end %>
+    <% end %>
+  });
+</script>

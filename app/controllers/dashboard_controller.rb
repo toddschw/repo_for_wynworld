@@ -18,6 +18,7 @@ class DashboardController < ApplicationController
 
     @company = Company.all
 
+    @employments = Employment.order(:start_date).reverse_order
 
   end
 
