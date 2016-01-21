@@ -13,12 +13,12 @@
   <p>Location:
     <%= @user.location %></p>
   <p>Status:
-    <%# if @user.status["seeking"] == "true" %>
-    <%#= "Looking" %>
-    <%# else %>
-    <%#= "Not Looking" %>
-    (<%#= @user.status["reason"] %>)
-    <%# end %></p>
+    <% if @user.status["seeking"] == "true" %>
+    <%= "Looking" %>
+    <% else %>
+    <%= "Not Looking" %>
+    (<%= @user.status["reason"] %>)
+    <% end %></p>
     </div>
     <!-- Social Info: End -->
     <div class="profile-social">
@@ -73,7 +73,7 @@
   <tbody>
     <% @employments.each do |employment| %>
     <tr>
-      <td><%= employment.company.name %></td>
+      <td><%= link_to employment.company.name, company_path(employment.company) %></td>
       <td><%= employment.jobtitle %></td>
       <td><%= employment.roletype %></td>
       <td><%= employment.rolenature %></td>
