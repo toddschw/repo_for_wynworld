@@ -30,7 +30,6 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'autoprefixer-rails'
 gem 'carrierwave'
-gem 'rails-erd'
 gem 'fog'
 
 # Use ActiveModel has_secure_password
@@ -45,6 +44,7 @@ gem 'fog'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rails-erd'
 end
 
 group :development do
