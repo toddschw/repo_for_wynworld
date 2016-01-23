@@ -2,7 +2,7 @@ task :importFLLC2 => :environment do
     require 'json'
 
 
-    file = File.read('cohortFLLC2data.json')
+    file = File.read('usersdata.json')
     data_hash = JSON.parse(file)
 
     data_hash.each do | key, value |
