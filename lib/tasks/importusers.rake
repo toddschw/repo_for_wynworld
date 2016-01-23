@@ -1,4 +1,4 @@
-task :importFLLC2 => :environment do
+task :importusers => :environment do
     require 'json'
 
 
