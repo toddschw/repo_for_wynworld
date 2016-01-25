@@ -1,6 +1,9 @@
 <h1>
   <%= "#{@user.fname} #{@user.lname}" %>
 </h1>
+
+<%#= user.employments.last.company.name %>
+
 <div class="profile-stat">
   <!-- Basic Info: Start -->
   <div class="basic-stat">
@@ -24,13 +27,13 @@
     <div class="profile-social">
       <h2>Social links</h2>
     <p>Github:
-      <%= link_to @user.Social_links["github"],@user.Social_links["github"]  %></p>
+      <%#= link_to @user.Social_links["github"],@user.Social_links["github"]  %></p>
     <p>LinkedIn:
-      <%= link_to @user.Social_links["linkedin"], @user.Social_links["linkedin"] %></p>
+      <%#= link_to @user.Social_links["linkedin"], @user.Social_links["linkedin"] %></p>
     <p>Portfolio Site:
-      <%= @user.Social_links["portfolio"] %></p>
+      <%#= @user.Social_links["portfolio"] %></p>
     <p>Slack:
-      <%= @user.Social_links["slack"] %></p>
+      <%#= @user.Social_links["slack"] %></p>
     </div>
 
 
@@ -69,7 +72,7 @@
 
     </tr>
   </thead>
-
+<%= link_to "Edit Employment History", user_employment_path(@user)%>
   <tbody>
     <% @employments.each do |employment| %>
     <tr>
@@ -85,7 +88,9 @@
           employment.end_date
         end %></td>
 
-      <tr>
+
+
+
         <% end %>
       </tbody>
     </table>

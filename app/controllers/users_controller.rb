@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def index
     # @users = User.paginate(page: params[:page])
-    @users = User.where(admin: false).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page])
+    @users = User.includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page])
     @companies = Company.all
   end
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :location, :picurl)
+    params.require(:user).permit(:fname, :lname, :email, :location, :picurl, :social_links)
   end
 
   def set_user

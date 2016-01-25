@@ -20,7 +20,7 @@
 
 <ul>
 <% @cohort.users.each do |student| %>
-  <li><%= link_to "#{student.fname + " " + student.lname}", user_path(student.id) %> -
+  <li><%= link_to "#{student.fname} #{student.lname}", user_path(student.id) %> -
   <%= student.id %></li>
 <% end %>
 </ul>

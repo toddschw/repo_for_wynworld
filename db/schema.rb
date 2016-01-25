@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118205612) do
+ActiveRecord::Schema.define(version: 20160119232308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,30 +32,22 @@ ActiveRecord::Schema.define(version: 20160118205612) do
     t.string   "description"
     t.string   "website"
     t.boolean  "hp"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "orgtype"
     t.string   "street1"
     t.string   "street2"
     t.integer  "zip"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "contact_first"
-    t.string   "contact_last"
-    t.text     "note"
-    t.string   "contact_email"
-    t.string   "tech_contact_f"
-    t.string   "tech_contact_l"
-    t.string   "tech_email"
-    t.string   "contact_phone"
   end
 
   create_table "employments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "company_id"
-    t.string   "jobtitle"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "jobtitle",   default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "roletype"
     t.string   "rolenature"
     t.string   "rolesource"
@@ -89,7 +81,7 @@ ActiveRecord::Schema.define(version: 20160118205612) do
     t.string   "name"
     t.boolean  "admin",                  default: false
     t.string   "picurl"
-    t.hstore   "Social_links"
+    t.hstore   "social_links"
   end
 
   add_index "users", ["cohort_id"], name: "index_users_on_cohort_id", using: :btree

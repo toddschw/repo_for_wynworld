@@ -31,9 +31,13 @@
         <td><%= user.email %></td>
         <td><%= user.cohort.name %></td>
         <td>
-          <% unless user.employments.empty? %>
-           <%= user.employments.last.company.name %>
-           <% end %>
+          <% if Employment.find_by(user:1).end_date == nil %>
+            <%= Employment.find_by(user_id:1).company.name %>
+            <% end%>
+
+          <%# unless user.employments.empty? %>
+           <%#= user.employments.last.company.name %>
+           <%# end %>
 
         <td><%#= link_to 'Show', user %></td>
         <td><%#= link_to 'Edit', edit_user_path(user) %></td>
