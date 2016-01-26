@@ -57,14 +57,25 @@
     <% @users.each do |user| %>
       <% unless user.employments.empty? %>
         <% if !user.employments.first.company.longitude.nil? %>
-          L.marker([<%= user.employments.first.company.latitude %>, <%= user.employments.first.company.longitude %>]).addTo(map)
-          <% marker_info = "#{user.employments.first.company.name} " %>
-          <% marker_info << "#{user.employments.first.user.fname} " %>
-          <% marker_info << "#{user.employments.first.user.lname} " %>
 
-          .bindPopup('<%= marker_info %>')
+        <% marker_info = "#{user.employments.first.company.name} " %>
+        <% marker_info << "#{user.employments.first.user.fname} " %>
+        <% marker_info << "#{user.employments.first.user.lname} " %>
+        <% marker_info << "#{user.employments.first.user.lname} " %>
+        <% marker_info << "<br>" %>
+
+
+       <% unless marker_info.nil? %>
+           var markerInfo = <% marker_info %>
+
+           console.log(markerInfo);
+
+          L.marker([<%= user.employments.first.company.latitude %>, <%= user.employments.first.company.longitude %>]).addTo(map)
+          .bindPopup(markerInfo);
+      <% end %>
         <% end %>
-          console.log('<%= marker_info %>');
+          // console.log('<%= marker_info %>');
+          // console.log('<%= marker_info.class  %>');
     <% end %>
     <% end %>
   });
