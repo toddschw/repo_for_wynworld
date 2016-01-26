@@ -13,3 +13,4 @@
 /tmp
 #Ignore erd diagrams.
 erd.pdf
+.env
