@@ -4,11 +4,11 @@
 #
 #   config.fog_credentials = {
 #     :provider => 'AWS',       # required
-#     :aws_access_key_id => ENV['AWS_KEY'],       # required
-#     :aws_secret_access_key => ENV['AWS_SECRET'],
+#     :aws_access_key_id => ENV['AWSAccessKey'],       # required
+#     :aws_secret_access_key => ENV['AWSSecretKey'],
 #     # :region => ENV['S3_REGION']       # required
 #   }
 #   config.fog_directory  = ENV['S3_BUCKET']
 # end
 #
-# 
+#
