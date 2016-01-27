@@ -66,6 +66,7 @@
       <th>Salary</th>
       <th>Begin</th>
       <th>End</th>
+      <th>Current Job</th>
 
     </tr>
   </thead>
@@ -84,6 +85,9 @@
       <td><%= if !employment.end_date.nil?
           employment.end_date
         end %></td>
+      <td><% if employment.current %>
+          <%= "Yes" %>
+        <% end %></td>
 
       <tr>
         <% end %>

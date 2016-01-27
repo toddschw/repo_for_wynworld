@@ -1,6 +1,10 @@
 
 <%= form_tag("/employment/create") do %>
 
+<%= label_tag(:last_employment_user_id, "Users ID") %>
+<%= text_field(:last_employment, :user_id) %>
+
+
   <%= label_tag(:last_employment_jobtitle, "This is where you could put jobtilte") %>
   <%= text_field(:last_employment, :jobtitle) %>
 
@@ -22,6 +26,12 @@
   <%= label_tag(:last_employment_end_date, "End Date") %>
   <%= date_field(:last_employment, :end_date) %>
 
+  <%= radio_button(:last_employment, :current, true ) %>
+  <%= label_tag(:last_employment_current_true, "This is my current position") %>
+
+  <%= radio_button(:last_employment, :current, false) %>
+  <%= label_tag(:last_employment_current_false, "Not my current position") %>
+
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>
 
@@ -38,7 +48,7 @@
 <br>
 
 <br>
-<%= collection_select(:employment, :company_id, @companies, :id, :name) %>
+<%= collection_select(:last_employment, :company_id, @companies, :id, :name) %>
 
   <%= submit_tag("Generic Submit") %>
 
