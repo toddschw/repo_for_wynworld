@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20160127024424) do
     t.integer  "user_id"
     t.integer  "company_id"
     t.string   "jobtitle",   default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "roletype"
     t.string   "rolenature"
     t.string   "rolesource"
