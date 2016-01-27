@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-
-
+ruby '2.2.3'
+gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -30,9 +30,9 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'autoprefixer-rails'
 gem 'carrierwave'
-gem 'rails-erd'
 gem 'puma'
-
+gem 'mini_magick'
+gem 'fog'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,6 +46,7 @@ gem 'puma'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rails-erd'
 end
 
 group :development do
