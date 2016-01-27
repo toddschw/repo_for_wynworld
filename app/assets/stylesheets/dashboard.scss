@@ -1,0 +1,34 @@
+.dash-menu {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.right{
+  display: flex;
+  // flex-flow: row nowrap;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.menu-btn {
+background-color: #555;
+color: #0ff;
+margin: 0 2px;
+  &:hover {
+    background-color: #aaa;
+    color: #065;
+  }
+
+}
+
+#search_results {
+  padding: 5px 10px;
+}

@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'employment/new'
+
+  get 'employment/edit'
+
+  get 'employment/update'
+
+  get 'employment/destroy'
+
+  post 'employment/create'
+
   # get 'user/index'
   #
   # get 'user/show'
@@ -24,6 +34,7 @@ Rails.application.routes.draw do
   # Search
   get 'search' => 'search#index'
   get 'results' => 'search#results'
+
 
   #users
   get 'user/index' => 'users#index'

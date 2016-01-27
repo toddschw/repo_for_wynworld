@@ -1,62 +1,90 @@
 
-<h1>Welcome to Wynworld, <%= current_user.fname %>! </h1>
+<h1>Welcome to Wynworld,
+  <%= current_user.fname %>!
+</h1>
 
 <!--  map (initial) -->
-    <div id="map">
-   </div>
+<div id="map"></div>
 <!-- end map -->
 
+<div class="dash-menu">
+  <!-- search form -->
+  <div class="left">
+  <%= render partial: "search/index" %>
+  <div id="search_results"></div>
+  </div>
+
+
+  <!-- links -->
+  <div class="right">
+  <% if !current_user.admin %>
+  <%= button_to "View Me", user_path(current_user), :class => "menu-btn", :method => :get%>
+  <% end %>
+  <%= button_to "View WynAlums List", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "View WynAlumns by Cohort", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+</div>
 
 
 
-<!-- search form -->
-<%= render partial: "search/index" %>
-<div id="search_results"></div>
+<h2><%= @table_label %></h2>
+<table class="dash-cohort-table">
+  <thead>
+    <th></th>
+    <th>Name</th>
+    <th>Currently Working At</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <tr><td><%= image_tag(user.avatar_url(:sm_thumb), :size => '36x36')%></td>
+      <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
+      <td>
+        <% unless user.employments.empty? %>
+          <%= user.employments.first.company.name %>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 
-<!-- links -->
-<br>
-<% if !@user.admin %>
-  <%= link_to "View Me", user_path(@user) %> |
-<% end %>
-<%= link_to "View WynAlums List", user_index_path %> |
-<%= link_to "View WynAlumns by Cohort", cohort_index_path %> |
-<%= link_to "Employers", companies_path %><br><br>
-
-<% if !@user.admin %>
-  <h2>My Cohort</h2>
-  <% @user.cohort.users.each do |user| %>
+<%# if !@user.admin %>
+  <!-- <h2>My Cohort</h2> -->
+  <%# @user.cohort.users.each do |user| %>
     <%#= user.fname %>
     <%#= user.lname %><br>
 
-    <% end %>
-<% end %>
+  <script type="text/javascript">
+  $(function () {
+
+    var map = L.map('map').setView([38.7006009, -96.5933281], 4);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 4}).addTo(map);
+
+    <% @users.each do |user| %>
+      <% unless user.employments.empty? %>
+        <% if !user.employments.first.company.longitude.nil? %>
+
+        <% marker_info = "#{user.employments.first.company.name} " %>
+        <% marker_info << "#{user.employments.first.user.fname} " %>
+        <% marker_info << "#{user.employments.first.user.lname} " %>
+        <% marker_info << "#{user.employments.first.user.lname} " %>
+        <% marker_info << "<br>" %>
 
 
+       <% unless marker_info.nil? %>
+           var markerInfo = <% marker_info %>
 
-<!-- Mapping -->
-<script type="text/javascript">
-$(function() {
+           console.log(markerInfo);
 
-
- var map = L.map('map').setView([38.7006009, -96.5933281], 4);
- L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 4}).addTo(map);
-
-  <% @company.each do |company| %>
-    <% if !company.longitude.nil? %>
-      L.marker([<%= company.latitude %>, <%= company.longitude %>]).addTo(map)
-        <% marker_info = "#{company.name} " %>
-          <% unless company.users.empty? %>
-            <% company.users.each do |user| %>
-              <% marker_info << " " << user.fname << " " << user.lname %>
-            <% end %>
+          L.marker([<%= user.employments.first.company.latitude %>, <%= user.employments.first.company.longitude %>]).addTo(map)
+          .bindPopup(markerInfo);
+      <% end %>
         <% end %>
-        .bindPopup('<%= marker_info %>')
+          // console.log('<%= marker_info %>');
+          // console.log('<%= marker_info.class  %>');
     <% end %>
-    console.log('<%= marker_info %>');
-
-  <% end %>
-
-
-});
+    <% end %>
+  });
 </script>

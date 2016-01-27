@@ -1,51 +1,39 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
-      <p>
-       <form>
-         <legend>Search</legend>
-         <div class='col-xs-4'>
-             <input type='text' class='form-control' value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword' >
-         </div>
-       </form>
-     </p>
+<p>
+  <form>
+    <legend>Search</legend>
+    <div class='col-xs-4'>
+      <input class='form-control' name='keyword' placeholder='Keyword' type='text' value='<%= params[:keyword] %>'>
+    </div>
+  </form>
+</p>
 
-<table>
+<table class="user-index-table">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Email</th>
-      <th>Cohort</th>
-      <th>Currently Working At</th>
-
-      <th colspan="3"></th>
-    </tr>
+    <th></th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Email</th>
+    <th>Cohort</th>
+    <th>Currently Working At</th>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.fname, user_path(user) %></td>
-        <td><%= user.location %></td>
-        <td><%= user.email %></td>
-        <td><%= user.cohort.name %></td>
-        <td>
-          <% if Employment.find_by(user:1).end_date == nil %>
-            <%= Employment.find_by(user_id:1).company.name %>
-            <% end%>
-
-          <%# unless user.employments.empty? %>
-           <%#= user.employments.last.company.name %>
-           <%# end %>
-
-        <td><%#= link_to 'Show', user %></td>
-        <td><%#= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <tr><td><%= image_tag(user.avatar_url(:sm_thumb), :size => '36x36')%></td>
+      <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
+      <td><%= user.location %></td>
+      <td><%= user.email %></td>
+      <td><%= user.cohort.name %></td>
+      <td>
+        <% unless user.employments.empty? %>
+        <%= user.employments.last.company.name %>
+        <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 
-
-<%= will_paginate %>
+  <%= will_paginate %>

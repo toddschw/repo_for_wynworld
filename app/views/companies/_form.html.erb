@@ -1,3 +1,4 @@
+<div class="com-stat">
 <%= form_for(@company) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -10,48 +11,81 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="com-full">
+<div class="com-left">
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "Company Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :street1 %><br>
-    <%= f.text_field :street1 %>
+    <%= f.text_field :street1, :size=>50 %>
   </div>
   <div class="field">
       <%= f.label :street2 %><br>
-      <%= f.text_field :street2 %>
+      <%= f.text_field :street2, :size=>50 %>
     </div>
+
+    <div class="inline">
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, :size=>30%>
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= f.text_field :state, :size=>2 %>
   </div>
   <div class="field">
     <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
+    <%= f.text_field :zip, :size=>10 %>
   </div>
+  </div>
+
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :size=>50 %>
   </div>
   <div class="field">
     <%= f.label :website %><br>
-    <%= f.text_field :website %>
+    <%= f.text_field :website, :size=>50 %>
   </div>
   <div class="field">
-    <%= f.label :hp %><br>
+    <%= f.label "Hiring Partner?" %><br>
     <%= f.check_box :hp %>
   </div>
   <div class="field">
-    <%= f.label :orgtype %><br>
+    <%= f.label "Company Type" %><br>
     <%= f.text_field :orgtype %>
   </div>
+</div>
+
+
+  <div class="com-right">
+  <div class="field">
+    <%= f.label "Contact First Name" %><br>
+    <%= f.text_field :contact_first %>
+  </div>
+  <div class="field">
+    <%= f.label "Contact Last Name" %><br>
+    <%= f.text_field :contact_last %>
+  </div>
+  <div class="field">
+    <%= f.label "Contact Number" %><br>
+    <%= f.text_field :contact_phone %>
+  </div>
+  <div class="field">
+    <%= f.label "Contact Email" %><br>
+    <%= f.text_field :contact_email, :size=>30 %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </div>
+</div>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

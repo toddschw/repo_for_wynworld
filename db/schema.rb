@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160119232308) do
+=======
+ActiveRecord::Schema.define(version: 20160127024424) do
+>>>>>>> 6ea661697c73e8921859e05580386e3ac2cf0350
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,14 +50,20 @@ ActiveRecord::Schema.define(version: 20160119232308) do
     t.integer  "user_id"
     t.integer  "company_id"
     t.string   "jobtitle",   default: ""
+<<<<<<< HEAD
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+=======
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+>>>>>>> 6ea661697c73e8921859e05580386e3ac2cf0350
     t.string   "roletype"
     t.string   "rolenature"
     t.string   "rolesource"
     t.integer  "salary"
     t.date     "start_date"
     t.date     "end_date"
+    t.boolean  "current",    default: false
   end
 
   add_index "employments", ["company_id"], name: "index_employments_on_company_id", using: :btree
@@ -81,7 +91,12 @@ ActiveRecord::Schema.define(version: 20160119232308) do
     t.string   "name"
     t.boolean  "admin",                  default: false
     t.string   "picurl"
+<<<<<<< HEAD
     t.hstore   "social_links"
+=======
+    t.hstore   "Social_links"
+    t.string   "avatar"
+>>>>>>> 6ea661697c73e8921859e05580386e3ac2cf0350
   end
 
   add_index "users", ["cohort_id"], name: "index_users_on_cohort_id", using: :btree

@@ -19,15 +19,11 @@
           <tr>
             <td><%= link_to cohort.name, cohort %></td>
             <% if current_user.admin? %>
-            <td><%= "100%" %></td>
-            <td><%= "0%" %></td>
-            <td><%= "$1,000,000 Pesos" %></td>
+            <td><%= "TBD" %></td>
+            <td><%= "TBD" %></td>
+            <td><%= "TBD" %></td>
             <% end %>
           </tr>
     <% end %>
   </tbody>
 </table>
-
-<% if current_user.admin?%>
-<%= link_to 'New Cohort', new_cohort_path %>
-<%end%>

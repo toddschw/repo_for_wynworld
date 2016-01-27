@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+#Ignore erd diagrams.
+erd.pdf
+/config/application.yml
+.env

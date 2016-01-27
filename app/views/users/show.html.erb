@@ -16,12 +16,12 @@
   <p>Location:
     <%= @user.location %></p>
   <p>Status:
-    <%# if @user.status["seeking"] == "true" %>
-    <%#= "Looking" %>
-    <%# else %>
-    <%#= "Not Looking" %>
-    (<%#= @user.status["reason"] %>)
-    <%# end %></p>
+    <% if @user.status["seeking"] == "true" %>
+    <%= "Looking" %>
+    <% else %>
+    <%= "Not Looking" %>
+    (<%= @user.status["reason"] %>)
+    <% end %></p>
     </div>
     <!-- Social Info: End -->
     <div class="profile-social">
@@ -46,7 +46,8 @@
       <% end %>
       <!-- </div> -->
       <hr>
-      <%= image_tag @user.picurl, size: "250", class: "img-cir" %>
+      <%= image_tag @user.avatar_url(:profile_pic), size: "250", class: "img-cir" %>
+      <!-- <%= image_tag @user.picurl, size: "250", class: "img-cir" %> -->
 
     </div>
 
@@ -57,7 +58,7 @@
 
 <%# Job History %>
 <div class="profile-hist">
-<table>
+<table class="profile-hist-table">
   <thead>
     <tr>
       <th>Company</th>
@@ -69,6 +70,7 @@
       <th>Salary</th>
       <th>Begin</th>
       <th>End</th>
+      <th>Current Job</th>
 
     </tr>
   </thead>
@@ -76,7 +78,7 @@
   <tbody>
     <% @employments.each do |employment| %>
     <tr>
-      <td><%= employment.company.name %></td>
+      <td><%= link_to employment.company.name, company_path(employment.company) %></td>
       <td><%= employment.jobtitle %></td>
       <td><%= employment.roletype %></td>
       <td><%= employment.rolenature %></td>
@@ -87,6 +89,9 @@
       <td><%= if !employment.end_date.nil?
           employment.end_date
         end %></td>
+      <td><% if employment.current %>
+          <%= "Yes" %>
+        <% end %></td>
 
 
 
@@ -95,3 +100,4 @@
       </tbody>
     </table>
   </div>
+<!-- <%# image_tag @user.avatar_url( or avatar.url) if @user.avatar?%> -->
