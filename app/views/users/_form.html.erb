@@ -1,64 +1,64 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this company from being saved:</h2>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %>
+    prohibited this company from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :fname %><br>
-    <%= f.text_field :fname %>
-  </div>
-  <div class="field">
-    <%= f.label :lname %><br>
-    <%= f.text_field :lname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label "Employment Status ('True' if seeking, 'False' if not)" %><br>
-    <%= f.text_field :seeking %>
-  </div>
-  <div class="field">
-    <%= f.label "Reason for Not Seeking (ie, employed, continuing education)" %><br>
-    <%= f.text_field :reason %>
-  </div>
-  <div class="field">
-    <%= f.label "Github" %><br>
-    <%= f.text_field :github %>
-  </div>
-  <div class="field">
-    <%= f.label "linkedin" %><br>
-    <%= f.text_field :linkedin %>
-  </div>
-  <div class="field">
-    <%= f.label "Portfolio Site" %><br>
-    <%= f.text_field :portfolio %>
-  </div>
-  <div class="field">
-    <%= f.label "Slack Username" %><br>
-    <%= f.text_field :slack %>
-  </div>
+<div class="field">
+  <%= f.label :fname %><br>
+  <%= f.text_field :fname %>
+</div>
+<div class="field">
+  <%= f.label :lname %><br>
+  <%= f.text_field :lname %>
+</div>
+<div class="field">
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</div>
+<div class="field">
+  <%= f.label :location %><br>
+  <%= f.text_field :location %>
+</div>
+<div class="field">
+  <%= f.label "Employment Status ('True' if seeking, 'False' if not)" %><br>
+  <%= f.text_field :seeking %>
+</div>
+<div class="field">
+  <%= f.label "Reason for Not Seeking (ie, employed, continuing education)" %><br>
+  <%= f.text_field :reason %>
+</div>
+<div class="field">
+  <%= f.label "Github" %><br>
+  <%= f.text_field :github %>
+</div>
+<div class="field">
+  <%= f.label "linkedin" %><br>
+  <%= f.text_field :linkedin %>
+</div>
+<div class="field">
+  <%= f.label "Portfolio Site" %><br>
+  <%= f.text_field :portfolio %>
+</div>
+<div class="field">
+  <%= f.label "Slack Username" %><br>
+  <%= f.text_field :slack %>
+</div>
 
-
-
-  <div class="field">
+<!-- <%= f.file_field :avatar %> -->
+<div class="field">
     <%= f.label :picurl %><br>
     <%= f.text_field :picurl %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
