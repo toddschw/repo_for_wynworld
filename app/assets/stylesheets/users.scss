@@ -54,7 +54,6 @@ table{
   border-collapse: collapse;
   width: 100%;
   background-color: white;
-
   th {
     color: #0ff;
     background-color: #555;
@@ -68,10 +67,4 @@ table{
   tr:nth-child(even){
     background-color: #ddd;
   }
-}
-table.user-index-table th{
-  width: 20%;
-}
-table.user-index-table th{
-  width: 10%;
 }

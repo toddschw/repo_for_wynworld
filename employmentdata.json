@@ -81,6 +81,76 @@
     "roletype":"",
     "rolenature":"Full-Time",
     "rolesource":""
+  },
+  {
+    "id":10,
+    "user_id":14,
+    "company_id":8,
+    "start_date":"12/4/2015",
+    "jobtitle":"Program Manager",
+    "roletype":"",
+    "rolenature":"Full-Time",
+    "rolesource":"Hiring Partner"
+  },
+  {
+    "id":11,
+    "user_id":15,
+    "company_id":10,
+    "start_date":"12/21/2015",
+    "jobtitle":"Jr. Developer",
+    "roletype":"Developer",
+    "rolenature":"Full-Time",
+    "rolesource":"Hiring Partner"
+  },
+  {
+    "id":12,
+    "user_id":16,
+    "company_id":10,
+    "start_date":"1/9/2016",
+    "jobtitle":"Jr. Developer",
+    "roletype":"Developer",
+    "rolenature":"Full-Time",
+    "rolesource":"Hiring Partner"
+  },
+  {
+    "id":13,
+    "user_id":17,
+    "company_id":10,
+    "start_date":"12/21/2015",
+    "jobtitle":"Jr. Developer",
+    "roletype":"Developer",
+    "rolenature":"Full-Time",
+    "rolesource":"Hiring Partner"
+  },
+  {
+    "id":14,
+    "user_id":18,
+    "company_id":23,
+    "start_date":"1/11/2016",
+    "jobtitle":"Project Manager",
+    "roletype":"",
+    "rolenature":"Full-Time",
+    "rolesource":"Hiring Partner"
+  },
+  {
+    "id":15,
+    "user_id":19,
+    "company_id":63,
+    "start_date":"12/4/2015",
+    "jobtitle":"Course Developer",
+    "roletype":"Developer",
+    "rolenature":"Full-Time",
+    "rolesource":"Hiring Partner"
+  },
+  {
+    "id":16,
+    "user_id":20,
+    "company_id":64,
+    "start_date":"12/22/2015",
+    "jobtitle":"Ops Manager",
+    "roletype":"",
+    "rolenature":"Full-Time",
+    "rolesource":"Self-sourced"
   }
 ]
 }
