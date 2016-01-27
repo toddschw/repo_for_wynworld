@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'employment/new'
+
+  get 'employment/edit'
+
+  get 'employment/update'
+
+  get 'employment/destroy'
+
+  post 'employment/create'
+
   # get 'user/index'
   #
   # get 'user/show'
