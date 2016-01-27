@@ -1,0 +1,45 @@
+
+<%= form_tag("/employment/create") do %>
+
+  <%= label_tag(:last_employment_jobtitle, "This is where you could put jobtilte") %>
+  <%= text_field(:last_employment, :jobtitle) %>
+
+  <%= label_tag(:last_employment_roletype, "Role Type") %>
+  <%= text_field(:last_employment, :roletype) %>
+
+  <%= label_tag(:last_employment_rolenature, "Role Nature") %>
+  <%= text_field(:last_employment, :rolenature) %>
+
+  <%= label_tag(:last_employment_rolesource, "Role Source") %>
+  <%= text_field(:last_employment, :rolesource) %>
+
+  <%= label_tag(:last_employment_salary, "Salary") %>
+  <%= text_field(:last_employment, :salary) %>
+
+  <%= label_tag(:last_employment_start_date, "Start Date") %>
+  <%= date_field(:last_employment, :start_date) %>
+
+  <%= label_tag(:last_employment_end_date, "End Date") %>
+  <%= date_field(:last_employment, :end_date) %>
+
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+
+  <%= check_box_tag(:pet_dog) %>
+  <%#= label_tag(:pet_dog, "I own a dog") %>
+  <%= check_box_tag(:pet_cat) %>
+  <%#= label_tag(:pet_cat, "I own a cat") %>
+
+<%= radio_button_tag(:age, "child") %>
+<%= label_tag(:age_child, "I am younger than 21") %>
+<%= radio_button_tag(:age, "adult") %>
+<%= label_tag(:age_adult, "I'm over 21") %>
+
+<br>
+
+<br>
+<%= collection_select(:employment, :company_id, @companies, :id, :name) %>
+
+  <%= submit_tag("Generic Submit") %>
+
+<% end %>
