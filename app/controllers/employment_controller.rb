@@ -16,10 +16,10 @@ class EmploymentController < ApplicationController
 
     @employment = Employment.new(new_employment_params)
 
-    #render plain: @employment.inspect
 
     if @employment.save
-      redirect_to user_path(@employment.user_id)
+      render plain: @employment.inspect
+      #redirect_to user_path(@employment.user_id)
       #render plain: @employment.user_id
 
     else
