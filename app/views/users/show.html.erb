@@ -54,7 +54,8 @@
 <!-- Basic Info: End -->
 <br>
 
-<%# Job History %>
+<h3>Work History</h3>
+
 <div class="profile-hist">
 <table class="profile-hist-table">
   <thead>
@@ -69,6 +70,7 @@
       <th>Begin</th>
       <th>End</th>
       <th>Current Job</th>
+      <th>Edit</th>
 
     </tr>
   </thead>
@@ -82,7 +84,7 @@
       <td><%= employment.rolenature %></td>
       <td><%= employment.company.orgtype %></td>
       <td><%= employment.rolesource %></td>
-      <td><%= employment.salary %></td>
+      <td><%= number_to_currency(employment.salary, precision: 0) %></td>
       <td><%= employment.start_date %></td>
       <td><%= if !employment.end_date.nil?
           employment.end_date
@@ -90,6 +92,7 @@
       <td><% if employment.current %>
           <%= "Yes" %>
         <% end %></td>
+      <td><%= link_to 'edit', employment_edit_path(employment) %></td>
 
       <tr>
         <% end %>

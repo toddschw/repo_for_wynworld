@@ -25,6 +25,8 @@ class EmploymentController < ApplicationController
   end
 
   def edit
+    @employment_to_edit = Employment.find params[:id]
+    @companies = Company.all.order(:name)
   end
 
   def update

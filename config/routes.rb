@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'employment/new'
 
-  get 'employment/edit'
+  get 'employment/edit/:id' => 'employment#edit', as: 'employment_edit'
 
-  get 'employment/update'
+
+  post 'employment/update'
 
   get 'employment/destroy'
 
