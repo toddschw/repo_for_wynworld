@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'employment/new'
+  get 'employment/new/:user_id' => 'employment#new', as: 'employment_new'
 
   get 'employment/edit/:id' => 'employment#edit', as: 'employment_edit'
 

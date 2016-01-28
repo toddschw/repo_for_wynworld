@@ -5,19 +5,23 @@ class EmploymentController < ApplicationController
 
 
   def new
-    @last_employment = Employment.last
     @companies = Company.all.order(:name)
+    @user_id = params[:user_id]
+
   end
 
   def create
-    #render json: employment_params.to_json
-    #render json: params.to_json
-     @employment = Employment.new(employment_params)
+    # render json: params.to_json
+    #render json: new_employment_params.to_json
+
+    @employment = Employment.new(new_employment_params)
 
     #render plain: @employment.inspect
 
     if @employment.save
-      render plain: @employment.inspect
+      redirect_to user_path(@employment.user_id)
+      #render plain: @employment.user_id
+
     else
       render plain: "Error"
     end
@@ -42,6 +46,10 @@ def admin_user
   redirect_to root_url unless current_user.admin
 end
 
-def employment_params
-  params.require(:last_employment).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
+def new_employment_params
+  params.require(:new_employment).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
+end
+
+def edit_employment_params
+  params.require(:employment_to_edit).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
 end
