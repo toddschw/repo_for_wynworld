@@ -38,10 +38,6 @@
   .profile-pic {
     flex-grow: 1;
   }
-  .profile-pic:nth-child(1) {
-    flex-grow: 2;
-    background-color: red;
-  }
   .profile-pic:nth-child(4) {
     flex-grow: 4;
   }
