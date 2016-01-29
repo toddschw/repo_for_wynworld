@@ -27,8 +27,8 @@
 </div>
 
 
-
-<h2><%= @table_label %></h2>
+<% if !current_user.admin %>
+<h2>My Cohort</h2>
 <table class="dash-cohort-table">
   <thead>
     <th></th>
@@ -36,7 +36,7 @@
     <th>Currently Working At</th>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+    <% @cohort_users.each do |user| %>
     <tr>
       <tr><td><%= image_tag(user.avatar_url(:sm_thumb))%></td>
       <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
@@ -48,6 +48,7 @@
       <% end %>
     </tbody>
   </table>
+<% end %>
 
 
   <script type="text/javascript">
