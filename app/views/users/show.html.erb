@@ -54,6 +54,8 @@
 <!-- Basic Info: End -->
 <br>
 
+
+
 <h3>Work History - <%= link_to "Add A Position", employment_new_path(@user) %></span></h3>
 
 <div class="profile-hist">
@@ -74,9 +76,10 @@
 
     </tr>
   </thead>
-
   <tbody>
     <% @employments.each do |employment| %>
+
+
     <tr>
       <td><%= link_to employment.company.name, company_path(employment.company) %></td>
       <td><%= employment.jobtitle %></td>

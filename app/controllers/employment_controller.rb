@@ -18,8 +18,7 @@ class EmploymentController < ApplicationController
 
 
     if @employment.save
-      render plain: @employment.inspect
-      #redirect_to user_path(@employment.user_id)
+      redirect_to user_path(@employment.user_id)
       #render plain: @employment.user_id
 
     else
@@ -30,10 +29,19 @@ class EmploymentController < ApplicationController
 
   def edit
     @employment_to_edit = Employment.find params[:id]
+    @employment_id = params[:id]
     @companies = Company.all.order(:name)
   end
 
   def update
+
+    @employment = Employment.find (params[:employment_id])
+    if @employment.update(edit_employment_params)
+      redirect_to user_path(@employment.user)
+    else
+      render plain: "There was a problem updating the record"
+    end
+
   end
 
   def destroy

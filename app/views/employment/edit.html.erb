@@ -3,6 +3,10 @@
 
 <%= form_tag("/employment/update") do %>
 
+
+<%= hidden_field_tag("employment_id", @employment_id) %>
+
+
   <div class="field">
     <%= label_tag(:employment_to_edit_company_id, "Company") %>
     <%= collection_select(:employment_to_edit, :company_id, @companies, :id, :name) %>
