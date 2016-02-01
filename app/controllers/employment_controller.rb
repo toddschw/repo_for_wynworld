@@ -17,7 +17,7 @@ class EmploymentController < ApplicationController
     @employment = Employment.new(new_employment_params)
 
     if @employment.save
-      redirect_to user_path(@employment.user_id)
+      redirect_to user_path(@employment.user_id), notice: "New Position Added"
       #render plain: @employment.user_id
     else
       redirect_to employment_new_path, notice: "Sorry, there was an error."
