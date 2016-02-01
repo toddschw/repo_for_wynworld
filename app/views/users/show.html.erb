@@ -1,6 +1,12 @@
 <h1>
   <%= "#{@user.fname} #{@user.lname}" %>
 </h1>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
+
 <div class="profile-stat">
   <!-- Basic Info: Start -->
   <div class="basic-stat">
@@ -95,7 +101,9 @@
       <td><% if employment.current %>
           <%= "Yes" %>
         <% end %></td>
-      <td><%= link_to 'edit', employment_edit_path(employment) %></td>
+      <td><%= link_to 'edit', employment_edit_path(employment) %>/
+          <%= link_to 'delete', employment_destroy_path(employment), method: :delete %>
+      </td>
 
       <tr>
         <% end %>
