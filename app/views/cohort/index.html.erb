@@ -14,12 +14,34 @@
     <% @cohorts.each do |cohort| %>
           <tr>
             <td><%= link_to cohort.name, cohort %></td>
+            <%# Calculation for Current Employment rate %>
+            <td><% if cohort.users.count == 0 %>
+                <%# No users in cohort, don't divide by 0 %>
+                  <%= "Database empty" %>
+                <% else %>
+                  <% students_in_cohort = cohort.users.count %>
+                  <% total_students_working = [] %>
+                  <% cohort.users.each do |user| %>
+                  <%= user.fname %>
+                  <% if user.employments.all.empty? %>
+                      <%= " - has no employment records" %><br>
+                    <% else %>
+                      <%= " - has records" %>
+                      <% user.employments.all.each do |e| %>
+                         <%= e.company.name %>
+                        <% end %>
 
-              <td><%= cohort.users.count %>
-              </td>
+                      <br>
+                    <% end %>
+                  <% end %>
+                  <%#= "students in cohort: #{students_in_cohort}" %>
+                  <%#= "students working: #{total_students_working.to_s}" %>
+
+                <% end %>
+            </td>
             <td><%= "TBD" %></td>
 
-            </tr>
+          </tr>
     <% end %>
   </tbody>
 </table>
