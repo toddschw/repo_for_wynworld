@@ -24,22 +24,31 @@
                   <% cohort.users.each do |user| %>
                   <%= user.fname %>
                   <% if user.employments.all.empty? %>
-                      <%= " - has no employment records" %><br>
+                      <%= " - has no employment records" %>
+                      <%= total_students_working %>
+                      <br>
+
                     <% else %>
                       <%= " - has records" %>
                       <% user.employments.all.each do |e| %>
                          <%= e.company.name %>
+                           <% if e.current == true %>
+                             <%= " (current position)" %>
+                             <% total_students_working << e.user.fname %>
+                             <% break %>
+                           <% end %>
                         <% end %>
-
+                        <%= total_students_working %>
                       <br>
                     <% end %>
+
                   <% end %>
                   <%#= "students in cohort: #{students_in_cohort}" %>
                   <%#= "students working: #{total_students_working.to_s}" %>
 
                 <% end %>
             </td>
-            <td><%= "TBD" %></td>
+            <td><%= "tbd" %></td>
 
           </tr>
     <% end %>
