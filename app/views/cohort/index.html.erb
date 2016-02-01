@@ -5,12 +5,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <% if current_user.admin? %>
         <th>Current Employment Rate</th>
         <th>90 Day Placement Rate</th>
-
-        <%end%>
-
     </tr>
   </thead>
 
@@ -18,12 +14,12 @@
     <% @cohorts.each do |cohort| %>
           <tr>
             <td><%= link_to cohort.name, cohort %></td>
-            <% if current_user.admin? %>
-            <td><%= "TBD" %></td>
+
+              <td><%= cohort.users.count %>
+              </td>
             <td><%= "TBD" %></td>
 
-            <% end %>
-          </tr>
+            </tr>
     <% end %>
   </tbody>
 </table>
