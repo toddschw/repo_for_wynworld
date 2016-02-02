@@ -10,9 +10,6 @@ class User < ActiveRecord::Base
   store_accessor :status, :seeking, :reason
   store_accessor :Social_links, :slack, :github, :linkedin, :portfolio
 
-  # scope :filter, ->(chicken){
-  #   joins(:genres).where('genres.name = ?', chicken) if chicken.present?
-  # }
   scope :filter, ->(chicken){
     joins(:companies).where('companies.name = ?', chicken) if chicken.present?
   }
