@@ -41,11 +41,12 @@
                         <%= total_students_working %>
                       <br>
                     <% end %>
-
                   <% end %>
-                  <%#= "students in cohort: #{students_in_cohort}" %>
-                  <%#= "students working: #{total_students_working.to_s}" %>
-
+                  <%= "students in cohort: #{students_in_cohort}" %>
+                  <%= "students working: #{total_students_working.count}" %>
+                  <br>
+                  <% num = total_students_working.count * 100 / students_in_cohort %>
+                  <%= num %>
                 <% end %>
             </td>
             <td><%= "tbd" %></td>
