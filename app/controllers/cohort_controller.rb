@@ -22,7 +22,7 @@ class CohortController < ApplicationController
     respond_to do |format|
       if @cohort.update(cohort_params)
         format.html { redirect_to @cohort, notice: 'Cohort was successfully updated.' }
-        format.json { render :show, status: :ok, location: @cohort }
+        format.json { render :show, status: :ok, location: @cohort}
       else
         format.html { render :edit }
         format.json { render json: @cohort.errors, status: :unprocessable_entity }

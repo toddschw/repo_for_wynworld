@@ -1,4 +1,4 @@
-<%= form_for (@cohort) do |f| %>
+<%= form_for @cohort, url:cohort_index_path(@cohort), html: {method: :post} do |f| %>
   <% if @cohort.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cohort.errors.count, "error") %> prohibited this cohort from being saved:</h2>
