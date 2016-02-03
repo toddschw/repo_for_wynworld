@@ -20,7 +20,7 @@
   <% if !current_user.admin %>
   <%= button_to "View Me", user_path(current_user), :class => "menu-btn", :method => :get%>
   <% end %>
-  <%= button_to "Find WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
