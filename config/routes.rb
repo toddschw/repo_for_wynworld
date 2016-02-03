@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit', as: 'edit_user'
   patch '/users/:id' => 'users#update'
   put '/users/:id' => 'users#update'
-  get 'users/add', to: 'users#new', as:'adduser'
+  get 'users/new', to: 'users#new', as:'newuser'
   post 'users' => 'users#create'
 
   #get '/employments/:id/edit' => 'employments#edit', as: 'user_employment'
