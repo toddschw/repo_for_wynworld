@@ -36,18 +36,19 @@ Rails.application.routes.draw do
 
   #users
   get 'user/index' => 'users#index'
-  get 'user/mapper' => 'users#mapper'
+  #get 'user/mapper' => 'users#mapper'
+
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users/:id/edit' => 'users#edit', as: 'edit_user'
   patch '/users/:id' => 'users#update'
   put '/users/:id' => 'users#update'
-  get '/employments/:id/edit' => 'employments#edit', as: 'user_employment'
-  patch '/employments/:id' => 'employments#update'
-  put '/employments/:id' => 'employments#update'
-  get 'users/new', to: 'users#new', as:'newuser'
+  get 'users/add', to: 'users#new', as:'adduser'
   post 'users' => 'users#create'
 
   put '/cohort/:id' => 'cohorts#update', as:'cohortupdate'
+  #get '/employments/:id/edit' => 'employments#edit', as: 'user_employment'
+  #patch '/employments/:id' => 'employments#update'
+  #put '/employments/:id' => 'employments#update'
 
 
 end
