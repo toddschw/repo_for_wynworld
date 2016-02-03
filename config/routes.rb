@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get 'users/new', to: 'users#new', as:'newuser'
   post 'users' => 'users#create'
 
+  put '/cohort/:id' => 'cohorts#update', as:'cohortupdate'
 
 
 end
