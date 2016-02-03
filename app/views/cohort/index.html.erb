@@ -45,8 +45,8 @@
                   <%= "students in cohort: #{students_in_cohort}" %>
                   <%= "students working: #{total_students_working.count}" %>
                   <br>
-                  <% num = total_students_working.count * 100 / students_in_cohort %>
-                  <%= num %>
+                  <% num = total_students_working.count.to_f / students_in_cohort %>
+                  <%= number_to_percentage(num * 100, precision: 0) %>
                 <% end %>
             </td>
             <td><%= "tbd" %></td>
