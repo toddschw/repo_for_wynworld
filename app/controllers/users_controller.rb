@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
 
 
-    @users = User.where(admin: false).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page])
   end
 
   def show
@@ -21,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    render plain: 'new'
+    #@user = User.new
   end
 
   def create
