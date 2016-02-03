@@ -8,13 +8,11 @@ class DashboardController < ApplicationController
     #   @role = 'Student'
     # end
 
-    if current_user.admin
-      @users =  User.where(admin: false)
-      @table_label = "All WynAlums"
-     else
-      @users = current_user.cohort.users
-      @table_label = "My Cohort"
+    if current_user.admin == false
+      @cohort_users = current_user.cohort.users
     end
+
+    @users =  User.where(admin: false)
 
     @company = Company.all
 

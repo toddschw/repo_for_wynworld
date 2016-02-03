@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  get 'employment/new'
 
-  get 'employment/edit'
-
-  get 'employment/update'
-
-  get 'employment/destroy'
-
+  get 'employment/new/:user_id' => 'employment#new', as: 'employment_new'
   post 'employment/create'
+
+  get 'employment/edit/:id' => 'employment#edit', as: 'employment_edit'
+  post 'employment/update'
+  delete 'employment/destroy/:id' => 'employment#destroy', as: 'employment_destroy'
 
   # get 'user/index'
   #
