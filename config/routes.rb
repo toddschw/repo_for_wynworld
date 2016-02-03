@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'employment/new'
+  get 'employment/new/:user_id' => 'employment#new', as: 'employment_new'
 
-  get 'employment/edit'
+  get 'employment/edit/:id' => 'employment#edit', as: 'employment_edit'
 
-  get 'employment/update'
+
+  post 'employment/update'
 
   get 'employment/destroy'
 
@@ -46,6 +47,8 @@ Rails.application.routes.draw do
   get '/employments/:id/edit' => 'employments#edit', as: 'user_employment'
   patch '/employments/:id' => 'employments#update'
   put '/employments/:id' => 'employments#update'
+  get 'users/new', to: 'users#new', as:'newuser'
+  post 'users' => 'users#create'
 
 
 

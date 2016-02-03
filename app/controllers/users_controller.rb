@@ -12,7 +12,22 @@ class UsersController < ApplicationController
 
   def show
     @employments = @user.employments.order(:start_date).reverse_order
+  end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    respond_to do |format|
+      if @users.update(user_params)
+        format.html { redirect_to @users, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @users }
+      else
+        format.html { render :edit }
+        format.json { render json: @users.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit

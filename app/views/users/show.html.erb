@@ -38,7 +38,7 @@
 
 
     <!-- Profile pic -->
-    <div class="profile-pic">
+    <div class="profil">
       <%# Edit Profile Link %>
       <!-- <div "class="profile-edit"> -->
       <% if (current_user.admin || @user == current_user)  %>
@@ -46,17 +46,21 @@
       <% end %>
       <!-- </div> -->
       <hr>
-      <%= image_tag @user.avatar_url(:profile_pic), size: "250", class: "img-cir" %>
+      <div class="profile-pic"></div>
+      <div class="profile-pic">
+      <%= image_tag @user.avatar_url(:profile_pic), class: "img-cir" %>
       <!-- <%= image_tag @user.picurl, size: "250", class: "img-cir" %> -->
-
     </div>
-
+    <div class="profile-pic"></div>
   </div>
 </div>
 <!-- Basic Info: End -->
 <br>
 
-<%# Job History %>
+
+
+<h3>Work History - <%= link_to "Add A Position", employment_new_path(@user) %></span></h3>
+
 <div class="profile-hist">
 <table class="profile-hist-table">
   <thead>
@@ -71,12 +75,15 @@
       <th>Begin</th>
       <th>End</th>
       <th>Current Job</th>
+      <th>Edit</th>
 
     </tr>
   </thead>
-<%= link_to "Edit Employment History", user_employment_path(@user)%>
+
   <tbody>
     <% @employments.each do |employment| %>
+
+
     <tr>
       <td><%= link_to employment.company.name, company_path(employment.company) %></td>
       <td><%= employment.jobtitle %></td>
@@ -84,7 +91,7 @@
       <td><%= employment.rolenature %></td>
       <td><%= employment.company.orgtype %></td>
       <td><%= employment.rolesource %></td>
-      <td><%= employment.salary %></td>
+      <td><%= number_to_currency(employment.salary, precision: 0) %></td>
       <td><%= employment.start_date %></td>
       <td><%= if !employment.end_date.nil?
           employment.end_date
@@ -92,6 +99,7 @@
       <td><% if employment.current %>
           <%= "Yes" %>
         <% end %></td>
+      <td><%= link_to 'edit', employment_edit_path(employment) %></td>
 
 
 

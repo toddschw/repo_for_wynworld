@@ -1,55 +1,60 @@
+<h1>Add A Position</h1>
 
 <%= form_tag("/employment/create") do %>
 
-<%= label_tag(:last_employment_user_id, "Users ID") %>
-<%= text_field(:last_employment, :user_id) %>
+<%= hidden_field_tag("new_employment[user_id]", @user_id) %>
 
 
-  <%= label_tag(:last_employment_jobtitle, "This is where you could put jobtilte") %>
-  <%= text_field(:last_employment, :jobtitle) %>
+  <div class="field">
+    <%= label_tag(:new_employment_company_id, "Company") %>
+    <%= collection_select(:new_employment, :company_id, @companies, :id, :name, prompt: true) %>
+  </div>
 
-  <%= label_tag(:last_employment_roletype, "Role Type") %>
-  <%= text_field(:last_employment, :roletype) %>
+  <div class="field">
+    <%= label_tag(:new_employment_jobtitle, "Job Title") %>
+    <%= text_field(:new_employment, :jobtitle) %>
+  </div>
 
-  <%= label_tag(:last_employment_rolenature, "Role Nature") %>
-  <%= text_field(:last_employment, :rolenature) %>
+  <div class="field">
+    <%= label_tag(:new_employment_roletype, "Type of Role (Developer or Non-Technical)") %>
+    <%= text_field(:new_employment, :roletype) %>
+  </div>
 
-  <%= label_tag(:last_employment_rolesource, "Role Source") %>
-  <%= text_field(:last_employment, :rolesource) %>
+  <div class="field">
+    <%= label_tag(:new_employment_rolenature, "Full Time, Part Time, Intern Etc") %>
+    <%= text_field(:new_employment, :rolenature) %>
+  </div>
 
-  <%= label_tag(:last_employment_salary, "Salary") %>
-  <%= text_field(:last_employment, :salary) %>
+  <div class="field">
+    <%= label_tag(:new_employment_rolesource, "How did you find this job?") %>
+    <%= text_field(:new_employment, :rolesource) %>
+  </div>
 
-  <%= label_tag(:last_employment_start_date, "Start Date") %>
-  <%= date_field(:last_employment, :start_date) %>
+  <div class="field">
+    <%= label_tag(:new_employment_salary, "Salary") %>
+    <%= text_field(:new_employment, :salary) %>
+  </div>
 
-  <%= label_tag(:last_employment_end_date, "End Date") %>
-  <%= date_field(:last_employment, :end_date) %>
+  <div class="field">
+    <%= label_tag(:new_employment_start_date, "Start Date") %>
+    <%= date_field(:new_employment, :start_date) %>
+  </div>
 
-  <%= radio_button(:last_employment, :current, true ) %>
-  <%= label_tag(:last_employment_current_true, "This is my current position") %>
+  <div class="field">
+    <%= label_tag(:new_employment_end_date, "End Date") %>
+    <%= date_field(:new_employment, :end_date) %>
+  </div>
 
-  <%= radio_button(:last_employment, :current, false) %>
-  <%= label_tag(:last_employment_current_false, "Not my current position") %>
+  <div class="field">
+    <%= radio_button(:new_employment, :current, true ) %>
+    <%= label_tag(:new_employment_current_true, "Current position") %>
 
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
+    <%= radio_button(:new_employment, :current, false) %>
+    <%= label_tag(:new_employment_current_false, "Not a current position") %>
+  </div>
 
-  <%= check_box_tag(:pet_dog) %>
-  <%#= label_tag(:pet_dog, "I own a dog") %>
-  <%= check_box_tag(:pet_cat) %>
-  <%#= label_tag(:pet_cat, "I own a cat") %>
-
-<%= radio_button_tag(:age, "child") %>
-<%= label_tag(:age_child, "I am younger than 21") %>
-<%= radio_button_tag(:age, "adult") %>
-<%= label_tag(:age_adult, "I'm over 21") %>
-
-<br>
-
-<br>
-<%= collection_select(:last_employment, :company_id, @companies, :id, :name) %>
-
-  <%= submit_tag("Generic Submit") %>
+  <div class="actions">
+    <%= submit_tag("Create") %>
+  </div>
 
 <% end %>
