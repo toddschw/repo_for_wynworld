@@ -7,3 +7,14 @@
     <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
   </p>
 <% end %>
+
+<script>
+$(function() {
+  $( "#q" ).focus(function() {
+    var default_value = this.value;
+    if(this.value == default_value) {
+      this.value = '';
+    }
+  });
+});
+</script>
