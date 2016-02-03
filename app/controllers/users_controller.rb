@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     # @users = User.paginate(page: params[:page])
 
-    @users = User.where(admin: false).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page])
+    @users = User.where(admin: false).includes(:companies).includes(:cohort).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page]).order("cohorts.name")
   end
 
   def show

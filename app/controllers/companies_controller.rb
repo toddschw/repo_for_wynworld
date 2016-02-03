@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all.order(:name:).includes(:users).search(params[:keyword]).paginate(page: params[:page])
+    @companies = Company.includes(:users).search(params[:keyword]).paginate(page: params[:page]).order(name: :asc)
   end
 
   # GET /companies/1
