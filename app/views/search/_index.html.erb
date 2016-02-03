@@ -3,7 +3,7 @@
 
 <%= form_tag results_path, remote:true, :method => 'get' do %>
   <p>
-    <%= text_field_tag :q%>
+    <%= text_field_tag :q, value = 'Search by Student Name', { :size => "50" } %>
     <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
   </p>
 <% end %>
