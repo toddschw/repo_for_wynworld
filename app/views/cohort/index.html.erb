@@ -22,29 +22,29 @@
                   <% students_in_cohort = cohort.users.count %>
                   <% total_students_working = [] %>
                   <% cohort.users.each do |user| %>
-                  <%= user.fname %>
+                  <%#= user.fname  # Debug Text %>
                   <% if user.employments.all.empty? %>
-                      <%= " - has no employment records" %>
-                      <%= total_students_working %>
-                      <br>
-
+                      <%# Do Nothing.%>
+                      <%#= " - has no employment records" # Debug Text %>
+                      <%#= total_students_working # Debug Text %>
+                      <!-- <br> -->
                     <% else %>
-                      <%= " - has records" %>
+                      <%#= " - has records" # Debug Text %>
                       <% user.employments.all.each do |e| %>
-                         <%= e.company.name %>
+                         <%#= e.company.name %>
                            <% if e.current == true %>
-                             <%= " (current position)" %>
+                             <%#= " (current position)" # Debug Text %>
                              <% total_students_working << e.user.fname %>
                              <% break %>
                            <% end %>
                         <% end %>
-                        <%= total_students_working %>
-                      <br>
+                        <%#= total_students_working # Debug Text %>
+                      <!-- <br> -->
                     <% end %>
                   <% end %>
-                  <%= "students in cohort: #{students_in_cohort}" %>
-                  <%= "students working: #{total_students_working.count}" %>
-                  <br>
+                  <%#= "students in cohort: #{students_in_cohort}" %>
+                  <%#= "students working: #{total_students_working.count}" %>
+                  <!-- br -->
                   <% num = total_students_working.count.to_f / students_in_cohort %>
                   <%= number_to_percentage(num * 100, precision: 0) %>
                 <% end %>
