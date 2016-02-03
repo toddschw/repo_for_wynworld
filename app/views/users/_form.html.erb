@@ -65,14 +65,14 @@
     <%#= f.text_field :github %>
     <%#= f.instance_variable_names %>
     <%#= f.methods.sort %>
-    <%= f.fields_for :Social_links, OpenStruct.new(@user.social_links) do |d| %>
+    <%#= f.fields_for :Social_links, OpenStruct.new(@user.social_links) do |d| %>
      <%#= d.inspect %>
-     <%= d.label :github %><br>
-     <%= d.text_field :github %>
-    <% end %>
+     <%#= d.label :github %><br>
+     <%#= d.text_field :github %>
+    <%# end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%#= f.submit %>
   </div>
 
   </div> -->
