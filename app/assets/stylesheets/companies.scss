@@ -24,6 +24,9 @@
     background-color: #ccc;
     border: 5px solid #eee;
   }
+  .com-indv{
+    border: 1px solid black;
+  }
 
 
 .com-type{
@@ -34,5 +37,11 @@
 .com-contact{
   background-color: #ccc;
   padding: 30px 20px;
+
+}
+.note-input{
+  width: 90%;
+  min-height: 20vh;
+  resize: none;
 
 }
