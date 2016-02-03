@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.includes(:users).search(params[:keyword]).paginate(page: params[:page])
+    @companies = Company.all.order(:name:).includes(:users).search(params[:keyword]).paginate(page: params[:page])
   end
 
   # GET /companies/1
@@ -71,7 +71,7 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :street1, :street2, :city, :state, :zip, :description, :website, :hp, :orgtype, :latitude, :longitude, :full_address)
+      params.require(:company).permit(:name, :street1, :street2, :city, :state, :zip, :description, :website, :hp, :orgtype, :contact_last, :contact_first, :note, :contact_email, :contact_phone, :latitude, :longitude, :full_address)
     end
 
     def admin_user

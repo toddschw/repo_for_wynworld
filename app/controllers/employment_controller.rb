@@ -13,16 +13,12 @@ class EmploymentController < ApplicationController
   def create
     # render json: params.to_json
     #render json: new_employment_params.to_json
-
     @employment = Employment.new(new_employment_params)
-
-
     if @employment.save
-      redirect_to user_path(@employment.user_id)
+      redirect_to user_path(@employment.user_id), notice: "New Position Added"
       #render plain: @employment.user_id
-
     else
-      render plain: "Error"
+      redirect_to employment_new_path, notice: "Sorry, there was an error."
     end
 
   end
@@ -34,10 +30,9 @@ class EmploymentController < ApplicationController
   end
 
   def update
-
     @employment = Employment.find (params[:employment_id])
     if @employment.update(edit_employment_params)
-      redirect_to user_path(@employment.user)
+      redirect_to user_path(@employment.user), notice: "Position Edited"
     else
       render plain: "There was a problem updating the record"
     end
@@ -45,6 +40,9 @@ class EmploymentController < ApplicationController
   end
 
   def destroy
+    employment_to_edit = Employment.find params[:id]
+    employment_to_edit.destroy
+    redirect_to user_path(employment_to_edit.user), notice: "Position deleted"
   end
 end
 

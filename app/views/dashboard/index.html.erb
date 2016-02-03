@@ -20,15 +20,15 @@
   <% if !current_user.admin %>
   <%= button_to "View Me", user_path(current_user), :class => "menu-btn", :method => :get%>
   <% end %>
-  <%= button_to "View WynAlums List", user_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "View WynAlumns by Cohort", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
 </div>
 
 
-
-<h2><%= @table_label %></h2>
+<% if !current_user.admin %>
+<h2>My Cohort</h2>
 <table class="dash-cohort-table">
   <thead>
     <th></th>
@@ -36,18 +36,21 @@
     <th>Currently Working At</th>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+    <% @cohort_users.each do |user| %>
     <tr>
       <tr><td><%= image_tag(user.avatar_url(:sm_thumb))%></td>
       <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
       <td>
         <% unless user.employments.empty? %>
-          <%= user.employments.first.company.name %>
+          <% user.employments.where("current = true").each do |e| %>
+            <%= e.company.name %><br>
+          <% end %>
         <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
+<% end %>
 
 
 <%# if !@user.admin %>

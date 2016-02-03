@@ -36,3 +36,27 @@
   padding: 30px 20px;
 
 }
+.note-input{
+  width: 90%;
+  min-height: 20vh;
+  resize: none;
+
+}
+.com-list {
+  padding: 20px;
+  border: 2px solid black;
+  .com-indv{
+    border: 1px solid black;
+    padding: 10px;
+    background-color: #ccc;
+    margin: 10px auto;
+    .com-name{
+      font-size: 1.5em;
+      text-decoration: none;
+    }
+    a:hover{
+      color: #0ff;
+    }
+  }
+
+}

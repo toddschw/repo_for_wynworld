@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<h1>Listing Companies</h1>
+<h1>Hiring Partners</h1>
 
 <p>
   <form>
@@ -12,59 +12,43 @@
   </form>
 </p>
 
-<table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>Name</th>
-      <!-- <th>Street1</th>
-      <th>Street2</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Description</th>
-      <th>Website</th>
-      <th>Website</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Technical Contact</th>
-      <th>Note</th>
-      <th>Hp</th>
-      <th>Org Type</th>
-      <th>Latitude</th>
-      <th>Longitude</th> -->
-
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="com-list">
     <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.id %></td>
-        <td><%= link_to company.name, company %></td>
-        <td><%#= company.street1 %></td>
-        <td><%#= company.street2 %></td>
-        <td><%#= company.city %></td>
-        <td><%#= company.state %></td>
-        <td><%#= company.zip %></td>
-        <td><%#= company.description %></td>
-        <td><%#= company.website %></td>
-        <td><%#= company.hp %></td>
-        <td><%#= company.orgtype %></td>
-        <td><%#= company.latitude %></td>
-        <td><%#= company.longitude %></td>
-        <td><%#= link_to 'Show', company %></td>
-        <%# if current_user.admin? %>
-        <td><%#= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%#= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <div class="com-indv">
+        <%= link_to company.name, company, class: 'com-name' %>
+          <% if company.hp == true %>
+            <%= " (Hiring Partner)" %>
+          <% end %>
+        <p><%= company.street1 %></p>
+        <p><%= company.street2 %></p>
+        <p><%= company.city %>
+        <%= company.state %>
+        <%= company.zip %></p>
+        <p><%= company.description %></p>
+        <p><%= if company.website.class == String
+          link_to company.website, "http://#{company.website}"
+        else
+        end
+
+        #link_to company.website, "http://#{company.website}"
+        %></p>
+        <div class="com-admin">
+        <% if current_user.admin? %>
+        <%= company.contact_first %>
+        <%= company.contact_last %>
+        <%= company.contact_email %>
+        <%= company.contact_phone %>
+        <%= company.note %>
+        <%= link_to 'Edit', edit_company_path(company) %>
+        <%= link_to 'delete', company, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%# end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <% end %>
+      </div>
+      </div>
+        <% end %>
+</div>
+
+
 
 <br>
 

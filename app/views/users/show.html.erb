@@ -2,7 +2,12 @@
   <%= "#{@user.fname} #{@user.lname}" %>
 </h1>
 
-<%#= user.employments.last.company.name %>
+
+<% if flash[:notice] %>
+  <p id="notice"><%= flash[:notice] %></p>
+<% end %>
+
+
 
 <div class="profile-stat">
   <!-- Basic Info: Start -->
@@ -79,7 +84,6 @@
 
     </tr>
   </thead>
-
   <tbody>
     <% @employments.each do |employment| %>
 
@@ -99,10 +103,10 @@
       <td><% if employment.current %>
           <%= "Yes" %>
         <% end %></td>
-      <td><%= link_to 'edit', employment_edit_path(employment) %></td>
 
-
-
+      <td><%= link_to 'edit', employment_edit_path(employment) %>/
+          <%= link_to 'delete', employment_destroy_path(employment), method: :delete %>
+      </td>
 
         <% end %>
       </tbody>
