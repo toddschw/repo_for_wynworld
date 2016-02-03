@@ -16,12 +16,10 @@
         <%= company.state %>
         <%= company.zip %></p>
         <p><%= company.description %></p>
-        <p><%= if company.website.class == String
-          link_to company.website, "http://#{company.website}"
+        <p><%= if company.website.blank?
         else
-        end
-
-        #link_to company.website, "http://#{company.website}"
+          link_to company.website, "http://#{company.website}"
+       end
         %></p>
         <div class="com-admin">
         <% if current_user.admin? %>
