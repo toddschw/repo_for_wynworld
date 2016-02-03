@@ -13,9 +13,7 @@ class EmploymentController < ApplicationController
   def create
     # render json: params.to_json
     #render json: new_employment_params.to_json
-
     @employment = Employment.new(new_employment_params)
-
     if @employment.save
       redirect_to user_path(@employment.user_id), notice: "New Position Added"
       #render plain: @employment.user_id

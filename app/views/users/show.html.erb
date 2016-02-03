@@ -2,9 +2,11 @@
   <%= "#{@user.fname} #{@user.lname}" %>
 </h1>
 
+
 <% if flash[:notice] %>
   <p id="notice"><%= flash[:notice] %></p>
 <% end %>
+
 
 
 <div class="profile-stat">
@@ -30,13 +32,13 @@
     <div class="profile-social">
       <h2>Social links</h2>
     <p>Github:
-      <%= link_to @user.Social_links["github"],@user.Social_links["github"]  %></p>
+      <%#= link_to @user.Social_links["github"],@user.Social_links["github"]  %></p>
     <p>LinkedIn:
-      <%= link_to @user.Social_links["linkedin"], @user.Social_links["linkedin"] %></p>
+      <%#= link_to @user.Social_links["linkedin"], @user.Social_links["linkedin"] %></p>
     <p>Portfolio Site:
-      <%= @user.Social_links["portfolio"] %></p>
+      <%#= @user.Social_links["portfolio"] %></p>
     <p>Slack:
-      <%= @user.Social_links["slack"] %></p>
+      <%#= @user.Social_links["slack"] %></p>
     </div>
 
 
@@ -101,11 +103,11 @@
       <td><% if employment.current %>
           <%= "Yes" %>
         <% end %></td>
+
       <td><%= link_to 'edit', employment_edit_path(employment) %>/
           <%= link_to 'delete', employment_destroy_path(employment), method: :delete %>
       </td>
 
-      <tr>
         <% end %>
       </tbody>
     </table>

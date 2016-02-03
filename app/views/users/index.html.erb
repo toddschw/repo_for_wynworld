@@ -10,6 +10,10 @@
   </form>
 </p>
 
+<%if current_user.admin == true %>
+<%= link_to "Create A New User",  newuser_path%>
+<% end %>
+
 <table class="user-index-table">
   <thead>
     <th></th>
