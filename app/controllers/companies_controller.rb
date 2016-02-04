@@ -1,12 +1,12 @@
 class CompaniesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user, only: [:edit, :destoy, :update, :create, :new]
+  before_action :admin_user, only: [:edit, :destroy, :update, :create, :new]
 
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all.order(:name).paginate(page: params[:page])
+    @companies = Company.includes(:users).search(params[:keyword]).paginate(page: params[:page]).order(name: :asc)
   end
 
   # GET /companies/1

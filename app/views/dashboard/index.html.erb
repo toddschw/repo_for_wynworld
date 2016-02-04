@@ -53,6 +53,12 @@
 <% end %>
 
 
+<%# if !@user.admin %>
+  <!-- <h2>My Cohort</h2> -->
+  <%# @user.cohort.users.each do |user| %>
+    <%#= user.fname %>
+    <%#= user.lname %><br>
+
   <script type="text/javascript">
   $(function () {
 
