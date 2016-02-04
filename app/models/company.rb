@@ -5,6 +5,8 @@ class Company < ActiveRecord::Base
   has_many :employments
   has_many :users, through: :employments
 
+  validates :name, :city, :state, :website, :zip, presence: true
+
   def full_address
     [street1, city, state, zip].compact.join(', ')
   end
