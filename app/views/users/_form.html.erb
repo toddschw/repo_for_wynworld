@@ -14,11 +14,11 @@
 
 <div class="field">
   <%= f.label :first_name %><br>
-  <%= f.text_field :fname %>
+  <%= f.text_field :fname, placeholder: "First Name"%>
 </div>
 <div class="field">
   <%= f.label :last_name %><br>
-  <%= f.text_field :lname %>
+  <%= f.text_field :lname, placeholder: "Last Name" %>
 </div>
 <div class="field">
   <%= f.label :email %><br>
@@ -26,35 +26,43 @@
 </div>
 <div class="field">
   <%= f.label :location %><br>
-  <%= f.text_field :location %>
+  <%= f.text_field :location, placeholder: "e.g. Miami, FL" %>
 </div>
 <div class="field">
-  <%= f.label "Employment Status ('True' if seeking, 'False' if not)" %><br>
-  <%= f.text_field :seeking %>
+  <%= f.label "Employment Status" %><br>
+  <%= f.text_field :seeking, placeholder: '"True" if seeking, "False" if not' %>
 </div>
 <div class="field">
-  <%= f.label "Reason for Not Seeking (ie, employed, continuing education)" %><br>
-  <%= f.text_field :reason %>
+  <%= f.label "Reason for Not Seeking" %><br>
+  <%= f.text_field :reason, placeholder: "e.g. Sabbatical, Employed, Continuing Education" %>
 </div>
 <div class="field">
   <%= f.label "Github" %><br>
-  <%= f.text_field :github %>
+  <%= f.text_field :github, placeholder: "github.com/username" %>
 </div>
 <div class="field">
   <%= f.label "linkedin" %><br>
-  <%= f.text_field :linkedin %>
+  <%= f.text_field :linkedin, placeholder: "Linkedin Profile" %>
 </div>
 <div class="field">
   <%= f.label "Portfolio Site" %><br>
-  <%= f.text_field :portfolio %>
+  <%= f.text_field :portfolio, placeholder: "www.portfolio.co" %>
 </div>
 <div class="field">
   <%= f.label "Slack Username" %><br>
-  <%= f.text_field :slack %>
+  <%= f.text_field :slack, placeholder: "@slackbot" %>
 </div>
-
-<%= f.file_field :avatar %>
-
+<div class="field">
+  <label></label>
+  <%= form_for @user, html: { multipart: true } do |f| %>
+    <p>
+      <label>Profile Picture</label>
+      <%# image_tag(@user.avatar_url, :width => '36') if @user.avatar? %>
+      <%= f.file_field :avatar %>
+      <%# f.hidden_field :avatar_cache %>
+    </p>
+  <% end %>
+</div>
 <div class="actions">
   <%= f.submit %>
 </div>
