@@ -28,12 +28,17 @@
   <%= f.label :location %><br>
   <%= f.text_field :location %>
 </div>
+
 <div class="field">
-  <%= f.label "Employment Status ('True' if seeking, 'False' if not)" %><br>
-  <%= f.text_field :seeking %>
+  <%= f.label "Employment Status:" %><br>
+  <%= f.radio_button :seeking, true %>
+  <%= f.label :seeking, "Seeking Employment", :value => "true"  %><br>
+  <%= f.radio_button :seeking, false %>
+  <%= f.label :seeking, "Not Seeking Employment", :value => "false"  %>
 </div>
+
 <div class="field">
-  <%= f.label "Reason for Not Seeking (ie, employed, continuing education)" %><br>
+  <%= f.label "If not Seeking Employment, list reason" %><br>
   <%= f.text_field :reason %>
 </div>
 <div class="field">
@@ -54,7 +59,7 @@
 </div>
 
 <%= f.file_field :avatar %>
-
+<br><Br>
 <div class="actions">
   <%= f.submit %>
 </div>
