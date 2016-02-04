@@ -1,5 +1,5 @@
 class AddSocialLinksToUser < ActiveRecord::Migration
   def change
-    add_column :users, :Social_links, :hstore
+    add_column :users, :social_links, :hstore
   end
 end

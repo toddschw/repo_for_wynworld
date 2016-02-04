@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :companies, through: :employments
 
   store_accessor :status, :seeking, :reason
-  store_accessor :Social_links, :slack, :github, :linkedin, :portfolio
+  store_accessor :social_links, :slack, :github, :linkedin, :portfolio
 
   scope :filter, ->(chicken){
     joins(:companies).where('companies.name = ?', chicken) if chicken.present?
