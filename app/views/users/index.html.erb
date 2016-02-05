@@ -33,7 +33,7 @@
 
   <tbody>
     <% @users.each do |user| %>
-    <tr><td><%= image_tag(user.avatar_url(:sm_thumb), :size => '36x36')%><%= user.id %></td>
+    <tr><td><%= image_tag(user.avatar_url(:sm_thumb), :size => '36x36')%></td>
       <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
       <td><%= user.location %></td>
       <td><%= user.email %></td>
