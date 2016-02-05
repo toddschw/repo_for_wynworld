@@ -43,16 +43,22 @@ the needed view  %>
 </ul> -->
 
 <%# PAGE VIEW BEGINS HERE ------  %>
-Cohort: <%= @cohort.name %><Br>
-Location: <%= @cohort.location %><br>
-Graduation Date: <%= @cohort.graddate %><br>
-Students in Cohort: <%= students_in_cohort %> <Br>
-Students Employed:  <%= total_students_working.count %><br>
-Percentage Employed <%= percentage_employed %><br>
+<h1> <%= @cohort.name %></h1>
+<table>
+  <tr>
+<td>Location: <%= @cohort.location %></td>
+<td>Graduation Date: <%= @cohort.graddate %></td>
+<td>Students in Cohort: <%= students_in_cohort %> </td>
+<td>Students Employed:  <%= total_students_working.count %></td>
+<td>Percentage Employed: <%= percentage_employed %></td>
+</tr>
+<tr>
 <%if current_user.admin?%>
 <%= link_to 'Edit Cohort Details', edit_cohort_path(@cohort) %>
 <%end%>
-<%= link_to 'Back', cohort_index_path %><BR>
+<%= link_to 'Back', cohort_index_path %>
+</tr>
+  </table>
 
 <table class="dash-cohort-table">
   <thead>

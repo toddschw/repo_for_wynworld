@@ -2,7 +2,7 @@
 <% if @user.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@user.errors.count, "error") %>
-    prohibited this company from being saved:</h2>
+    prohibited this user from being saved:</h2>
 
   <ul>
     <% @user.errors.full_messages.each do |message| %>
@@ -11,63 +11,69 @@
   </ul>
 </div>
 <% end %>
+<div class="edit-container">
+  <div class="edit-column">
+    <div class="field">
+      <%= f.label :fname, "* First Name" %><br>
+      <%= f.text_field :fname, placeholder: "* First Name"%>
+    </div>
+    <div class="field">
+      <%= f.label :lname, "* Last Name" %><br>
+      <%= f.text_field :lname, placeholder: "* Last Name" %>
+    </div>
+    <div class="field">
+      <%= f.label :email, "* Email" %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :location, "* Where do you live?" %><br>
+      <%= f.text_field :location, placeholder: "* e.g. Miami, FL" %>
+    </div>
+  </div>
+    <div class="edit-column">
+      <div class="field">
+        <%= f.label :github, "Github" %><br>
+        <%= f.text_field :github, placeholder: "github.com/username" %>
+      </div>
+      <div class="field">
+        <%= f.label :linkedin, "Linkedin" %><br>
+        <%= f.text_field :linkedin, placeholder: "Linkedin Profile" %>
+      </div>
+      <div class="field">
+        <%= f.label :portfolio, "Portfolio Site" %><br>
+        <%= f.text_field :portfolio, placeholder: "www.portfolio.co" %>
+      </div>
+      <div class="field">
+        <%= f.label :slack, "Slack Username" %><br>
+        <%= f.text_field :slack, placeholder: "@slackbot" %>
+      </div>
+    </div>
+    <div class="edit-column">
+      <div class="field">
+        <%= f.label :seeking, "Please tell us your current status" %><br>
+        <%= f.radio_button :seeking, true %>
+        <%= f.label :seeking, "Seeking Employment", :value => "true"  %><br>
+        <%= f.radio_button :seeking, false %>
+        <%= f.label :seeking, "Not Seeking Employment", :value => "false"  %>
+      </div>
 
-<div class="field">
-  <%= f.label :first_name %><br>
-  <%= f.text_field :fname, placeholder: "First Name"%>
+      <div class="field">
+        <%= f.label :reason, "Reason for Not Seeking" %><br>
+        <%= f.text_field :reason, placeholder: "e.g. Sabbatical, Employed, Continuing Education", :class =>"reason" %>
+      </div>
+      <div class="field">
+        <label>Profile Picture</label><br>
+        <%= image_tag(@user.avatar_url(:thumb), :width => '50') if @user.avatar? %>
+        <%= f.file_field :avatar %><br>
+        <% f.hidden_field :avatar_cache %>
+        <label>
+          <%= f.check_box :remove_avatar%>
+          Remove pic
+        </label><p>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+        <% end %>
+    </div>
+  </div>
 </div>
-<div class="field">
-  <%= f.label :last_name %><br>
-  <%= f.text_field :lname, placeholder: "Last Name" %>
-</div>
-<div class="field">
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
-</div>
-<div class="field">
-  <%= f.label :location %><br>
-  <%= f.text_field :location, placeholder: "e.g. Miami, FL" %>
-</div>
-<div class="field">
-  <%= f.label "Employment Status" %><br>
-  <%= f.text_field :seeking, placeholder: '"True" if seeking, "False" if not' %>
-</div>
-<div class="field">
-  <%= f.label "Reason for Not Seeking" %><br>
-  <%= f.text_field :reason, placeholder: "e.g. Sabbatical, Employed, Continuing Education" %>
-</div>
-<div class="field">
-  <%= f.label "Github" %><br>
-  <%= f.text_field :github, placeholder: "github.com/username" %>
-</div>
-<div class="field">
-  <%= f.label "linkedin" %><br>
-  <%= f.text_field :linkedin, placeholder: "Linkedin Profile" %>
-</div>
-<div class="field">
-  <%= f.label "Portfolio Site" %><br>
-  <%= f.text_field :portfolio, placeholder: "www.portfolio.co" %>
-</div>
-<div class="field">
-  <%= f.label "Slack Username" %><br>
-  <%= f.text_field :slack, placeholder: "@slackbot" %>
-</div>
-<div class="field">
-  <label></label>
-  <%# form_for @user, html: { multipart: true } do |f| %>
-    <p>
-      <label>Profile Picture</label>
-      <%= image_tag(@user.avatar_url(:thumb), :width => '50') if @user.avatar? %>
-      <%= f.file_field :avatar %>
-      <%= f.hidden_field :avatar_cache %>
-      <label>
-      <%= f.check_box :remove_avatar %>
-      Remove avatar
-    </label>
-    </p>
-  <%# end %>
-</div>
-<div class="actions">
-  <%= f.submit %>
-</div>
-<% end %>

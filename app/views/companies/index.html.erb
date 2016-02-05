@@ -2,56 +2,38 @@
 
 
 <h1>Hiring Partners</h1>
-
-<p>
   <form>
     <legend>Search</legend>
     <div class='col-xs-4'>
       <input class='form-control' name='keyword' placeholder='Keyword' type='text' value='<%= params[:keyword] %>'>
     </div>
-  </form>
-</p>
+  </form><br>
 
 <% if current_user.admin?%>
-<%= link_to 'New Company', new_company_path %>
+<%= link_to 'Add New Company', new_company_path %>
 <%end%>
+<p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Website</th>
+      <th>Hp</th>
+    </tr>
+  </thead>
 
-<div class="com-list">
+  <tbody>
     <% @companies.each do |company| %>
-    <div class="com-indv">
-        <%= link_to company.name, company, class: 'com-name' %>
-          <% if company.hp == true %>
-            <%= " (Hiring Partner)" %>
-          <% end %>
-        <p><%= company.street1 %></p>
-        <p><%= company.street2 %></p>
-        <p><%= company.city %>
-        <%= company.state %>
-        <%= company.zip %></p>
-        <p><%= company.description %></p>
-        <p><%= if company.website.blank?
-        else
-          link_to company.website, "http://#{company.website}"
-       end
-        %></p>
-        <div class="com-admin">
-        <% if current_user.admin? %>
-        <%= company.contact_first %>
-        <%= company.contact_last %>
-        <%= company.contact_email %>
-        <%= company.contact_phone %>
-        <%= company.note %>
-        <%= link_to 'Edit', edit_company_path(company) %>
-        <%= link_to 'delete', company, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%# end %>
-        <% end %>
-      </div>
-      </div>
-        <% end %>
-</div>
-
-
-
-<br>
-
+      <tr>
+        <td><%= link_to company.name, company %></td>
+        <td><%= company.city %></td>
+        <td><%= company.state %></td>
+        <td><%= company.website %></td>
+        <td><%= "yes" if company.hp? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= will_paginate %>
