@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # get 'cohort/show'
 
   resources :cohort
+  put '/cohort/:id' => 'cohort#edit', as: 'cohortupdate'
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
