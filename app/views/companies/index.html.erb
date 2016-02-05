@@ -16,7 +16,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Company Name</th>
+      <th># Wyncoders <br>Working <br>There</th>
       <th>City</th>
       <th>State</th>
       <th>Website</th>
@@ -28,6 +29,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= link_to company.name, company %></td>
+        <td><%= link_to company.employments.where(current: true).count, user_index_path(company: company.id) %>
         <td><%= company.city %></td>
         <td><%= company.state %></td>
         <td><%= company.website %></td>
