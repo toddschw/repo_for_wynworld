@@ -22,14 +22,17 @@
 
 </div>
   <div class="field">
-    <%= label_tag(:new_employment_rolenature, "Full Time, Part Time, Intern Etc:") %>
-    <%= text_field(:new_employment, :rolenature) %>
-  </div>
+
+    <%= label_tag(:new_employment_rolenature, "What is the nature of this job?") %>
+    <%= select_tag("new_employment[rolenature]", options_for_select(['Full Time Employment', 'Part Time Employment','Internship (Paid)','Internship (Unpaid)','Freelance','Own Venture','Other']), { prompt: "Please select" }) %>
+</div>
+
 
   <div class="field">
-    <%= label_tag(:new_employment_rolesource, "How did you find this job?:") %>
-    <%= text_field(:new_employment, :rolesource) %>
-  </div>
+    <%= label_tag(:new_employment_rolesource, "How did you find this job?") %>
+    <%= select_tag("new_employment[rolesource]", options_for_select(['Wyncode Partner', 'Self Sourced','Entrepreneurship','Networking','N/A']), { prompt: "Please select" }) %>
+</div>
+
 
   <div class="field">
     <%= label_tag(:new_employment_salary, "Salary:") %>
