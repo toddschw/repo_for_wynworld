@@ -11,8 +11,15 @@
 </p>
 
 <%if current_user.admin == true %>
-<%= link_to "Create A New User",  newuser_path %> <p> STILL TRYING TO FIX NEW USER LINK!!</p>  
+<%= link_to "Create A New User",  newuser_path %> <p> STILL TRYING TO FIX NEW USER LINK!!</p>
 <% end %>
+
+<%= link_to "Sort by First Name", user_index_path(sort_by: :fname) %>
+<%= link_to "Sort by Last Name", user_index_path(sort_by: :lname) %>
+<%= link_to "Sort by Location", user_index_path(sort_by: :location) %>
+
+
+
 
 <table class="user-index-table">
   <thead>
