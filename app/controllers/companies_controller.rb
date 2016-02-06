@@ -1,12 +1,12 @@
 class CompaniesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user, only: [:edit, :destoy, :update, :create, :new]
+  before_action :admin_user, only: [:edit, :destroy, :update, :create, :new]
 
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all.paginate(page: params[:page])
+    @companies = Company.includes(:users).search(params[:keyword]).paginate(page: params[:page]).order(name: :asc)
   end
 
   # GET /companies/1
@@ -71,7 +71,7 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :street1, :street2, :city, :state, :zip, :description, :website, :hp, :orgtype, :latitude, :longitude, :full_address)
+      params.require(:company).permit(:name, :street1, :street2, :city, :state, :zip, :description, :website, :hp, :orgtype, :contact_last, :contact_first, :note, :contact_email, :contact_phone, :latitude, :longitude, :full_address)
     end
 
     def admin_user

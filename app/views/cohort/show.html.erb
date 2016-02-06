@@ -35,16 +35,30 @@ the needed view  %>
   <% num = total_students_working.count.to_f / students_in_cohort %>
   <% percentage_employed = number_to_percentage(num * 100, precision: 0) %>
 
+<!-- <ul>
+<%# @cohort.users.each do |student| %>
+
+  <li><%#= link_to "#{student.fname + " " + student.lname}", user_path(student.id) %></li>
+<%# end %>
+</ul> -->
 
 <%# PAGE VIEW BEGINS HERE ------  %>
-Cohort: <%= @cohort.name %><Br>
-Location: <%= @cohort.location %><br>
-Graduation Date: <%= @cohort.graddate %><br>
-Students in Cohort: <%= students_in_cohort %> <Br>
-Students Employed:  <%= total_students_working.count %><br>
-Percentage Employed <%= percentage_employed %><br>
+<h1> <%= @cohort.name %></h1>
+<table>
+  <tr>
+<td>Location: <%= @cohort.location %></td>
+<td>Graduation Date: <%= @cohort.graddate %></td>
+<td>Students in Cohort: <%= students_in_cohort %> </td>
+<td>Students Employed:  <%= total_students_working.count %></td>
+<td>Percentage Employed: <%= percentage_employed %></td>
+</tr>
+<tr>
+<%if current_user.admin?%>
 <%= link_to 'Edit Cohort Details', edit_cohort_path(@cohort) %>
-<%= link_to 'Back', cohort_index_path %><BR>
+<%end%>
+<%= link_to 'Back', cohort_index_path %>
+</tr>
+  </table>
 
 <table class="dash-cohort-table">
   <thead>

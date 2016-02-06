@@ -1,7 +1,5 @@
 <% provide(:title, 'All WynAlums') %>
 <h1>All WynAlums</h1>
-
-<p>
   <form>
     <legend>Search</legend>
     <div class='col-xs-4'>
@@ -9,6 +7,18 @@
     </div>
   </form>
 </p>
+
+
+<%if current_user.admin == true %>
+<%= link_to "Create A New User",  newuser_path %> <p> STILL TRYING TO FIX NEW USER LINK!!</p>
+<% end %>
+
+
+<%= link_to "Sort by First Name", user_index_path(sort_by: :fname) %>
+<%= link_to "Sort by Last Name", user_index_path(sort_by: :lname) %>
+<%= link_to "Sort by Location", user_index_path(sort_by: :location) %>
+
+
 
 <table class="user-index-table">
   <thead>
@@ -22,7 +32,7 @@
 
   <tbody>
     <% @users.each do |user| %>
-    <tr><td><%= image_tag(user.avatar_url(:sm_thumb), :size => '36x36')%></td>
+    <tr><td><%= image_tag(user.avatar_url(:sm_thumb), :width => '36')%></td>
       <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
       <td><%= user.location %></td>
       <td><%= user.email %></td>
@@ -38,4 +48,6 @@
     </tbody>
   </table>
 
+<% if params[:company].nil? %>
   <%= will_paginate %>
+<% end %>

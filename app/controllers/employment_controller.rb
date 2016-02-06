@@ -11,11 +11,9 @@ class EmploymentController < ApplicationController
   end
 
   def create
-    # render json: params.to_json
-    #render json: new_employment_params.to_json
+    # render json: params
 
     @employment = Employment.new(new_employment_params)
-
     if @employment.save
       redirect_to user_path(@employment.user_id), notice: "New Position Added"
       #render plain: @employment.user_id
@@ -27,11 +25,16 @@ class EmploymentController < ApplicationController
 
   def edit
     @employment_to_edit = Employment.find params[:id]
+      @rolenature = @employment_to_edit.rolenature # need this for form
+      @rolesource = @employment_to_edit.rolesource  # need this for form
     @employment_id = params[:id]
     @companies = Company.all.order(:name)
   end
 
   def update
+
+    # render json: params
+
     @employment = Employment.find (params[:employment_id])
     if @employment.update(edit_employment_params)
       redirect_to user_path(@employment.user), notice: "Position Edited"

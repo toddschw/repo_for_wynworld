@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # get 'cohort/show'
 
   resources :cohort
+  put '/cohort/:id' => 'cohort#edit', as: 'cohortupdate'
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
@@ -36,12 +37,23 @@ Rails.application.routes.draw do
 
   #users
   get 'user/index' => 'users#index'
-  get 'user/mapper' => 'users#mapper'
+  #get 'user/mapper' => 'users#mapper'
+
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users/:id/edit' => 'users#edit', as: 'edit_user'
   patch '/users/:id' => 'users#update'
   put '/users/:id' => 'users#update'
+<<<<<<< HEAD
   get '/users/newnew' => 'users#newnew', as: 'new_new_user'
+=======
+  get 'users/new', to: 'users#new', as:'newuser'
+  post 'users' => 'users#create'
+
+
+  #get '/employments/:id/edit' => 'employments#edit', as: 'user_employment'
+  #patch '/employments/:id' => 'employments#update'
+  #put '/employments/:id' => 'employments#update'
+>>>>>>> master
 
 
 end

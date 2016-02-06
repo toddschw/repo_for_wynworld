@@ -4,57 +4,63 @@
 
 <%= hidden_field_tag("new_employment[user_id]", @user_id) %>
 
-
+<div class="employment-edit">
+  <div class="edit-column">
   <div class="field">
-    <%= label_tag(:new_employment_company_id, "Company") %>
+    <%= label_tag(:new_employment_company_id, "Company:") %>
     <%= collection_select(:new_employment, :company_id, @companies, :id, :name, prompt: true) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:new_employment_jobtitle, "Job Title") %>
+    <%= label_tag(:new_employment_jobtitle, "Job Title:") %>
     <%= text_field(:new_employment, :jobtitle) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:new_employment_roletype, "Type of Role (Developer or Non-Technical)") %>
+    <%= label_tag(:new_employment_roletype, "Type of Role (Developer or Non-Technical):") %>
     <%= text_field(:new_employment, :roletype) %>
-  </div>
 
+</div>
   <div class="field">
-    <%= label_tag(:new_employment_rolenature, "Full Time, Part Time, Intern Etc") %>
-    <%= text_field(:new_employment, :rolenature) %>
-  </div>
+
+    <%= label_tag(:new_employment_rolenature, "What is the nature of this job?") %>
+    <%= select_tag("new_employment[rolenature]", options_for_select(['Full Time Employment', 'Part Time Employment','Internship (Paid)','Internship (Unpaid)','Freelance','Own Venture','Other']), { prompt: "Please select" }) %>
+</div>
+
 
   <div class="field">
     <%= label_tag(:new_employment_rolesource, "How did you find this job?") %>
-    <%= text_field(:new_employment, :rolesource) %>
-  </div>
+    <%= select_tag("new_employment[rolesource]", options_for_select(['Wyncode Partner', 'Self Sourced','Entrepreneurship','Networking','N/A']), { prompt: "Please select" }) %>
+</div>
+
 
   <div class="field">
-    <%= label_tag(:new_employment_salary, "Salary") %>
+    <%= label_tag(:new_employment_salary, "Salary:") %>
     <%= text_field(:new_employment, :salary) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:new_employment_start_date, "Start Date") %>
+    <%= label_tag(:new_employment_start_date, "Start Date:") %>
     <%= date_field(:new_employment, :start_date) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:new_employment_end_date, "End Date") %>
+    <%= label_tag(:new_employment_end_date, "End Date:") %>
     <%= date_field(:new_employment, :end_date) %>
   </div>
 
   <div class="field">
     <%= radio_button(:new_employment, :current, true ) %>
-    <%= label_tag(:new_employment_current_true, "Current position") %>
+    <%= label_tag(:new_employment_current_true, ":Current position") %>
 
     <%= radio_button(:new_employment, :current, false) %>
-    <%= label_tag(:new_employment_current_false, "Not a current position") %>
+    <%= label_tag(:new_employment_current_false, ":Not a current position") %>
   </div>
 
   <div class="actions">
     <%= submit_tag("Create") %>
   </div>
-
 <% end %>
+</div>
+
+</div>

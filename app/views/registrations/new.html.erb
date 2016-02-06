@@ -1,6 +1,6 @@
 <div class="container-fluid welcome-body">
   <div class="welcome-container">
-    <h2>Sigffffn up</h2>
+    <h2>Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -10,29 +10,20 @@
       <%= f.email_field :email, autofocus: true %>
     </div>
 
-    <div class="field">
-      <%= f.label :role %><br/>
-      <%= f.text_field :role%>
-    </div>
 
     <div class="field">
-      <%= f.label :fname %><br/>
+      <%= f.label "First Name"%><br/>
       <%= f.text_field :fname%>
     </div>
 
     <div class="field">
-      <%= f.label Last Name %><br/>
-      <%= f.text_field :email, autofocus: true %>
+      <%= f.label "Last Name" %><br/>
+      <%= f.text_field :lname %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.label "Location" %><br/>
+      <%= select_tag("Location", options_for_select(['Fort Lauderdale', 'Miami', 'Miami Beach']), { prompt: "Please Select A Location" }) %>
     </div>
 
     <div class="field">

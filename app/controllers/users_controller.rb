@@ -6,14 +6,43 @@ class UsersController < ApplicationController
 
   def index
     # @users = User.paginate(page: params[:page])
-    @users = User.where(admin: false).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page])
-  
 
+    sort_by = params[:sort_by]
+
+    if !params[:company].nil?
+      company = Company.find params[:company]
+      employments = company.employments.where(current: true)
+      users_array = []
+      employments.each do |e|
+        users_array << e.user
+      end
+
+        @users = users_array
+      #@users = users_array.where(admin: false).order(sort_by).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page]).order(fname: :asc)
+    else
+      @users = User.where(admin: false).order(sort_by).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page]).order(fname: :asc)
+    end
   end
 
   def show
     @employments = @user.employments.order(:start_date).reverse_order
+  end
 
+  def new
+    render plain: 'new'
+    #@user = User.new
+  end
+
+  def create
+    respond_to do |format|
+      if @users.update(user_params)
+        format.html { redirect_to @users, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @users }
+      else
+        format.html { render :edit }
+        format.json { render json: @users.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -36,7 +65,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :location, :picurl, :seeking, :reason, :slack, :github, :linkedin, :portfolio, :avatar)
+    params.require(:user).permit(:fname, :lname, :email, :location, :picurl, :seeking, :reason, :slack, :github, :linkedin, :portfolio, :avatar, :avatar_cache, :avatar_url, :remove_avatar)
   end
 
   def set_user

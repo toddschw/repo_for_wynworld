@@ -15,6 +15,7 @@
   }
   .img-cir {
     border-radius: 50%;
+    width: 250px;
   }
   h2 {
     text-align: left;
@@ -37,10 +38,6 @@
   flex-direction: column;
   .profile-pic {
     flex-grow: 1;
-  }
-  .profile-pic:nth-child(1) {
-    flex-grow: 2;
-    background-color: red;
   }
   .profile-pic:nth-child(4) {
     flex-grow: 4;
@@ -68,4 +65,30 @@ table {
   tr:nth-child(even) {
     background-color: #ddd;
   }
+}
+.edit-container {
+display: flex;
+justify-content: space-between;;
+background-color: #eee;
+padding: 30px;
+  .edit-column{
+    flex-grow: 1;
+    background-color: #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+  .reason{
+  width: 90%
+  }
+  input{
+    padding : 10px;
+    // width: 80%;
+
+    &[type="text"]{
+      border: none;
+    }
+  }
+}
+.pagination ul li{
+  display: inline;
 }

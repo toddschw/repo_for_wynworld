@@ -1,64 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 
-<h1>Listing Companies</h1>
+<h1>Hiring Partners</h1>
+  <form>
+    <legend>Search</legend>
+    <div class='col-xs-4'>
+      <input class='form-control' name='keyword' placeholder='Keyword' type='text' value='<%= params[:keyword] %>'>
+    </div>
+  </form><br>
 
+<% if current_user.admin?%>
+<%= link_to 'Add New Company', new_company_path %>
+<%end%>
+<p id="notice"><%= notice %></p>
 <table>
   <thead>
     <tr>
-      <th>id</th>
-      <th>Name</th>
-      <!-- <th>Street1</th>
-      <th>Street2</th>
+      <th>Company Name</th>
+      <th># Wyncoders <br>Working <br>There</th>
       <th>City</th>
       <th>State</th>
-      <th>Zip</th>
-      <th>Description</th>
       <th>Website</th>
-      <th>Website</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Technical Contact</th>
-      <th>Note</th>
       <th>Hp</th>
-      <th>Org Type</th>
-      <th>Latitude</th>
-      <th>Longitude</th> -->
-
-
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= company.id %></td>
         <td><%= link_to company.name, company %></td>
-        <td><%#= company.street1 %></td>
-        <td><%#= company.street2 %></td>
-        <td><%#= company.city %></td>
-        <td><%#= company.state %></td>
-        <td><%#= company.zip %></td>
-        <td><%#= company.description %></td>
-        <td><%#= company.website %></td>
-        <td><%#= company.hp %></td>
-        <td><%#= company.orgtype %></td>
-        <td><%#= company.latitude %></td>
-        <td><%#= company.longitude %></td>
-        <td><%#= link_to 'Show', company %></td>
-        <%# if current_user.admin? %>
-        <td><%#= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%#= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%# end %>
+        <td><%= link_to company.employments.where(current: true).count, user_index_path(company: company.id) %>
+        <td><%= company.city %></td>
+        <td><%= company.state %></td>
+        <td><%= company.website %></td>
+        <td><%= "yes" if company.hp? %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
 <%= will_paginate %>
-
-<%= link_to 'New Company', new_company_path %>
