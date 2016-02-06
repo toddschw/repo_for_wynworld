@@ -1,21 +1,34 @@
 $(function() {
 
  $('#search_results').html("");
- var cohortElement = document.createElement("em");
- var
+ var  tdName = document.createElement("td"),
+      aName = document.createElement('a'),
+      tdCohort = document.createElement("td"),
+      tdEmploy = document.createElement("td"),
+      fragment = document.createDocumentFragment(),
+      table = $('<table></table>').addClass("dash-cohort-table"),
+      row = $('<tr></tr>');
+
+
 <% if @user.nil? %>
   $('#search_results').append("No Results");
 <% else %>
    <% @user.each do |user| %>
-     var a_user = '<a href="/users/<%= user.id %>"><%= "#{user.fname} ""#{user.lname}" %></a>' + '<br>',
-     uLocal = '<%=user.location%>' + '<br>';
-    //  var uJob = ''
-      cohortElement.innerText = user.cohort;
-     $('#search_results').append(a_user);
-     $('#search_results').append("<br>");
-     $('#search_results').append(uLocal);
-     $('#search_results').append(cohortElement);
-
+   aName.innerText = '<%= "#{user.fname} ""#{user.lname}" %>';
+   aName.setAttribute("href", "/users/<%= user.id %>");
+   tdName.appendChild(aName);
+   tdCohort.innerText = '<%=user.cohort.name%>';
+    <% unless user.employments.empty? %>
+    <% user.employments.where("current = true").each do |e| %>
+      tdEmploy.innerText = '<%= e.company.name %>';
+      fragment.appendChild(tdName);
+      fragment.appendChild(tdCohort);
+      fragment.appendChild(tdEmploy);
+      row.append(fragment);
+      table.append(row);
+     $('#search_results').append(table);
+     <% end %>
+  <% end %>
    <% end %>
 <% end %>
 
