@@ -2,11 +2,6 @@ class DashboardController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    # if current_user.role == 'admin'
-    #   @role = 'Admin'
-    # elsif current_user.role == 'student'
-    #   @role = 'Student'
-    # end
 
     if current_user.admin == false
       @cohort_users = current_user.cohort.users

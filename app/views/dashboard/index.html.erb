@@ -11,7 +11,6 @@
   <!-- search form -->
   <div class="left">
   <%= render partial: "search/index" %>
-  <div id="search_results"></div>
   </div>
 
 
@@ -45,7 +44,7 @@
           <% user.employments.where("current = true").each do |e| %>
             <%= e.company.name %><br>
           <% end %>
-        <% end %>
+        <% end %></td>
       </tr>
       <% end %>
     </tbody>

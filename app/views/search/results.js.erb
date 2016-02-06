@@ -1,16 +1,47 @@
 $(function() {
 
  $('#search_results').html("");
-
+ var cohortElement = document.createElement("em");
+ var
 <% if @user.nil? %>
   $('#search_results').append("No Results");
 <% else %>
    <% @user.each do |user| %>
-     var a_user = '<a href="/users/<%= user.id %>"><%= user.fname << " " << user.lname %></a>';
+     var a_user = '<a href="/users/<%= user.id %>"><%= "#{user.fname} ""#{user.lname}" %></a>' + '<br>',
+     uLocal = '<%=user.location%>' + '<br>';
+    //  var uJob = ''
+      cohortElement.innerText = user.cohort;
      $('#search_results').append(a_user);
      $('#search_results').append("<br>");
+     $('#search_results').append(uLocal);
+     $('#search_results').append(cohortElement);
+
    <% end %>
 <% end %>
 
 
 });
+// var item = customers[Math.floor(Math.random() * customers.length)],
+//   list = document.getElementById('cus_list'),
+//   quoteClass = document.getElementById('customer-quotes'),
+//   imageClass = document.getElementById('customer-logos'),
+//   fragment = document.createDocumentFragment(),
+//   companyEle = document.createElement("li"),
+//   nameEle = document.createElement("li"),
+//   quoteEle = document.createElement("li"),
+//   imageEle = document.createElement("li"),
+//   urlEle = document.createElement("li");
+//
+// companyEle.innerText = "Company: " + item.company;
+// nameEle.innerText = "Name: " + item.name + " ";
+// quoteEle.innerText = "Quote: " + item.quote + " ";
+// imageEle.innerText = "logo: " + item.image + " ";
+// urlEle.innerText = "website: " + item.url + " ";
+// fragment.appendChild(companyEle);
+// fragment.appendChild(nameEle);
+// fragment.appendChild(quoteEle);
+// fragment.appendChild(imageEle);
+// fragment.appendChild(urlEle);
+// list.appendChild(fragment);
+// quoteClass.appendChild(companyEle);
+// imageClass.appendChild(imageEle);

@@ -1,14 +1,15 @@
 
 <!-- remote: true, -->
 
+
 <%= form_tag results_path, remote:true, :method => 'get' do %>
   <p>
-    <%= text_field_tag :q, value = 'Search by Student Name', { :size => "50" } %>
+    <%= text_field_tag :q, nil, placeholder: 'Search by Student Name', size: '50'%>
     <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
   </p>
 <% end %>
-
-<script>
+<div id="search_results"></div>
+<!-- <script>
 $(function() {
   $( "#q" ).focus(function() {
     var default_value = this.value;
@@ -17,4 +18,4 @@ $(function() {
     }
   });
 });
-</script>
+</script> -->

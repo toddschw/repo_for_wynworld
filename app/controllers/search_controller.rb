@@ -10,9 +10,9 @@ class SearchController < ApplicationController
 
 
 
-    #conduct the search 
+    #conduct the search
     if !query_term.blank?
-      @user = User.where("lower(fname) like ? or lower(lname) like ?", "%#{query_term}%","%#{query_term}%")
+      @user = User.where("lower(fname) like ? or lower(lname) like ?", "%#{query_term}%", "%#{query_term}%")
       # account for no results
       if @user.empty?
         @user = nil
