@@ -1,60 +1,32 @@
 $(function() {
 
  $('#search_results').html("");
- var  tdName = document.createElement("td"),
-      aName = document.createElement('a'),
-      tdCohort = document.createElement("td"),
-      tdEmploy = document.createElement("td"),
-      fragment = document.createDocumentFragment(),
-      table = $('<table></table>').addClass("dash-cohort-table"),
-      row = $('<tr></tr>');
-
 
 <% if @user.nil? %>
   $('#search_results').append("No Results");
 <% else %>
-   <% @user.each do |user| %>
+  <% @user.each do |user| %>
+  var  tdName = document.createElement("td"),
+       aName = document.createElement('a'),
+       tdCohort = document.createElement("td"),
+       tdEmploy = document.createElement("td"),
+       fragment = document.createDocumentFragment(),
+       row = $('<tr></tr>');
    aName.innerText = '<%= "#{user.fname} ""#{user.lname}" %>';
    aName.setAttribute("href", "/users/<%= user.id %>");
    tdName.appendChild(aName);
    tdCohort.innerText = '<%=user.cohort.name%>';
-    <% unless user.employments.empty? %>
-    <% user.employments.where("current = true").each do |e| %>
-      tdEmploy.innerText = '<%= e.company.name %>';
+      <% unless user.employments.empty? %>
+        <% user.employments.where("current = true").each do |e| %>
+        tdEmploy.innerText = '<%= e.company.name %>';
+        <% end %>
+      <%end %>
       fragment.appendChild(tdName);
       fragment.appendChild(tdCohort);
       fragment.appendChild(tdEmploy);
       row.append(fragment);
-      table.append(row);
-     $('#search_results').append(table);
-     <% end %>
+      $('#search_results').append(row);
   <% end %>
-   <% end %>
 <% end %>
 
-
 });
-// var item = customers[Math.floor(Math.random() * customers.length)],
-//   list = document.getElementById('cus_list'),
-//   quoteClass = document.getElementById('customer-quotes'),
-//   imageClass = document.getElementById('customer-logos'),
-//   fragment = document.createDocumentFragment(),
-//   companyEle = document.createElement("li"),
-//   nameEle = document.createElement("li"),
-//   quoteEle = document.createElement("li"),
-//   imageEle = document.createElement("li"),
-//   urlEle = document.createElement("li");
-//
-// companyEle.innerText = "Company: " + item.company;
-// nameEle.innerText = "Name: " + item.name + " ";
-// quoteEle.innerText = "Quote: " + item.quote + " ";
-// imageEle.innerText = "logo: " + item.image + " ";
-// urlEle.innerText = "website: " + item.url + " ";
-// fragment.appendChild(companyEle);
-// fragment.appendChild(nameEle);
-// fragment.appendChild(quoteEle);
-// fragment.appendChild(imageEle);
-// fragment.appendChild(urlEle);
-// list.appendChild(fragment);
-// quoteClass.appendChild(companyEle);
-// imageClass.appendChild(imageEle);

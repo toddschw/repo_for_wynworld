@@ -47,25 +47,6 @@
   background-color: #aaa;
   padding: 10px 5px;
 }
-table {
-  border: 1px solid white;
-  border-collapse: collapse;
-  width: 100%;
-  background-color: white;
-  th {
-    color: #0ff;
-    background-color: #555;
-    padding: 4px 8px;
-    font-weight: 100;
-  }
-  td {
-    border: 1px solid dimgray;
-    padding: 4px 8px;
-  }
-  tr:nth-child(even) {
-    background-color: #ddd;
-  }
-}
 .edit-container {
 display: flex;
 justify-content: space-between;;
