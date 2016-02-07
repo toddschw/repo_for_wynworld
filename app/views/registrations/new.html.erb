@@ -10,6 +10,22 @@
       <%= f.email_field :email, autofocus: true %>
     </div>
 
+
+    <div class="field">
+      <%= f.label "First Name"%><br/>
+      <%= f.text_field :fname%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Last Name" %><br/>
+      <%= f.text_field :lname %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Location" %><br/>
+      <%= select_tag("Location", options_for_select(['Fort Lauderdale', 'Miami', 'Miami Beach']), { prompt: "Please Select A Location" }) %>
+    </div>
+
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>

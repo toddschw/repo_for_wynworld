@@ -9,10 +9,19 @@ class UsersController < ApplicationController
 
     sort_by = params[:sort_by]
 
-    @users = User.where(admin: false).order(sort_by).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page]).order(fname: :asc)
+    if !params[:company].nil?
+      company = Company.find params[:company]
+      employments = company.employments.where(current: true)
+      users_array = []
+      employments.each do |e|
+        users_array << e.user
+      end
 
-
-
+        @users = users_array
+      #@users = users_array.where(admin: false).order(sort_by).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page]).order(fname: :asc)
+    else
+      @users = User.where(admin: false).order(sort_by).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page]).order(fname: :asc)
+    end
   end
 
   def show
