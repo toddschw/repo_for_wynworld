@@ -53,41 +53,39 @@
 <% end %>
 
 
-<%# if !@user.admin %>
-  <!-- <h2>My Cohort</h2> -->
-  <%# @user.cohort.users.each do |user| %>
-    <%#= user.fname %>
-    <%#= user.lname %><br>
+<br>
 
-  <script type="text/javascript">
+<%#= @map_data.inspect %>
+<% @employments.each do |e|
+  e.inspect
+end %>
+
+
+<script type="text/javascript">
   $(function () {
 
     var map = L.map('map').setView([38.7006009, -96.5933281], 4);
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 4}).addTo(map);
 
-    <% @users.each do |user| %>
-      <% unless user.employments.empty? %>
-        <% if !user.employments.first.company.longitude.nil? %>
-
-        <% marker_info = "#{user.employments.first.company.name} " %>
-        <% marker_info << "#{user.employments.first.user.fname} " %>
-        <% marker_info << "#{user.employments.first.user.lname} " %>
-        <% marker_info << "#{user.employments.first.user.lname} " %>
-        <% marker_info << "<br>" %>
 
 
-       <% unless marker_info.nil? %>
-           var markerInfo = <% marker_info %>
 
-           console.log(markerInfo);
+    <% @map_data.each do |pin| %>
 
-          L.marker([<%= user.employments.first.company.latitude %>, <%= user.employments.first.company.longitude %>]).addTo(map)
-          .bindPopup(markerInfo);
+        console.log("<%= "#{pin[0]} is the company" %>");
+        console.log("<%= "#{pin[1]} is who works there" %>");
+        console.log("<%= "#{pin[2]} #{pin[3]} is lat long" %>");
+
+        var markerInfo = "<%= "#{pin[0]} is the company" %>";
+        L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
+        .bindPopup(markerInfo);
+
       <% end %>
-        <% end %>
-          // console.log('<%= marker_info %>');
-          // console.log('<%= marker_info.class  %>');
-    <% end %>
-    <% end %>
+
+
+
+
+
+
   });
 </script>

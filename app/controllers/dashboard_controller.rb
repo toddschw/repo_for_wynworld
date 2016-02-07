@@ -2,11 +2,6 @@ class DashboardController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    # if current_user.role == 'admin'
-    #   @role = 'Admin'
-    # elsif current_user.role == 'student'
-    #   @role = 'Student'
-    # end
 
     if current_user.admin == false
       @cohort_users = current_user.cohort.users
@@ -14,27 +9,18 @@ class DashboardController < ApplicationController
 
     @users =  User.where(admin: false)
 
-    @company = Company.all
+    #@map_data = #["Google","somedude",37.3860517,-122.0838511],
 
-    @employments = Employment.order(:start_date).reverse_order
+    # companies with 1 wyncoder
+    @employments = Employment.where(current: true)
+
+
+
+
 
   end
 
-  def ind_employment
 
-    @user = User.find params[:id]
-    @employments = @user.employments
-  end
-
-  def ind_list
-    @users = User.where('role != ?', 'admin')
-    @users.order!(lname: :asc)
-  end
-
-  def cohort_list
-    @cohorts = Cohort.all
-    @cohorts.order!(name: :asc)
-  end
 
 
 end

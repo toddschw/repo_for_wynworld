@@ -43,9 +43,6 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit', as: 'edit_user'
   patch '/users/:id' => 'users#update'
   put '/users/:id' => 'users#update'
-<<<<<<< HEAD
-  get '/users/newnew' => 'users#newnew', as: 'new_new_user'
-=======
   get 'users/new', to: 'users#new', as:'newuser'
   post 'users' => 'users#create'
 
@@ -53,7 +50,7 @@ Rails.application.routes.draw do
   #get '/employments/:id/edit' => 'employments#edit', as: 'user_employment'
   #patch '/employments/:id' => 'employments#update'
   #put '/employments/:id' => 'employments#update'
->>>>>>> master
+
 
 
 end
