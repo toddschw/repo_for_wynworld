@@ -1,17 +1,20 @@
 $(function() {
 
  $('#search_results').html("");
+ tbody = $('<tbody></tbody>')
+ thead = $('<thead><th>Name(s) Found</th><th>Cohort</th><th>Currently working at</th></thead>')
+
 
 <% if @user.nil? %>
   $('#search_results').append("No Results");
 <% else %>
   <% @user.each do |user| %>
-  var  tdName = document.createElement("td"),
-       aName = document.createElement('a'),
-       tdCohort = document.createElement("td"),
-       tdEmploy = document.createElement("td"),
-       fragment = document.createDocumentFragment(),
-       row = $('<tr></tr>');
+  var tdName = document.createElement("td"),
+      aName = document.createElement('a'),
+      tdCohort = document.createElement("td"),
+      tdEmploy = document.createElement("td"),
+      fragment = document.createDocumentFragment(),
+      row = $('<tr></tr>');
    aName.innerText = '<%= "#{user.fname} ""#{user.lname}" %>';
    aName.setAttribute("href", "/users/<%= user.id %>");
    tdName.appendChild(aName);
@@ -25,8 +28,10 @@ $(function() {
       fragment.appendChild(tdCohort);
       fragment.appendChild(tdEmploy);
       row.append(fragment);
-      $('#search_results').append(row);
+      tbody.append(row);
   <% end %>
+  $('#search_results').append(thead);
+  $('#search_results').append(tbody);
 <% end %>
 
 });
