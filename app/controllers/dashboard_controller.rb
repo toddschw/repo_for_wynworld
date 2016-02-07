@@ -29,11 +29,21 @@ class DashboardController < ApplicationController
 
     @array_with_one = @array_with_one - @array_with_multiple
 
-    @general_array = []
+    @multiple_companies_full_array = []
+
+
     @array_with_multiple.each do | multi_employer |
+      who_there = ""
+      @map2_array = []
       Employment.where(company_id: multi_employer).where(current: true).each do |x|
-        @general_array << x.user.fname << x.company.name
+          who_there << x.user.fname << " " << x.user.lname << ", "
+          @map2_array[0] = x.company.name
+          @map2_array[1] = who_there[0...-2]
+          @map2_array[2] = x.company.latitude
+          @map2_array[3] = x.company.longitude
       end
+      @multiple_companies_full_array << @map2_array
+
     end
 
 

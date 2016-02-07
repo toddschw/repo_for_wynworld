@@ -67,8 +67,11 @@
 
 <%= @array_with_multiple.inspect %>
 <%= @array_with_one.inspect %>
-
+<br>
 <%= @general_array.inspect %>
+<br>
+<%= @multiple_companies_full_array.inspect %>
+
 
 
 <script type="text/javascript">
@@ -80,13 +83,13 @@
 
 
 
-    <% @map_data.each do |pin| %>
+    <% @multiple_companies_full_array.each do |pin| %>
 
         console.log("<%= "#{pin[0]} is the company" %>");
         console.log("<%= "#{pin[1]} is who works there" %>");
         console.log("<%= "#{pin[2]} #{pin[3]} is lat long" %>");
 
-        var markerInfo = "<%= "#{pin[0]} is the company" %>";
+        var markerInfo = "<%= "#{pin[0]}: #{pin[1]}" %>";
         L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
         .bindPopup(markerInfo);
 
