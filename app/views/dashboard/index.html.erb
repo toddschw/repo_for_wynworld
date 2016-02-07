@@ -55,10 +55,20 @@
 
 <br>
 
-<%#= @map_data.inspect %>
-<% @employments.each do |e|
-  e.inspect
-end %>
+<%= @map_data.inspect %><Br>
+
+
+<% @employments.each do |e| %>
+  <%= e.user.fname %>
+  <%= e.company.name %>
+
+  <br>
+<% end %>
+
+<%= @array_with_multiple.inspect %>
+<%= @array_with_one.inspect %>
+
+<%= @general_array.inspect %>
 
 
 <script type="text/javascript">
