@@ -21,7 +21,8 @@ $(function() {
    tdCohort.innerText = '<%=user.cohort.name%>';
       <% unless user.employments.empty? %>
         <% user.employments.where("current = true").each do |e| %>
-        tdEmploy.innerText = '<%= e.company.name %>';
+        tdEmploy.innerText += '<%= e.company.name %>';
+        console.log("<%= e.company.name %>");
         <% end %>
       <%end %>
       fragment.appendChild(tdName);
