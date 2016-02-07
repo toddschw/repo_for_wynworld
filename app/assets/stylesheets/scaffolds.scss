@@ -30,6 +30,7 @@ table {
   th {
     color: #0ff;
     background-color: #555;
+    border: 1px solid #ddd;
     padding: 4px 8px;
     font-weight: 100;
   }
@@ -42,14 +43,10 @@ table {
   }
 }
 
-.flat{
-  display: flex;
-  justify-content: flex-end;;
-  form:nth-child(1){
-    flex-grow: 2;
-
-  }
+.flat {
+  
 }
+
 
 pre {
   background-color: #eee;
