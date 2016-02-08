@@ -12,7 +12,12 @@ margin: 0 2px;
   justify-content: flex-end;;
   form:nth-child(1){
     flex-grow: 2;
+  }
+}
 
+#search_results{
+  img {
+    width: 36px;
   }
 }
 .dash-cohort-table {
