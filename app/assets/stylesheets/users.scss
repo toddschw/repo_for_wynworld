@@ -70,6 +70,13 @@ padding: 30px;
     }
   }
 }
-.pagination ul li{
-  display: inline;
+.pagination{
+ul{
+  float: right;
+  margin: 0px;
+  padding: 5 10px;
+  li{
+    display: inline;
+    }
+  }
 }

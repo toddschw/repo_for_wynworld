@@ -6,9 +6,13 @@
 
 .top-bar{
   display: flex;
-  // width: 100vw;
+  height: 50px;
   border-bottom: solid black 2px;
   justify-content: space-between;
+  .session {
+    align-self: flex-end;
+    padding: 5px;
+  }
 }
 body {
   background-color: #fff;
@@ -33,6 +37,10 @@ table {
     border: 1px solid #ddd;
     padding: 4px 8px;
     font-weight: 100;
+    a, a:visited, {
+      color: #0ff;
+      text-decoration: none;
+    }
   }
   td {
     border: 1px solid dimgray;
@@ -41,10 +49,11 @@ table {
   tr:nth-child(even) {
     background-color: #ddd;
   }
+
 }
 
 .flat {
-  
+
 }
 
 
