@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def index
     # @users = User.paginate(page: params[:page])
-
     sort_by = params[:sort_by]
 
     if !params[:company].nil?
@@ -29,8 +28,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    render plain: 'new'
-    #@user = User.new
+    @user = User.new
   end
 
   def create
