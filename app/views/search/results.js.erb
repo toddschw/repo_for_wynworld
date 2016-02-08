@@ -22,7 +22,7 @@ $(function() {
    tdName.appendChild(aName);
    imgImage.setAttribute("src", "<%= user.avatar_url(:sm_thumb)%>");
    tdImage.appendChild(imgImage);
-  //  tdCohort.innerHTML = '<%= user.cohort.name%>';
+  //  tdCohort.innerHTML = '<%# user.cohort.name%>';
         <% unless user.employments.empty? %>
           <% in_text = "" %>
           <% user.employments.where("current = true").each do |e| %>
