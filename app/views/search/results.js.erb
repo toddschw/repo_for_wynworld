@@ -2,7 +2,7 @@ $(function() {
 
  $('#search_results').html("");
  tbody = $('<tbody></tbody>');
- thead = $('<thead><th></th><th>Name(s) Found</th><th>Cohort</th><th>Currently working at</th></thead>');
+ thead = $('<thead><th></th><th>Name(s) Found</th><th>Currently working at</th></thead>');
 
 
 <% if @user.nil? %>
@@ -13,7 +13,7 @@ $(function() {
       imgImage = document.createElement('img'),
       tdName = document.createElement("td"),
       aName = document.createElement('a'),
-      tdCohort = document.createElement("td"),
+      // tdCohort = document.createElement("td"),
       tdEmploy = document.createElement("td"),
       fragment = document.createDocumentFragment(),
       row = $('<tr></tr>');
@@ -22,7 +22,7 @@ $(function() {
    tdName.appendChild(aName);
    imgImage.setAttribute("src", "<%= user.avatar_url(:sm_thumb)%>");
    tdImage.appendChild(imgImage);
-   tdCohort.innerHTML = '<%= user.cohort.name%>';
+  //  tdCohort.innerHTML = '<%= user.cohort.name%>';
         <% unless user.employments.empty? %>
           <% in_text = "" %>
           <% user.employments.where("current = true").each do |e| %>
@@ -33,7 +33,7 @@ $(function() {
         <%end %>
       fragment.appendChild(tdImage);
       fragment.appendChild(tdName);
-      fragment.appendChild(tdCohort);
+      // fragment.appendChild(tdCohort);
       fragment.appendChild(tdEmploy);
       row.append(fragment);
       tbody.append(row);
