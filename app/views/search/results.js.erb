@@ -17,18 +17,18 @@ $(function() {
       tdEmploy = document.createElement("td"),
       fragment = document.createDocumentFragment(),
       row = $('<tr></tr>');
-   aName.innerText = '<%= "#{user.fname} ""#{user.lname}" %>';
+   aName.innerHTML = '<%= "#{user.fname} ""#{user.lname}" %>';
    aName.setAttribute("href", "/users/<%= user.id %>");
    tdName.appendChild(aName);
    imgImage.setAttribute("src", "<%= user.avatar_url(:sm_thumb)%>");
    tdImage.appendChild(imgImage);
-   tdCohort.innerText = '<%= user.cohort.name%>';
+   tdCohort.innerHTML = '<%= user.cohort.name%>';
         <% unless user.employments.empty? %>
           <% in_text = "" %>
           <% user.employments.where("current = true").each do |e| %>
           <% in_text << "#{e.company.name}" << ", " %>
           <%  %>
-          tdEmploy.innerText = '<%= in_text[0...-2] %>';
+          tdEmploy.innerHTML = '<%= in_text[0...-2] %>';
           <%end %>
         <%end %>
       fragment.appendChild(tdImage);
