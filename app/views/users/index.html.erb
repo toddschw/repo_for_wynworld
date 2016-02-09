@@ -1,5 +1,13 @@
 <% provide(:title, 'All WynAlums') %>
-<h1>All WynAlums</h1>
+<h1>All WynAlums
+  <% if !params[:company].nil? %>
+  <%= "at" %>
+  <%= Company.find(params[:company]).name %>
+  <% end %>
+
+</h1>
+
+
 <div class="dash-menu">
   <form>
     <input name='keyword' placeholder='Search by Student' type='text' value='<%= params[:keyword] %>' size='50'>
