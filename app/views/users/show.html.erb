@@ -32,9 +32,17 @@
     <div class="profile-social">
       <h2>Social links</h2>
     <p>Github:
+      <%if @user.social_links.empty? %>
+      <%=""%>
+      <%else%>
       <%= link_to @user.social_links["github"],@user.social_links["github"]  %></p>
+      <%end%>
     <p>LinkedIn:
+      <%if @user.social_links.empty? %>
+      <%=""%>
+      <%else%>
       <%= link_to @user.social_links["linkedin"], @user.social_links["linkedin"] %></p>
+      <%end%>
     <p>Portfolio Site:
 
       <%= @user.social_links["portfolio"] %></p>
@@ -50,6 +58,7 @@
       <!-- <div "class="profile-edit"> -->
       <% if (current_user.admin || @user == current_user)  %>
       <%= link_to "EDIT", edit_user_path(@user) %>
+      <% elsif current_user.admin %>
       <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
       <% end %>
       <!-- </div> -->
