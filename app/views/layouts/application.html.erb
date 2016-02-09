@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wynworld</title>
+    <title>
+      <%= yield :title %>
+    </title>
     <link href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" rel="stylesheet"/>
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -12,8 +14,8 @@
   <body>
     <div class="container">
       <div class="top-bar">
-        <%= link_to image_tag("WdXNyfs.png"), root_path%>
-        <%= image_tag("WynWorldtxt.png")%>
+        <%= link_to image_tag("WdXNyfs.png", :height => "40"), root_path%>
+        <%= image_tag("WynWorldtxt.png", :height => "40")%>
       <!-- <img src="/assets/WynWorldtxt.png"/> -->
         <div class="session">
         <% if current_user %>

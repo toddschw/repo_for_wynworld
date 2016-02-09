@@ -1,30 +1,27 @@
 <% provide(:title, 'All WynAlums') %>
 <h1>All WynAlums</h1>
+<div class="dash-menu">
   <form>
-    <legend>Search</legend>
-    <div class='col-xs-4'>
-      <input class='form-control' name='keyword' placeholder='Keyword' type='text' value='<%= params[:keyword] %>'>
-    </div>
+    <input name='keyword' placeholder='Search by Student' type='text' value='<%= params[:keyword] %>' size='50'>
+    <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
   </form>
-</p>
-
-
-<%if current_user.admin == true %>
-<%= link_to "Create A New User",  newuser_path %> <p> STILL TRYING TO FIX NEW USER LINK!!</p>
+  <%# end %>
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%if current_user.admin == true %>
+  <%= button_to "Add New User", new_user_registration_path, :class => "menu-btn", :method => :get%>
+  <% end %>
+  <%= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+<% if params[:company].nil? %>
+<%= will_paginate %>
 <% end %>
-
-
-<%= link_to "Sort by First Name", user_index_path(sort_by: :fname) %>
-<%= link_to "Sort by Last Name", user_index_path(sort_by: :lname) %>
-<%= link_to "Sort by Location", user_index_path(sort_by: :location) %>
-
-
 
 <table class="user-index-table">
   <thead>
     <th></th>
-    <th>Name</th>
-    <th>Location</th>
+    <th><%= link_to "First Name ▲", user_index_path(sort_by: :fname) %><%= link_to " Last Name ▲", user_index_path(sort_by: :lname) %></th>
+    <th><%= link_to "Location ▲", user_index_path(sort_by: :location) %></th>
     <th>Email</th>
     <th>Cohort</th>
     <th>Currently Working At</th>
@@ -32,22 +29,23 @@
 
   <tbody>
     <% @users.each do |user| %>
-    <tr><td><%= image_tag(user.avatar_url(:sm_thumb), :width => '36')%></td>
+    <tr>
+      <td><%= image_tag(user.avatar_url(:sm_thumb), :width => '36')%></td>
       <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
       <td><%= user.location %></td>
       <td><%= user.email %></td>
       <td><%= user.cohort.name %></td>
       <td>
         <% unless user.employments.empty? %>
-          <% user.employments.where("current = true").each do |e| %>
-            <%= e.company.name %><br>
-          <% end %>
+        <% user.employments.where("current = true").each do |e| %>
+        <%= e.company.name %><br>
+        <% end %>
         <% end %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <% if params[:company].nil? %>
-  <%= will_paginate %>
+<%#= will_paginate %>
 <% end %>

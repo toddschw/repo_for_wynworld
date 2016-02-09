@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
   has_many :employments
   has_many :companies, through: :employments
 
-  #validates :fname, :lname, :email, :cohort_id, :location, presence: true
+  validates :fname, :lname, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+                   
+                   uniqueness: { case_sensitive: false }
 
   store_accessor :status, :seeking, :reason
   store_accessor :social_links, :slack, :github, :linkedin, :portfolio

@@ -1,10 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :require_no_authentication, only: [:new, :create]
 
 def edit
 end
 
 def new
+  super
     @user = User.new
 end
 
