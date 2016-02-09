@@ -50,12 +50,10 @@ the needed view  %>
   <%= @cohort.name %></h1>
 <div class="dash-menu">
 
-  <% if !current_user.admin %>
-  <%= button_to "View Me", user_path(current_user), :class => "menu-btn", :method => :get%>
-  <% end %>
   <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Edit this Cohort", edit_cohort_path(@cohort), :class => "menu-btn", :method => :get%>
   <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Back to all Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
 
@@ -72,14 +70,6 @@ the needed view  %>
       <%= total_students_working.count %></td>
     <td>Percentage Employed:
       <%= percentage_employed %></td>
-  </tr>
-  <tr>
-    <td class="show-menu" colspan="5">
-      <%if current_user.admin?%>
-      <%= link_to 'Edit Cohort Details', edit_cohort_path(@cohort) %>
-      <%end%>
-      <%= link_to 'Back', cohort_index_path %>
-    </td>
   </tr>
 </table>
 
