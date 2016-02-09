@@ -12,6 +12,9 @@
   .session {
     align-self: flex-end;
     padding: 5px;
+    img{
+    border-radius: 50%;
+  }
   }
 }
 body {
@@ -45,9 +48,6 @@ table {
   td {
     border: 1px solid dimgray;
     padding: 4px 8px;
-    .show-menu{
-      text-align: right;
-    }
   }
   tr:nth-child(even) {
     background-color: #ddd;
