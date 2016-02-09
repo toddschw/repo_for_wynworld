@@ -22,9 +22,11 @@
     </div>
 
     <div class="field">
-      <%= f.label "Location" %><br/>
-      <%= select_tag("Location", options_for_select(['Fort Lauderdale', 'Miami', 'Miami Beach']), { prompt: "Please Select A Location" }) %>
+      <%= label_tag(:user_cohort_id, "Cohort") %><br>
+      <%= collection_select(:user, :cohort_id, @cohorts, :id, :name, { prompt: true } ) %>
     </div>
+
+
 
     <div class="field">
       <%= f.label :password %>

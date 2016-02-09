@@ -59,6 +59,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+      if @user.destroy
+        redirect_to user_index_path, notice: 'User was successfully deleted' 
+      end
+  end
+
+
 
 
   private

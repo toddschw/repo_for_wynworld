@@ -6,11 +6,15 @@ def edit
 end
 
 def new
+    @cohorts = Cohort.all.order(:name)
   super
     @user = User.new
 end
 
 def create
+
+  #render json: sign_up_params
+
   @user = User.new(sign_up_params)
 
   respond_to do |format|
@@ -39,7 +43,7 @@ end
   private
 
    def sign_up_params
-     params.require(:user).permit(:fname, :lname, :email, :password, :password_confirmation)
+     params.require(:user).permit(:fname, :lname, :email, :password, :password_confirmation, :cohort_id)
    end
 
    def account_update_params
