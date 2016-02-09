@@ -1,4 +1,14 @@
+<% company_name = @company.name %>
+<% provide(:title, company_name) %>
 <p id="notice"><%= notice %></p>
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Edit this company", edit_company_path(@company), :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Back to all Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+
 <h1>
   <%= @company.name %>
 </h1>

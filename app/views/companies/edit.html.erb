@@ -1,3 +1,5 @@
+<% company_name = @company.name %>
+<% provide(:title, company_name) %>
 <h1>Update Company</h1>
 <%= render 'form' %>
 <%= link_to 'Cancel', @company %>
