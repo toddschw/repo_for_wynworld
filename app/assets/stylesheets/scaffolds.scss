@@ -45,6 +45,9 @@ table {
   td {
     border: 1px solid dimgray;
     padding: 4px 8px;
+    .show-menu{
+      text-align: right;
+    }
   }
   tr:nth-child(even) {
     background-color: #ddd;
