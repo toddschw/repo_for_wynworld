@@ -1,3 +1,6 @@
+<% cohort_name = @cohort.name %>
+<% provide(:title, cohort_name) %>
+
 <%# Do Some Calculations Here
 They will be used in the page
 
@@ -6,34 +9,34 @@ call the 'each' method twice on the cohort
 to 1) calculate the needed stats and 2)generate
 the needed view  %>
 
-  <% total_students_working = [] %>
-  <% students_in_cohort = @cohort.users.count %>
-  <% @cohort.users.each do |user| %>
-  <%#= user.fname  # Debug Text %>
-  <% if user.employments.all.empty? %>
-      <%# Do Nothing.%>
-      <%#= " - has no employment records" # Debug Text %>
-      <%#= total_students_working # Debug Text %>
-      <!-- <br> -->
-    <% else %>
-      <%#= " - has records" # Debug Text %>
-      <% user.employments.all.each do |e| %>
-         <%#= e.company.name %>
-           <% if e.current == true %>
-             <%#= " (current position)" # Debug Text %>
-             <% total_students_working << e.user.fname %>
-             <% break %>
-           <% end %>
-        <% end %>
-        <%#= total_students_working # Debug Text %>
-      <!-- <br> -->
-    <% end %>
-  <% end %>
-  <%#= "students in cohort: #{students_in_cohort}" %>
-  <%#= "students working: #{total_students_working.count}" %>
-  <!-- br -->
-  <% num = total_students_working.count.to_f / students_in_cohort %>
-  <% percentage_employed = number_to_percentage(num * 100, precision: 0) %>
+<% total_students_working = [] %>
+<% students_in_cohort = @cohort.users.count %>
+<% @cohort.users.each do |user| %>
+<%#= user.fname  # Debug Text %>
+<% if user.employments.all.empty? %>
+<%# Do Nothing.%>
+<%#= " - has no employment records" # Debug Text %>
+<%#= total_students_working # Debug Text %>
+<!-- <br> -->
+<% else %>
+<%#= " - has records" # Debug Text %>
+<% user.employments.all.each do |e| %>
+<%#= e.company.name %>
+<% if e.current == true %>
+<%#= " (current position)" # Debug Text %>
+<% total_students_working << e.user.fname %>
+<% break %>
+<% end %>
+<% end %>
+<%#= total_students_working # Debug Text %>
+<!-- <br> -->
+<% end %>
+<% end %>
+<%#= "students in cohort: #{students_in_cohort}" %>
+<%#= "students working: #{total_students_working.count}" %>
+<!-- br -->
+<% num = total_students_working.count.to_f / students_in_cohort %>
+<% percentage_employed = number_to_percentage(num * 100, precision: 0) %>
 
 <!-- <ul>
 <%# @cohort.users.each do |student| %>
@@ -43,22 +46,32 @@ the needed view  %>
 </ul> -->
 
 <%# PAGE VIEW BEGINS HERE ------  %>
-<h1> <%= @cohort.name %></h1>
+<h1>
+  <%= @cohort.name %></h1>
+<div class="dash-menu">
+
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Edit this Cohort", edit_cohort_path(@cohort), :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Back to all Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+
 <table>
   <tr>
-<td>Location: <%= @cohort.location %></td>
-<td>Graduation Date: <%= @cohort.graddate %></td>
-<td>Students in Cohort: <%= students_in_cohort %> </td>
-<td>Students Employed:  <%= total_students_working.count %></td>
-<td>Percentage Employed: <%= percentage_employed %></td>
-</tr>
-<tr>
-<%if current_user.admin?%>
-<%= link_to 'Edit Cohort Details', edit_cohort_path(@cohort) %>
-<%end%>
-<%= link_to 'Back', cohort_index_path %>
-</tr>
-  </table>
+    <td>Location:
+      <%= @cohort.location %></td>
+    <td>Graduation Date:
+      <%= @cohort.graddate %></td>
+    <td>Students in Cohort:
+      <%= students_in_cohort %>
+    </td>
+    <td>Students Employed:
+      <%= total_students_working.count %></td>
+    <td>Percentage Employed:
+      <%= percentage_employed %></td>
+  </tr>
+</table>
 
 <table class="dash-cohort-table">
   <thead>
@@ -69,13 +82,13 @@ the needed view  %>
   <tbody>
     <% @cohort.users.each do |user| %>
     <tr>
-      <tr><td><%= image_tag(user.avatar_url(:sm_thumb))%></td>
+      <td><%= image_tag(user.avatar_url(:sm_thumb))%></td>
       <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
       <td>
         <% unless user.employments.empty? %>
-          <% user.employments.where("current = true").each do |e| %>
-            <%= e.company.name %><br>
-          <% end %>
+        <% user.employments.where("current = true").each do |e| %>
+        <%= e.company.name %><br>
+        <% end %>
         <% end %>
       </tr>
       <% end %>

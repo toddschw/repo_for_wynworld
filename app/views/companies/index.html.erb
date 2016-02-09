@@ -1,18 +1,19 @@
+<% provide(:title, 'Hiring Partners') %>
 <p id="notice"><%= notice %></p>
-
-
 <h1>Hiring Partners</h1>
+<div class="dash-menu">
   <form>
-    <legend>Search</legend>
-    <div class='col-xs-4'>
-      <input class='form-control' name='keyword' placeholder='Keyword' type='text' value='<%= params[:keyword] %>'>
-    </div>
-  </form><br>
-
-<% if current_user.admin?%>
-<%= link_to 'Add New Company', new_company_path %>
-<%end%>
-<p id="notice"><%= notice %></p>
+    <input name='keyword' placeholder='Search by company' type='text' value='<%= params[:keyword] %>' size='50'>
+    <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
+  </form>
+    <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%if current_user.admin == true %>
+  <%= button_to "Add New Company", new_company_path, :class => "menu-btn", :method => :get%>
+  <% end %>
+  <%= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+<%= will_paginate %>
 <table>
   <thead>
     <tr>
