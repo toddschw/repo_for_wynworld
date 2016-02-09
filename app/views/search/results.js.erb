@@ -24,8 +24,11 @@ $(function() {
    tdImage.appendChild(imgImage);
    tdCohort.innerText = '<%= user.cohort.name%>';
       <% unless user.employments.empty? %>
+        <% in_text = "" %>
         <% user.employments.where("current = true").each do |e| %>
-        tdEmploy.innerText += '<%= e.company.name %> ';
+        <% in_text << "#{e.company.name}" << ", " %>
+
+        tdEmploy.innerText = '<%= in_text[0...-2] %>';
         <%end %>
       <%end %>
       fragment.appendChild(tdImage);
