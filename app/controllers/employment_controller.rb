@@ -1,7 +1,9 @@
 class EmploymentController < ApplicationController
 
   before_filter :authenticate_user!
-  before_action :admin_user
+  before_action :admin_user_newaction, only: [:new]
+  before_action :admin_user_editdeleteaction, only: [:edit, :destroy]
+  before_action :admin_user_updateaction, only: [:update]
 
 
   def new
@@ -53,9 +55,19 @@ end
 
 private
 
-def admin_user
-  redirect_to root_url unless current_user.admin
+def admin_user_newaction
+  redirect_to root_url unless current_user.admin || User.find(params[:user_id]) == current_user
 end
+
+def admin_user_editdeleteaction
+  redirect_to root_url unless current_user.admin || Employment.find(params[:id]).user == current_user
+end
+
+def admin_user_updateaction
+  redirect_to root_url unless current_user.admin || Employment.find(params[:employment_id]).user == current_user
+end
+
+
 
 def new_employment_params
   params.require(:new_employment).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
