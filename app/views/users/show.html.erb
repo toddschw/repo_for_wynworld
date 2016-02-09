@@ -57,10 +57,13 @@
       <%# Edit Profile Link %>
       <!-- <div "class="profile-edit"> -->
       <% if (current_user.admin || @user == current_user)  %>
-      <%= link_to "EDIT", edit_user_path(@user) %>
-      <% elsif current_user.admin %>
-      <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
+        <%= link_to "EDIT", edit_user_path(@user) %>
       <% end %>
+
+      <% if current_user.admin %>
+        <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
+      <% end %>
+
       <!-- </div> -->
       <hr>
       <div class="profile-pic"></div>
