@@ -13,7 +13,9 @@
   <%= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
+<% if params[:company].nil? %>
 <%= will_paginate %>
+<% end %>
 
 <table class="user-index-table">
   <thead>
@@ -45,5 +47,5 @@
 </table>
 
 <% if params[:company].nil? %>
-<%= will_paginate %>
+<%#= will_paginate %>
 <% end %>

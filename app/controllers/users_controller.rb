@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     else
       @users = User.where(admin: false).order(sort_by).includes(:companies).search(params[:keyword]).filter(params[:filter]).paginate(page: params[:page]).order(fname: :asc)
     end
+
   end
 
   def show
