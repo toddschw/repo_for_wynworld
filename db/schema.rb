@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160208211431) do
   create_table "employments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "company_id"
-    t.string   "jobtitle",   default: ""
+    t.string   "jobtitle"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "roletype"
