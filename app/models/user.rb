@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   scope :filter, ->(chicken){
     joins(:companies).where('companies.name = ?', chicken) if chicken.present?
   }
-  scope :search, ->(fname){where('fname LIKE ? OR fname LIKE ?', "%#{fname.capitalize}%", "%#{{fname.downcase}}") if fname.present?}
+  scope :search, ->(fname){where('fname LIKE ? OR fname LIKE ?', "%#{fname.capitalize}%", "%#{fname.downcase}") if fname.present?}
 
 
 end
