@@ -9,18 +9,29 @@ class EmploymentController < ApplicationController
   def new
     @companies = Company.all.order(:name)
     @user_id = params[:user_id]
-
+    @new_employment = Employment.new
   end
 
   def create
-    # render json: params
+    #render json: params
 
-    @employment = Employment.new(new_employment_params)
-    if @employment.save
-      redirect_to user_path(@employment.user_id), notice: "New Position Added"
-      #render plain: @employment.user_id
+    @new_employment = Employment.new(new_employment_params)
+    @companies = Company.all.order(:name)
+    @user_id = new_employment_params[:user_id]
+
+
+    #render plain: @employment.inspect
+
+    if @new_employment.save
+      redirect_to user_path(@new_employment.user_id), notice: "New Position Added"
+      #render plain: @new_employment.inspect
     else
-      redirect_to employment_new_path, notice: "Sorry, there was an error."
+      #redirect_to employment_new_path, notice: "Sorry, there was an error."
+      #redirect_to root_path, notice: "Sorry, there was an error."
+      #redirect_to new_employment_path(@employment.user_id)
+      render "new"
+
+      #render json: { message: "sorry, error", employment: @employment }
     end
 
   end
