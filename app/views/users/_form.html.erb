@@ -11,6 +11,12 @@
   </ul>
 </div>
 <% end %>
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
 <div class="edit-container">
   <div class="edit-column">
     <div class="field">
@@ -73,6 +79,9 @@
         <div class="actions">
           <%= f.submit %>
         </div>
+        <% end %>
+        <% if current_user.admin %>
+          <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
         <% end %>
     </div>
   </div>

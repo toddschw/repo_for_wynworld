@@ -1,5 +1,9 @@
-<h1>New Cohort</h1>
+<% provide(:title, "Add New Cohort") %>
+
+<h1>Add New Cohort</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', cohort_index_path %>
+<div class="float-right">
+  <%= button_to "cancel", cohort_index_path, :class => "menu-btn", :method => :get%>
+</div>

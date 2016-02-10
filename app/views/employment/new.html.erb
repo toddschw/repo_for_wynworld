@@ -1,9 +1,15 @@
+<% provide(:title, "Add A Position") %>
 <h1>Add A Position</h1>
 
 <%= form_tag("/employment/create") do %>
 
 <%= hidden_field_tag("new_employment[user_id]", @user_id) %>
-
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
 <div class="employment-edit">
   <div class="edit-column">
   <div class="field">
@@ -17,7 +23,7 @@
   </div>
 
   <div class="field">
-    <%= label_tag(:new_employment_roletype, "Type of Role (Developer or Non-Technical):") %>
+    <%= label_tag(:new_employment_roletype, "Type of Role <br>(Developer or Non-Technical):".html_safe) %>
     <%= text_field(:new_employment, :roletype) %>
 
 </div>
@@ -63,4 +69,7 @@
 <% end %>
 </div>
 
+</div>
+<div class="float-right">
+<%= button_to "cancel", @user, :class => "menu-btn", :method => :get%><br>
 </div>

@@ -1,4 +1,10 @@
-<div class="com-stat">
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+<div class="company">
 <%= form_for(@company) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -11,11 +17,11 @@
       </ul>
     </div>
   <% end %>
-  <div class="com-full">
+  <div class="company">
 <div class="com-left">
   <div class="field">
     <%= f.label "Company Name" %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size=>50 %>
   </div>
   <div class="field">
     <%= f.label :street1 %><br>
@@ -55,7 +61,7 @@
   </div>
   <div class="field">
     <%= f.label "Company Type" %><br>
-    <%= f.text_field :orgtype %>
+    <%= f.text_field :orgtype, :size=>50 %>
   </div>
 </div>
 
@@ -63,19 +69,19 @@
   <div class="com-right">
   <div class="field">
     <%= f.label "Contact First Name" %><br>
-    <%= f.text_field :contact_first %>
+    <%= f.text_field :contact_first, :size=>50 %>
   </div>
   <div class="field">
     <%= f.label "Contact Last Name" %><br>
-    <%= f.text_field :contact_last %>
+    <%= f.text_field :contact_last, :size=>50 %>
   </div>
   <div class="field">
     <%= f.label "Contact Number" %><br>
-    <%= f.text_field :contact_phone %>
+    <%= f.text_field :contact_phone, :size=>50 %>
   </div>
   <div class="field">
     <%= f.label "Contact Email" %><br>
-    <%= f.text_field :contact_email, :size=>30 %>
+    <%= f.text_field :contact_email, :size=>50 %>
   </div>
   <div class="field">
     <%= f.label :note %><br>

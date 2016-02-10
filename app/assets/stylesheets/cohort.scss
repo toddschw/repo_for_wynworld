@@ -13,13 +13,13 @@ padding: 30px;
     .field{
       display: flex;
       justify-content: space-between;
-
       input{
+        flex-grow: 1;
         padding : 5px;
         margin: 5px;
       &[type="text"]{
         border: none;
-        flex-grow: 2;
+        flex-grow: 1;
       }
       }
     }

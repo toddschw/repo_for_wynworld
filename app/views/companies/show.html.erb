@@ -1,63 +1,45 @@
-<% company_name = @company.name %>
-<% provide(:title, company_name) %>
+<% provide(:title, @company.name) %>
 <p id="notice"><%= notice %></p>
-<div class="dash-menu">
-  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "Edit this company", edit_company_path(@company), :class => "menu-btn", :method => :get%>
-  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "Back to all Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
-</div>
-
 <h1>
   <%= @company.name %>
 </h1>
-<div class="com-stat">
-    <strong>Name:</strong>
-    <%= @company.name %>
-    <br>
-    <strong>Address:</strong>
-    <%= "#{@company.street1} #{@company.street2}" %>
-    <br>
-    <div class="inline"></div>
-    <strong>City:</strong>
-    <%= @company.city %>
-    <strong>State:</strong>
-    <%= @company.state %>
-     <strong>Zip:</strong>
-    <%= @company.zip %>
-<div class="com-type">
-  <strong>Description:</strong>
-  <%= @company.description %>
-<br>
-  <strong>Website:</strong>
-  <%= @company.website %>
-<br>
-  <strong>Hiring partner?:</strong>
-  <%= @company.hp %>
-  <br>
-  <strong>company Type</strong>
-  <%= @company.orgtype %>
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <% if current_user.admin? %>
+  <%= button_to "Edit this company", edit_company_path(@company), :class => "menu-btn", :method => :get%>
+  <% end %>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Back to all Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%></p>
+</div>
+<div class="company">
+<div class="com-left">
+  <p>Name: <%= @company.name %>
+  </p>
+  <p>Address: <%= "#{@company.street1} #{@company.street2}" %>
+  </p>
+  <p>
+  City: <%= @company.city %><span></span>
+  State: <%= @company.state %><span></span>
+   Zip: <%= @company.zip %>
+</p>
+  <p>Description: <%= @company.description %>
+</p>
+  <p>Website: <%= @company.website %>
+</p>
+  <p>Hiring partner?: <%= @company.hp %>
+  </p>
+  <p>company Type <%= @company.orgtype %>
   </div>
-
-  <div class="com-contact">
-  <strong>Contact Name:</strong>
-  <%= "#{@company.contact_first} #{@company.contact_last}" %>
-  <br>
-  <strong>Contact Number:</strong>
-  <%= @company.contact_phone %>
-  <br>
-  <strong>Contact Email:</strong>
-  <%= @company.contact_email %>
-  <br>
-  <strong>Note:</strong>
-  <%= @company.note %>
+  <% if current_user.admin? %>
+  <div class="com-right">
+  <p>Contact Name: <%= "#{@company.contact_first} #{@company.contact_last}" %>
+  </p>
+  <p>Contact Number: <%= @company.contact_phone %>
+  </p>
+  <p>Contact Email: <%= @company.contact_email %>
+  </p>
+  <p class="note-input">Note: <%= @company.note %></p>
   </div>
-
-<% if current_user.admin? %>
-<%= link_to 'Edit', edit_company_path(@company) %>
-<%= link_to 'delete', @company, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-<%end %>
-<%= link_to 'Back', companies_path %>
+<% end %>
 </div>

@@ -1,11 +1,17 @@
-<h1>Edit A Position</h1>
-<p>Use this form to correct any details</p>
+<% provide(:title, "Edit Position") %>
+
+<h1>Edit Position</h1>
 
 <%= form_tag("/employment/update") do %>
 
 
 <%= hidden_field_tag("employment_id", @employment_id) %>
-
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
 <div class="employment-edit">
   <div class="edit-column">
   <div class="field">
@@ -62,4 +68,7 @@
 
 <% end %>
 </div>
+</div>
+<div class="float-right">
+<%= button_to "cancel", @user, :class => "menu-btn", :method => :get%><br>
 </div>

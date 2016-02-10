@@ -1,17 +1,24 @@
+<% full_name = "#{@user.fname} #{@user.lname}" %>
+<% provide(:title, full_name) %>
 <h1>
   <%= "#{@user.fname} #{@user.lname}" %>
 </h1>
 
-
 <% if flash[:notice] %>
   <p id="notice"><%= flash[:notice] %></p>
 <% end %>
-
-
-
-<div class="profile-stat">
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <% if (current_user.admin || @user == current_user)  %>
+  <%= button_to "Edit this profile", edit_user_path(@user), :class => "menu-btn", :method => :get%>
+  <% end %>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+<div class="profile">
   <!-- Basic Info: Start -->
-  <div class="basic-stat">
+  <div class="profile-basic">
     <h2>Contact Info</h2>
   <p>Name:
     <%= @user.fname %>
@@ -44,44 +51,28 @@
       <%= link_to @user.social_links["linkedin"], @user.social_links["linkedin"] %></p>
       <%end%>
     <p>Portfolio Site:
-
-      <%= @user.social_links["portfolio"] %></p>
+      <%= link_to @user.social_links["portfolio"], @user.social_links["portfolio"] %></p>
 
     <p>Slack:
       <%= @user.social_links["slack"] %></p>
     </div>
-
-
-    <!-- Profile pic -->
-    <div class="profil">
-      <%# Edit Profile Link %>
-      <!-- <div "class="profile-edit"> -->
-      <% if (current_user.admin || @user == current_user)  %>
-        <%= link_to "EDIT", edit_user_path(@user) %>
-      <% end %>
-
-      <% if current_user.admin %>
-        <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
-      <% end %>
-
-      <!-- </div> -->
-      <hr>
-      <div class="profile-pic"></div>
-      <div class="profile-pic">
+    <div class="profile-con">
       <%= image_tag @user.avatar_url(:profile_pic), class: "img-cir" %>
-      <!-- <%= image_tag @user.picurl, size: "250", class: "img-cir" %> -->
-    </div>
-    <div class="profile-pic"></div>
   </div>
 </div>
+
 <!-- Basic Info: End -->
 <br>
-
+<div class="flat">
 
 <% if current_user.admin || current_user == User.find(params[:id]) %>
 <h3>Work History - <%= link_to "Add A Position", employment_new_path(@user) %></span></h3>
 <% end %>
 
+<% if current_user.admin %>
+  <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
+<% end %>
+</div>
 <div class="profile-hist">
 <table class="profile-hist-table">
   <thead>
