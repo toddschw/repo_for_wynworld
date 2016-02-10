@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'employment/new/:user_id' => 'employment#new', as: 'employment_new'
-  post 'employment/create'
+  post 'employment/create' => 'employment#create', as: 'employment_create'
 
   get 'employment/edit/:id' => 'employment#edit', as: 'employment_edit'
   post 'employment/update'
