@@ -12,9 +12,6 @@ def new
 end
 
 def create
-
-  #render json: sign_up_params
-
   @user = User.new(sign_up_params)
   @cohorts = Cohort.all.order(:name)
 
@@ -40,6 +37,7 @@ def update
     end
   end
 end
+
 
   private
 

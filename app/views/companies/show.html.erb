@@ -42,4 +42,9 @@
   <p class="note-input">Note: <%= @company.note %></p>
   </div>
 <% end %>
+
+<% if current_user.admin %>
+<%= link_to 'Delete Company', company_path(@company), method: :delete, data: { confirm: 'Are you sure you want to delete this position?' }  %>
+<%end%>
+
 </div>
