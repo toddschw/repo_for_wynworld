@@ -4,7 +4,6 @@
   <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
-<div class="company">
 <%= form_for(@company) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -94,4 +93,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-</div>

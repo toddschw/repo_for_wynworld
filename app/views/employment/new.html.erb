@@ -1,5 +1,13 @@
 <% provide(:title, "Add A Position") %>
 <h1>Add A Position</h1>
+<div class="dash-menu">
+  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+</div>
+<div class="company">
+<div class="com-left">
 
 <%= form_for(:new_employment, :url => employment_create_path ) do |f| %>
 
@@ -13,10 +21,7 @@
       </ul>
     </div>
   <% end %>
-
   <%= f.hidden_field(:user_id, :value => @user_id) %>
-
-
   <div class="field">
     <%= f.label(:company_id, "Company:") %>
     <%= f.collection_select(:company_id, @companies, :id, :name, prompt: true) %>
@@ -64,10 +69,12 @@
       <%= f.radio_button(:current, false) %>
       <%= f.label(:current_false, "Not a current position") %>
     </div>
-
-
   <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>
+</div>
+</div>
+<div class="float-right">
+  <%= button_to "cancel", @company, :class => "menu-btn", :method => :get%>
+</div>
