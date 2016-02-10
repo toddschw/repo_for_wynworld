@@ -16,6 +16,7 @@ def create
   #render json: sign_up_params
 
   @user = User.new(sign_up_params)
+  @cohorts = Cohort.all.order(:name)
 
   respond_to do |format|
     if @user.save
