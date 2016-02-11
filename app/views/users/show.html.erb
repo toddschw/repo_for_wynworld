@@ -58,6 +58,9 @@
     </div>
     <div class="profile-con">
       <%= image_tag @user.avatar_url(:profile_pic), class: "img-cir" %>
+      <% if current_user.admin %>
+        <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
+      <% end %>
   </div>
 </div>
 
@@ -69,9 +72,7 @@
 <h3>Work History - <%= link_to "Add A Position", employment_new_path(@user) %></span></h3>
 <% end %>
 
-<% if current_user.admin %>
-  <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
-<% end %>
+
 </div>
 <div class="profile-hist">
 <table class="profile-hist-table">

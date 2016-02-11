@@ -23,8 +23,9 @@ class User < ActiveRecord::Base
   scope :search, ->(fname){where('fname LIKE ? OR fname LIKE ?', "%#{fname.capitalize}%", "%#{fname.downcase}") if fname.present?}
 
   def capitalize_name
-    self.fname = self.fname.capitalize
-    self.lname = self.lname.capitalize
-  end
-
+    if !self.admin == "false"
+        self.fname = self.fname.capitalize
+        self.lname = self.lname.capitalize
+      end
+    end
 end
