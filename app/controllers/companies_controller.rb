@@ -56,12 +56,15 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
-    @company.destroy
-    respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
-      format.json { head :no_content }
+    if @company.employments.empty?
+      @company.destroy
+      redirect_to companies_path, notice: 'Company was successfully destroyed.'
+    else
+      redirect_to companies_path, notice: 'You can not delete a company if an Alum works or worked there.'
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
