@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
   belongs_to :cohort
-  has_many :employments
+  has_many :employments, dependent: :destroy
   has_many :companies, through: :employments
   before_save :capitalize_name
 
