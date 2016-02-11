@@ -1,20 +1,23 @@
 .menu-btn {
-background-color: #555;
+background-color: #666;
 color: #0ff;
 margin: 0 2px;
   &:hover {
-    background-color: #aaa;
-    color: #065;
+    background-color: #444;
+    color: darkturquoise;
   }
 }
-.dash-menu{
+.search-menu{
   display: flex;
   justify-content: flex-end;;
   form:nth-child(1){
     flex-grow: 2;
   }
 }
-
+.dash-menu{
+  display: flex;
+  justify-content: flex-end;;
+}
 #search_results{
   img {
     width: 36px;
@@ -23,5 +26,10 @@ margin: 0 2px;
 .dash-cohort-table {
   img {
     width: 36px;
+  }
+}
+.dash-search{
+  input{
+    padding: 5px 10px;
   }
 }

@@ -3,22 +3,19 @@
 <h1>Welcome to Wynworld,
   <%= current_user.fname %>!
 </h1>
-
-<!--  map (initial) -->
-<div id="map"></div>
-<!-- end map -->
-
 <div class="dash-menu">
-  <!-- search form -->
-  <%= render partial: "search/index" %>
   <!-- links -->
-  <% if !current_user.admin %>
-  <%= button_to "View Me", user_path(current_user), :class => "menu-btn", :method => :get%>
-  <% end %>
   <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
   <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
+<!--  map (initial) -->
+<div id="map"></div>
+<!-- end map -->
+<!-- search form -->
+<%= render partial: "search/index" %>
+
+
 <div id="h2"></div>
 <table  id="search_results"></table>
 
@@ -55,7 +52,7 @@
 
     var map = L.map('map').setView([38.7006009, -96.5933281], 4);
     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 4}).addTo(map);
-    
+
     <% @single_companies_full_array.each do |pin| %>
 
         <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>

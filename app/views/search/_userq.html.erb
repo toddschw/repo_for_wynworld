@@ -1,8 +1,0 @@
-<tr id="user_<%= user.id %>">
-  <td><%= "#{user.fname} ""#{user.lname}" %></td>
-  <td>user.cohort.name</td>
-  <td>
-    <% unless user.employments.empty? %>
-      <% user.employments.where("current = true").each do |e| %>
-        <%= e.company.name %><br>
-      </tr>
