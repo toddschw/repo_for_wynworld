@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   belongs_to :cohort
   has_many :employments
   has_many :companies, through: :employments
+  before_save :capitalize_name
 
   validates :fname, :lname, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -21,5 +22,9 @@ class User < ActiveRecord::Base
   }
   scope :search, ->(fname){where('fname LIKE ? OR fname LIKE ?', "%#{fname.capitalize}%", "%#{fname.downcase}") if fname.present?}
 
+  def capitalize_name
+    self.fname = self.fname.capitalize
+    self.lname = self.lname.capitalize
+  end
 
 end
