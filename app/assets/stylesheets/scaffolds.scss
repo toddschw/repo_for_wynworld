@@ -10,9 +10,11 @@
   border-bottom: solid black 2px;
   justify-content: space-between;
   .session {
-    align-self: flex-end;
-    padding: 5px;
+    display: flex;
+    //  padding: 5px;
+     align-items: center;
     img{
+      margin: 0 10px;
     border-radius: 50%;
   }
   }
