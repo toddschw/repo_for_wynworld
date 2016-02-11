@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
   belongs_to :cohort
-  has_many :employments
+  has_many :employments, dependent: :destroy
   has_many :companies, through: :employments
   before_save :capitalize_name
 
@@ -23,8 +23,10 @@ class User < ActiveRecord::Base
   scope :search, ->(fname){where('fname LIKE ? OR fname LIKE ?', "%#{fname.capitalize}%", "%#{fname.downcase}") if fname.present?}
 
   def capitalize_name
-    self.fname = self.fname.capitalize
-    self.lname = self.lname.capitalize
+    if (!fname.nil? && !lname.nil?)
+      self.fname = self.fname.capitalize
+      self.lname = self.lname.capitalize
+    end
   end
 
 end

@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
   end
 
   def create
@@ -61,7 +60,7 @@ class UsersController < ApplicationController
 
   def destroy
       if @user.destroy
-        redirect_to user_index_path, notice: 'User was successfully deleted' 
+        redirect_to user_index_path, notice: 'User was successfully deleted'
       end
   end
 

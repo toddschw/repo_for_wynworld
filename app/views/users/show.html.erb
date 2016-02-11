@@ -39,19 +39,18 @@
     <div class="profile-social">
       <h2>Social links</h2>
     <p>Github:
-      <%if @user.social_links.empty? %>
-      <%=""%>
-      <%else%>
-      <%= link_to @user.social_links["github"],@user.social_links["github"]  %></p>
-      <%end%>
+      <%if !@user.github.nil? %>
+        <%= link_to @user.github, @user.github  %></p>
+      <% end %>
     <p>LinkedIn:
-      <%if @user.social_links.empty? %>
-      <%=""%>
-      <%else%>
-      <%= link_to @user.social_links["linkedin"], @user.social_links["linkedin"] %></p>
-      <%end%>
+      <%if !@user.linkedin.nil? %>
+        <%= link_to @user.linkedin, @user.linkedin  %></p>
+      <% end %>
     <p>Portfolio Site:
-      <%= link_to @user.social_links["portfolio"], @user.social_links["portfolio"] %></p>
+      <% if !@user.portfolio.nil? %>
+        <%= link_to @user.portfolio, @user.portfolio %></p>
+      <% end %>
+
 
     <p>Slack:
       <%= @user.social_links["slack"] %></p>
