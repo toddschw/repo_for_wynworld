@@ -46,7 +46,7 @@ the needed view  %>
 
 <%# PAGE VIEW BEGINS HERE ------  %>
 <h1>
-  <%= @cohort.name %></h1>
+  <%= "#{@cohort.name} Cohort" %></h1>
 <div class="dash-menu">
   <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
   <%if current_user.admin?%>

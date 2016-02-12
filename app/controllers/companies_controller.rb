@@ -60,7 +60,7 @@ class CompaniesController < ApplicationController
       @company.destroy
       redirect_to companies_path, notice: 'Company was successfully destroyed.'
     else
-      redirect_to companies_path, notice: 'You can not delete a company if an Alum works or worked there.'
+      redirect_to companies_path, notice: 'You can not delete a company if an WynAlum currently works or has worked there. Please first edit that user\'s profile to remove the position from his/her work history.'
     end
   end
 
