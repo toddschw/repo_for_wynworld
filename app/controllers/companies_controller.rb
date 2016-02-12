@@ -19,6 +19,7 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
+
   # GET /companies/1/edit
   def edit
   end
@@ -80,4 +81,6 @@ class CompaniesController < ApplicationController
     def admin_user
       redirect_to root_url unless current_user.admin?
     end
+
+
 end

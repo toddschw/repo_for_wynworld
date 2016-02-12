@@ -17,6 +17,12 @@
         <%= link_to image_tag("WdXNyfs.png", :height => "40"), root_path%>
         <%= link_to image_tag("WynWorldtxt.png", :height => "40"), root_path %>
       <!-- <img src="/assets/WynWorldtxt.png"/> -->
+      <div class="dash-menu">
+        <!-- links -->
+        <%= button_to "Students and Alums", user_index_path, :class => "menu-btn", :method => :get%>
+        <%= button_to "Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+        <%= button_to "Companies", companies_path, :class => "menu-btn", :method => :get%><br>
+      </div>
         <div class="session">
         <% if current_user %>
           <% if !current_user.admin %>

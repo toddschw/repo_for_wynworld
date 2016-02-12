@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   has_many :employments
   has_many :users, through: :employments
 
-  validates :name, :city, :state, :website, :zip, presence: true
+  validates :name, :city, :state, :zip, presence: true
 
   def full_address
     [street1, city, state, zip].compact.join(', ')
@@ -18,6 +18,5 @@ class Company < ActiveRecord::Base
   end
 
   scope :search, ->(name) { where('name LIKE ? OR name LIKE ? OR name LIKE ?', "%#{name.include?"#{name}".upcase}%", "%#{name.capitalize}%", "%#{name.upcase}%") if name.present? }
-
 
 end

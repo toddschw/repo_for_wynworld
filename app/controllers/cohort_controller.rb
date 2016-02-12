@@ -31,7 +31,9 @@ class CohortController < ApplicationController
   end
 
   def destroy
-
+    if @cohort.destroy
+      redirect_to cohort_index_path, notice: 'Company was successfully destroyed.'
+    end
   end
 
   def create

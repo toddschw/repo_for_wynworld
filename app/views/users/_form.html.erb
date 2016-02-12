@@ -1,9 +1,9 @@
 
 <div class="dash-menu">
-  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+  <%#= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%#= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%#= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%#= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
 <%= form_for @user, html: { multipart: true } do |f| %>
 <% if @user.errors.any? %>
