@@ -23,10 +23,8 @@
 
     <div class="field">
       <%= label_tag(:user_cohort_id, "Cohort") %><br>
-      <%= collection_select(:user, :cohort_id, @cohorts, :id, :name, { prompt: true } ) %>
+      <%= collection_select(:user, :cohort_id, @cohorts, :id, :name, { prompt: "Please Select One" } ) %>
     </div>
-
-
 
     <div class="field">
       <%= f.label :password %>

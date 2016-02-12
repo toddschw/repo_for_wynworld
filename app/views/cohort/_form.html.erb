@@ -24,7 +24,7 @@
     </div>
     <div class="field">
       <%= f.label :location %><br>
-      <%= f.text_field :location %>
+      <%= f.select(:location, options_for_select(['Fort Lauderdale', 'Miami', 'Miami Beach']), { prompt: "Please select" }) %>
     </div>
     <div class="field">
       <%= f.label :graddate %><br>

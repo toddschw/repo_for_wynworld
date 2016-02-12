@@ -46,41 +46,48 @@
 
 <script type="text/javascript">
   $(function () {
-
     var map = L.map('map').setView([38.7006009, -96.5933281], 4);
     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 4}).addTo(map);
 
-    <% @single_companies_full_array.each do |pin| %>
+        map.on('click', function() {
+        if (map.scrollWheelZoom.enabled()) {
+          map.scrollWheelZoom.disable();
+          }
+          else {
+          map.scrollWheelZoom.enable();
+          }
+        });
 
-        <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>
+          <% @single_companies_full_array.each do |pin| %>
 
-
-        // console.log("<%= "#{pin[0]} is the company" %>");
-        // console.log("<%= "#{pin[1]} is who works there" %>");
-        // console.log("<%= "#{pin[2]} #{pin[3]} is lat long" %>");
-
-        var markerInfo = "<%= "#{pin[0]}: #{pin[1]}" %>";
-        L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
-        .bindPopup(markerInfo);
-        <% end %>
-    <% end %>
-
-    <% @multiple_companies_full_array.each do |pin| %>
-
-      <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>
+              <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>
 
 
-        // console.log("<%= "#{pin[0]} is the company" %>");
-        // console.log("<%= "#{pin[1]} is who works there" %>");
-        // console.log("<%= "#{pin[2]} #{pin[3]} is lat long" %>");
+              // console.log("<%= "#{pin[0]} is the company" %>");
+              // console.log("<%= "#{pin[1]} is who works there" %>");
+              // console.log("<%= "#{pin[2]} #{pin[3]} is lat long" %>");
 
-        var markerInfo = "<%= "#{pin[0]}: #{pin[1]}" %>";
-        L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
-        .bindPopup(markerInfo);
-      <% end %>
-    <% end %>
+              var markerInfo = "<%= "#{pin[0]}: #{pin[1]}" %>";
+              L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
+              .bindPopup(markerInfo);
+              <% end %>
+          <% end %>
+
+          <% @multiple_companies_full_array.each do |pin| %>
+
+            <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>
 
 
+              // console.log("<%= "#{pin[0]} is the company" %>");
+              // console.log("<%= "#{pin[1]} is who works there" %>");
+              // console.log("<%= "#{pin[2]} #{pin[3]} is lat long" %>");
 
-  });
+              var markerInfo = "<%= "#{pin[0]}: #{pin[1]}" %>";
+              L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
+              .bindPopup(markerInfo);
+            <% end %>
+          <% end %>
+        });
 </script>
+
+<script src="Leaflet.Sleep.js"></script>
