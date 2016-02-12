@@ -48,13 +48,16 @@ the needed view  %>
 <h1>
   <%= @cohort.name %></h1>
 <div class="dash-menu">
-  <%= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%#= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
   <%if current_user.admin?%>
   <%= button_to "Edit this Cohort", edit_cohort_path(@cohort), :class => "menu-btn", :method => :get%>
   <% end %>
-  <%= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "Back to all Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
-  <%= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+  <%#= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
+  <%#= button_to "Back to all Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%#= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
+  <% if current_user.admin %>
+  <%= button_to 'Delete Cohort', cohort_path(@cohort), :class => "menu-btn", method: :delete, data: { confirm: 'Are you sure you want to delete this position?' }  %>
+  <%end%>
 </div>
 
 <table>
