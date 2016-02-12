@@ -49,15 +49,6 @@
     var map = L.map('map').setView([38.7006009, -96.5933281], 4);
     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 4}).addTo(map);
 
-        map.on('click', function() {
-        if (map.scrollWheelZoom.enabled()) {
-          map.scrollWheelZoom.disable();
-          }
-          else {
-          map.scrollWheelZoom.enable();
-          }
-        });
-
           <% @single_companies_full_array.each do |pin| %>
 
               <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>
