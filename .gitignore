@@ -16,3 +16,4 @@ erd.pdf
 /config/application.yml
 .env
 /zeta/*
+.DS_Store
