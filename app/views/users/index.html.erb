@@ -13,13 +13,9 @@
     <input name='keyword' placeholder='Search by Student' type='text' value='<%= params[:keyword] %>' size='50'>
     <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
   </form>
-  <%# end %>
-  <%#= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
   <%if current_user.admin == true %>
   <%= button_to "Add New User", new_user_registration_path, :class => "menu-btn", :method => :get%>
   <% end %>
-  <%#= button_to "All Cohorts", cohort_index_path, :class => "menu-btn", :method => :get%>
-  <%#= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
 </div>
 <% if params[:company].nil? %>
 <%= will_paginate %>

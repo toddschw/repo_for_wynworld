@@ -1,23 +1,21 @@
 .menu-btn {
-background-color: #666;
-color: #0ff;
-  &:hover {
-    background-color: #444;
-    color: darkturquoise;
-  }
-}.menu-btn {
-background-color: #666;
-color: #0ff;
-  &:hover {
-    background-color: #444;
-    color: darkturquoise;
+  color: #0ff;
+  background-color: #555;
+  padding: 10px 10px;
+  font-weight: 100;
+  text-decoration: none;
+  &:visited, {
+    color: #0ff;
   }
 }
 .search-menu{
   display: flex;
   justify-content: flex-end;;
   form:nth-child(1){
-    flex-grow: 2;
+    margin-right: auto;
+  }
+  input{
+    padding: 5px 10px;
   }
 }
 
