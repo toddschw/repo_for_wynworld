@@ -56,20 +56,27 @@ the needed view  %>
   <%end%>
 </div>
 <br>
-<table>
-  <tr>
-    <td>Location:
-      <%= @cohort.location %></td>
-    <td>Graduation Date:
-      <%= @cohort.graddate %></td>
-    <td>Students in Cohort:
-      <%= students_in_cohort %>
+<table class="stats">
+  <tr class='stats-head'>
+    <td>Location
+    <td>Graduation Date
+    <td>Students in Cohort
     </td>
-    <td>Students Employed:
-      <%= total_students_working.count %></td>
-    <td>Percentage Employed:
-      <%= percentage_employed %></td>
-  </tr>
+    <td>Students Employed
+    <td>Percentage Employed
+  </tr>  <tr class="stats-row">
+      <td>
+        <%= @cohort.location %></td>
+      <td>
+        <%= @cohort.graddate %></td>
+      <td class="five-em">
+        <%= students_in_cohort %>
+      </td>
+      <td class="five-em">
+        <%= total_students_working.count %></td>
+      <td class="five-em">
+        <%= percentage_employed %></td>
+    </tr>
 </table>
 
 <table class="dash-cohort-table">
