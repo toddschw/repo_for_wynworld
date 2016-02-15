@@ -6,15 +6,18 @@
 
 .top-bar{
   display: flex;
-  height: 50px;
+  height: 45px;
   border-bottom: solid black 2px;
-  justify-content: space-between;
+  justify-content: flex-start;
   .session {
     display: flex;
-    //  padding: 5px;
-     align-items: center;
-    img{
+    align-items: baseline;
+    margin-left: auto;
+    .greeting{
       margin: 0 10px;
+    }
+    img{
+    margin: 0 10px;
     border-radius: 50%;
   }
   }
@@ -77,12 +80,11 @@ a {
   color: #000;
 
   &:visited {
-    color: #666;
+    color: #000;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #04B4AE;
   }
 }
 

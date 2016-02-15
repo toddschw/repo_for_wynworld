@@ -1,7 +1,13 @@
 .menu-btn {
 background-color: #666;
 color: #0ff;
-margin: 0 2px;
+  &:hover {
+    background-color: #444;
+    color: darkturquoise;
+  }
+}.menu-btn {
+background-color: #666;
+color: #0ff;
   &:hover {
     background-color: #444;
     color: darkturquoise;
