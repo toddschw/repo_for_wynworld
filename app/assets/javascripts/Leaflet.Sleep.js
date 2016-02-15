@@ -3,7 +3,7 @@ L.Map.mergeOptions({
   sleepTime: 750,
   wakeTime: 750,
   sleepNote: true,
-  hoverToWake: true,
+  hoveToWake: false,
   sleepOpacity:.7
 });
 

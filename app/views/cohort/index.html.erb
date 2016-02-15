@@ -1,10 +1,13 @@
 <% provide(:title, 'All Cohorts') %>
 <h1>All Cohorts </h1>
 
-  <%if current_user.admin? %>
-  <%= button_to "Add New Cohort", new_cohort_path, :class => "menu-btn", :method => :get%><br>
-  <%end%>
+<div class="float-right">
 
+  <%if current_user.admin? %>
+  <%= link_to "Add New Cohort", new_cohort_path, :class => "menu-btn", :method => :get%>
+  <%end%>
+</div>
+<br>
 <table>
   <thead>
     <tr>

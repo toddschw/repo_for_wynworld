@@ -1,7 +1,7 @@
 <% provide(:title, "Add A Position") %>
 <h1>Add A Position</h1>
-<div class="company">
-<div class="com-left">
+<div class="employment-edit">
+<div class="edit-column">
 
 <%= form_for(:new_employment, :url => employment_create_path ) do |f| %>
 
@@ -64,11 +64,11 @@
       <%= f.label(:current_false, "Not a current position") %>
     </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: "menu-btn"%>
   </div>
 <% end %>
 </div>
 </div>
 <div class="float-right">
-  <%= button_to "cancel", @company, :class => "menu-btn", :method => :get%>
+  <%= link_to "cancel", @company, :class => "menu-btn", :method => :get%>
 </div>

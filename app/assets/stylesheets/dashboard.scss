@@ -1,9 +1,15 @@
-.menu-btn {
+.menu-btn{
   color: #0ff;
   background-color: #555;
-  padding: 10px 10px;
+  padding: 8px 15px;
   font-weight: 100;
   text-decoration: none;
+  margin: 2px;
+  width: none;
+  &:hover{
+    font-weight: normal;
+    background-color: #333;
+  }
   &:visited, {
     color: #0ff;
   }
@@ -15,7 +21,10 @@
     margin-right: auto;
   }
   input{
-    padding: 5px 10px;
+    padding: 8px 15px;
+    &[type="submit"]:hover{
+    background-color: #333;
+    }
   }
 }
 

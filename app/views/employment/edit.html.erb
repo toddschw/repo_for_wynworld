@@ -57,12 +57,12 @@
   </div>
 
   <div class="actions">
-    <%= submit_tag("Update") %>
+    <%= submit_tag nil, class: "menu-btn" %>
   </div>
 
 <% end %>
 </div>
 </div>
 <div class="float-right">
-<%= button_to "cancel", @user, :class => "menu-btn", :method => :get%><br>
+<%= link_to "cancel", @user, :class => "menu-btn", :method => :get%><br>
 </div>

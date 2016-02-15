@@ -133,6 +133,8 @@ div {
     list-style: square;
   }
 }
-.float-right form{
-    float: right;
-  }
+.float-right{
+  margin: 2px 0px;
+min-height: 24px;
+padding: 10px 0;
+}

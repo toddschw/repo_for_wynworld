@@ -14,7 +14,7 @@
     <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
   </form>
   <%if current_user.admin == true %>
-  <%= button_to "Add New User", new_user_registration_path, :class => "menu-btn", :method => :get%>
+  <%= link_to "Add New User", new_user_registration_path, :class => "menu-btn", :method => :get%>
   <% end %>
 </div>
 <% if params[:company].nil? %>

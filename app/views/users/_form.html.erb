@@ -65,18 +65,18 @@
       <div class="field">
         <label>Profile Picture</label><br>
         <%= image_tag(@user.avatar_url(:thumb), :width => '50') if @user.avatar? %>
-        <%= f.file_field :avatar %><br>
+        <%= f.file_field :avatar, class: "menu-btn" %><br>
         <% f.hidden_field :avatar_cache %>
         <label>
           <%= f.check_box :remove_avatar%>
           Remove pic
         </label><p>
         <div class="actions">
-          <%= f.submit %>
+          <%= f.submit nil, class: "menu-btn" %>
         </div>
         <% end %>
         <% if current_user.admin %>
-          <%= link_to 'Delete This Profile', @user, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
+          <%= link_to 'Delete This Profile', @user, method: :delete, class: "menu-btn", data: { confirm: 'Are you sure you want to delete this profile?' } %>
         <% end %>
     </div>
   </div>
