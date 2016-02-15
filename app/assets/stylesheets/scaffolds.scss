@@ -4,17 +4,21 @@
   flex-direction: column;
 }
 
-.top-bar{
+.top-bar {
   display: flex;
   height: 45px;
   border-bottom: solid black 2px;
   justify-content: flex-start;
+  align-items: stretch;
   .session {
     display: flex;
     align-items: baseline;
     margin-left: auto;
-    .greeting{
-      margin: 0 10px;
+    align-items: center;
+    .nav-menu{
+      margin: 0 5px;
+      text-decoration: none;
+
     }
     img{
     margin: 0 10px;
@@ -85,6 +89,7 @@ a {
 
   &:hover {
     color: #04B4AE;
+    font-weight: bold;
   }
 }
 
