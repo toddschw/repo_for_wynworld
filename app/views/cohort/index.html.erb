@@ -1,13 +1,9 @@
 <% provide(:title, 'All Cohorts') %>
 <h1>All Cohorts </h1>
-<div class="dash-menu">
-  <%#= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+
   <%if current_user.admin? %>
   <%= button_to "Add New Cohort", new_cohort_path, :class => "menu-btn", :method => :get%><br>
   <%end%>
-  <%#= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%>
-  <%#= button_to "Employers", companies_path, :class => "menu-btn", :method => :get%><br>
-</div>
 
 <table>
   <thead>
