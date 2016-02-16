@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to @user, alert: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def destroy
       if @user.destroy
-        redirect_to user_index_path, notice: 'User was successfully deleted'
+        redirect_to user_index_path, alert: 'User was successfully deleted'
       end
   end
 

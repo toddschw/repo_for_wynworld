@@ -20,7 +20,7 @@ class EmploymentController < ApplicationController
     @user_id = new_employment_params[:user_id]
 
     if @new_employment.save
-      redirect_to user_path(@new_employment.user_id), notice: "New Position Added"
+      redirect_to user_path(@new_employment.user_id), alert: "New Position Added"
     else
       render "new"
     end
@@ -43,7 +43,7 @@ class EmploymentController < ApplicationController
 
     @employment = Employment.find (params[:employment_id])
     if @employment.update(edit_employment_params)
-      redirect_to user_path(@employment.user), notice: "Position Edited"
+      redirect_to user_path(@employment.user), alert: "Position Edited"
     else
       render plain: "There was a problem updating the record"
     end
@@ -53,7 +53,7 @@ class EmploymentController < ApplicationController
   def destroy
     employment_to_edit = Employment.find params[:id]
     employment_to_edit.destroy
-    redirect_to user_path(employment_to_edit.user), notice: "Position deleted"
+    redirect_to user_path(employment_to_edit.user), alert: "Position deleted"
   end
 end
 
