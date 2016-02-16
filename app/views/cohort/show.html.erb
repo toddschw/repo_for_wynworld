@@ -61,7 +61,7 @@ the needed view  %>
     <td>Location:
       <%= @cohort.location %></td>
     <td>Graduation Date:
-      <%= @cohort.graddate %></td>
+      <%= @cohort.graddate.to_s(:long) %></td>
     <td>Students in Cohort:
       <%= students_in_cohort %>
     </td>
