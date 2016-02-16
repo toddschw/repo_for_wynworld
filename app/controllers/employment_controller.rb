@@ -42,6 +42,7 @@ class EmploymentController < ApplicationController
       @rolesource = @employment_to_edit.rolesource  # need this for form
     @employment_id = params[:id]
     @companies = Company.all.order(:name)
+    @user = @employment_to_edit.user
   end
 
   def update
