@@ -13,26 +13,18 @@ class EmploymentController < ApplicationController
   end
 
   def create
-    #render json: params
+    # render json: params
 
     @new_employment = Employment.new(new_employment_params)
     @companies = Company.all.order(:name)
     @user_id = new_employment_params[:user_id]
 
-
-    #render plain: @employment.inspect
-
     if @new_employment.save
       redirect_to user_path(@new_employment.user_id), notice: "New Position Added"
-      #render plain: @new_employment.inspect
     else
-      #redirect_to employment_new_path, notice: "Sorry, there was an error."
-      #redirect_to root_path, notice: "Sorry, there was an error."
-      #redirect_to new_employment_path(@employment.user_id)
       render "new"
-
-      #render json: { message: "sorry, error", employment: @employment }
     end
+
 
   end
 
@@ -82,7 +74,16 @@ end
 
 
 def new_employment_params
+
+  # params.require(:new_employment).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
+
+  # Account for company not listed
+  if params[:new_employment][:company_id] == "true"
+    params[:new_employment][:company_id] = Company.find_by(name: "Pending Listing").id
+  end
+
   params.require(:new_employment).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
+
 end
 
 def edit_employment_params

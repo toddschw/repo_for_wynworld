@@ -16,10 +16,19 @@
     </div>
   <% end %>
   <%= f.hidden_field(:user_id, :value => @user_id) %>
+
   <div class="field">
     <%= f.label(:company_id, "Company:") %>
-    <%= f.collection_select(:company_id, @companies, :id, :name, prompt: true) %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, { prompt: "Please Select - Or Else Check Below" }) %>
   </div>
+
+
+  <div class="field">
+    <%= f.radio_button(:company_id, true ) %>
+    <%= f.label(:company_id_true, "Check only if your company is not listed above") %>
+  </div>
+
+
 
     <div class="field">
       <%= f.label(:jobtitle, "Job Title:") %>
