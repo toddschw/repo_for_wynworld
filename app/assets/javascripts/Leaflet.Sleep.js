@@ -20,7 +20,7 @@ L.Map.Sleep = L.Handler.extend({
     mapStyle.MozTransition += 'opacity .5s';
 
     var noteString = this._map.options.wakeMessage ||
-                     ('Click ' + (this._map.options.hoverToWake?'or Hover ':'') + 'to Wake');
+                     ('Click ' + (this._map.options.hoverToWake?'or Hover ':'') + 'to zoom to see where all Wyncoders  are.');
     var style = this.sleepNote.style;
     if( this._map.options.sleepNote ){
       this.sleepNote.appendChild(document.createTextNode( noteString ));
