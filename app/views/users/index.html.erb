@@ -7,6 +7,9 @@
 
 </h1>
 
+<% if flash[:alert] %>
+    <p id="notice"><%= flash[:alert] %></p>
+<% end %>
 
 <div class="search-menu">
   <form>

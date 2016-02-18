@@ -4,8 +4,8 @@
   <%= "#{@user.fname} #{@user.lname}" %>
 </h1>
 
-<% if flash[:notice] %>
-  <p id="notice"><%= flash[:notice] %></p>
+<% if flash[:alert] %>
+  <p id="notice"><%= flash[:alert] %></p>
 <% end %>
 <div class="profile">
   <!-- Basic Info: Start -->
@@ -76,7 +76,9 @@
       <th>Nature of Role</th>
       <th>Type of Organization</th>
       <th>Source of Offer</th>
-      <th>Salary</th>
+      <% if current_user.admin || current_user == User.find(params[:id]) %>
+        <th>Salary</th>
+      <% end %>
       <th>Begin</th>
       <th>End</th>
       <th>Current Job</th>
@@ -97,11 +99,15 @@
       <td><%= employment.rolenature %></td>
       <td><%= employment.company.orgtype %></td>
       <td><%= employment.rolesource %></td>
-      <td><%= number_to_currency(employment.salary, precision: 0) %></td>
-      <td><%= employment.start_date %></td>
-      <td><%= if !employment.end_date.nil?
-          employment.end_date
-        end %></td>
+      <% if current_user.admin || current_user == User.find(params[:id]) %>
+        <td><%= number_to_currency(employment.salary, precision: 0) %></td>
+      <% end %>
+      <td><%= if employment.start_date
+            employment.start_date.to_s(:long)
+          end %></td>
+      <td><%= if employment.end_date
+            employment.end_date.to_s(:long)
+          end %></td>
       <td><% if employment.current %>
           <%= "Yes" %>
         <% end %></td>

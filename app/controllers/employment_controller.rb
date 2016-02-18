@@ -13,26 +13,18 @@ class EmploymentController < ApplicationController
   end
 
   def create
-    #render json: params
+    # render json: params
 
     @new_employment = Employment.new(new_employment_params)
     @companies = Company.all.order(:name)
     @user_id = new_employment_params[:user_id]
 
-
-    #render plain: @employment.inspect
-
     if @new_employment.save
-      redirect_to user_path(@new_employment.user_id), notice: "New Position Added"
-      #render plain: @new_employment.inspect
+      redirect_to user_path(@new_employment.user_id), alert: "New Position Added"
     else
-      #redirect_to employment_new_path, notice: "Sorry, there was an error."
-      #redirect_to root_path, notice: "Sorry, there was an error."
-      #redirect_to new_employment_path(@employment.user_id)
       render "new"
-
-      #render json: { message: "sorry, error", employment: @employment }
     end
+
 
   end
 
@@ -42,6 +34,7 @@ class EmploymentController < ApplicationController
       @rolesource = @employment_to_edit.rolesource  # need this for form
     @employment_id = params[:id]
     @companies = Company.all.order(:name)
+    @user = @employment_to_edit.user
   end
 
   def update
@@ -50,7 +43,7 @@ class EmploymentController < ApplicationController
 
     @employment = Employment.find (params[:employment_id])
     if @employment.update(edit_employment_params)
-      redirect_to user_path(@employment.user), notice: "Position Edited"
+      redirect_to user_path(@employment.user), alert: "Position Edited"
     else
       render plain: "There was a problem updating the record"
     end
@@ -60,7 +53,7 @@ class EmploymentController < ApplicationController
   def destroy
     employment_to_edit = Employment.find params[:id]
     employment_to_edit.destroy
-    redirect_to user_path(employment_to_edit.user), notice: "Position deleted"
+    redirect_to user_path(employment_to_edit.user), alert: "Position deleted"
   end
 end
 
@@ -81,7 +74,16 @@ end
 
 
 def new_employment_params
+
+  # params.require(:new_employment).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
+
+  # Account for company not listed
+  if params[:new_employment][:company_id] == "true"
+    params[:new_employment][:company_id] = Company.find_by(name: "Pending Listing").id
+  end
+
   params.require(:new_employment).permit(:jobtitle, :roletype, :rolenature, :rolesource, :salary, :start_date, :end_date, :current, :company_id, :user_id)
+
 end
 
 def edit_employment_params
