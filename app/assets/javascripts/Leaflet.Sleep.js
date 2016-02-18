@@ -16,19 +16,19 @@ L.Map.Sleep = L.Handler.extend({
 
 
     var mapStyle = this._map.getContainer().style;
-    mapStyle.WebkitTransition += 'opacity .5s';
-    mapStyle.MozTransition += 'opacity .5s';
+    mapStyle.WebkitTransition += 'opacity .9s';
+    mapStyle.MozTransition += 'opacity .9s';
 
     var noteString = this._map.options.wakeMessage ||
 
-                     ('Click ' + (this._map.options.hoverToWake?'or Hover ':'') + 'to Zoom On Wynalums!');
+                     ('Click ' + (this._map.options.hoverToWake?'or Hover ':'') + 'To Zoom On Wynalums!');
     var style = this.sleepNote.style;
     if( this._map.options.sleepNote ){
       this.sleepNote.appendChild(document.createTextNode( noteString ));
       style.maxWidth = '150px';
       style.transitionDuration = '.2s';
       style.zIndex = 5000;
-      style.opacity = '.6';
+      style.opacity = '.8';
       style.margin = 'auto';
       style.textAlign = 'center';
       style.borderRadius = '4px';
@@ -62,7 +62,7 @@ L.Map.Sleep = L.Handler.extend({
     this._stopWaiting();
     this._map.scrollWheelZoom.disable();
     L.DomUtil.setOpacity( this._map._container, this._map.options.sleepOpacity);
-    this.sleepNote.style.opacity = .4;
+    this.sleepNote.style.opacity = .8;
     this._addSleepingListeners();
   },
 
