@@ -64,8 +64,7 @@
 <% if current_user.admin || current_user == User.find(params[:id]) %>
 <h3>Work History - <%= link_to "Add A Position", employment_new_path(@user) %></span></h3>
 <% end %>
-
-
+<br>
 </div>
 <div class="profile-hist">
 <table class="profile-hist-table">

@@ -17,12 +17,22 @@
 .search-menu{
   display: flex;
   justify-content: flex-end;;
+  outline: none;
   form:nth-child(1){
     margin-right: auto;
   }
+  input#q{
+  margin-top: 2px;
+  height: 18px;
+  }
   input{
+    font-family: arial;
+    font-size: 1.2em;
     padding: 8px 15px;
     border: 2px solid #555;
+    &:focus{
+      outline: aqua;
+    }
     &[type="submit"]:hover{
     background-color: #333;
     }
@@ -39,8 +49,8 @@
     width: 36px;
   }
 }
-.dash-search{
-  input{
-    padding: 5px 10px;
-  }
-}
+// .dash-search{
+//   input{
+//     padding: 5px 10px;
+//   }
+// }
