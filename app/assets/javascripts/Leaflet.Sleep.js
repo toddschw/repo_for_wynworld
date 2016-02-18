@@ -4,7 +4,7 @@ L.Map.mergeOptions({
   wakeTime: 750,
   sleepNote: true,
   hoveToWake: false,
-  sleepOpacity:.7
+  sleepOpacity:.9
 });
 
 L.Map.Sleep = L.Handler.extend({
@@ -20,7 +20,7 @@ L.Map.Sleep = L.Handler.extend({
     mapStyle.MozTransition += 'opacity .5s';
 
     var noteString = this._map.options.wakeMessage ||
-                     ('Click ' + (this._map.options.hoverToWake?'or Hover ':'') + 'to Wake');
+                     ('Click ' + (this._map.options.hoverToWake?'or Hover ':'') + 'to Zoom');
     var style = this.sleepNote.style;
     if( this._map.options.sleepNote ){
       this.sleepNote.appendChild(document.createTextNode( noteString ));

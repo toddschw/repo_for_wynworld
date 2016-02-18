@@ -5,13 +5,15 @@
 </h1>
 
 <!--  map (initial) -->
+<button type="button" class="soflo">Zoom to SoFlo</button>
 
 <div id="map"></div><Br>
-
+<div id="map2"></div>
 <!-- end map -->
 
 <!-- search form -->
 <%= render partial: "search/index" %>
+
 
 
 <div id="h2"></div>
@@ -79,7 +81,20 @@
               .bindPopup(markerInfo);
             <% end %>
           <% end %>
+
+          $(document).ready(function(){
+              $('.soflo').click(function(){
+                  // alert("The paragraph was clicked.");
+                  map.setView([25.9267017, -80.2952457], 10);
+                  L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 4}).addTo(map);
+              });
+          });
+
+
         });
 </script>
+
+
+
 
 <script src="Leaflet.Sleep.js"></script>
