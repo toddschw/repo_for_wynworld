@@ -13,29 +13,29 @@
   <div class="company">
 <div class="com-left">
   <div class="field">
-    <%= f.label "Company Name" %><br>
-    <%= f.text_field :name, :size=>50 %>
+    <%= f.label :name, "*Company Name" %><br>
+    <%= f.text_field :name, :size=>50, placeholder: "Company Name" %>
   </div>
   <div class="field">
     <%= f.label :street1 %><br>
-    <%= f.text_field :street1, :size=>50 %>
+    <%= f.text_field :street1, :size=>50, placeholder: "Street Address" %>
   </div>
   <div class="field">
       <%= f.label :street2 %><br>
-      <%= f.text_field :street2, :size=>50 %>
+      <%= f.text_field :street2, :size=>50, placeholder: "e.g. Suite Number" %>
     </div>
 
     <div class="inline">
   <div class="field">
-    <%= f.label :city %><br>
+    <%= f.label :city, "*City" %><br>
     <%= f.text_field :city, :size=>30%>
   </div>
   <div class="field">
-    <%= f.label :state %><br>
+    <%= f.label :state, "*State" %><br>
     <%= f.text_field :state, :size=>6 %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br>
+    <%= f.label :zip, "*Zip" %><br>
     <%= f.text_field :zip, :size=>10 %>
   </div>
   </div>
@@ -46,15 +46,15 @@
   </div>
   <div class="field">
     <%= f.label :website %><br>
-    <%= f.text_field :website, :size=>50 %>
+    <%= f.text_field :website, :size=>50, placeholder: "www.company.com" %>
   </div>
   <div class="field">
-    <%= f.label "Hiring Partner?" %><br>
+    <%= f.label :hp, "Hiring Partner?" %><br>
     <%= f.check_box :hp %>
   </div>
   <div class="field">
-    <%= f.label "Company Type" %><br>
-    <%= f.text_field :orgtype, :size=>50 %>
+    <%= f.label :orgtype, "Company Type" %><br>
+    <%= f.text_field :orgtype, :size=>50, placeholder: "i.e. Start-up, Ecommerce, HealthCare etc." %>
   </div>
 </div>
 

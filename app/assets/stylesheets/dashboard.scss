@@ -1,4 +1,4 @@
-.menu-btn{
+.menu-btn, .soflo, .us{
   color: #0ff;
   background-color: #555;
   padding: 8px 15px;
@@ -18,9 +18,7 @@
   display: flex;
   justify-content: flex-end;;
   outline: none;
-  form:nth-child(1){
-    margin-right: auto;
-  }
+  margin-top: 5px;
   input#q{
   margin-top: 2px;
   height: 18px;
@@ -49,8 +47,10 @@
     width: 36px;
   }
 }
-// .dash-search{
-//   input{
-//     padding: 5px 10px;
-//   }
-// }
+.soflo, .us{
+  height: 18px;
+  padding: 2px 10px;
+}
+.us{
+  margin-right: auto;
+}

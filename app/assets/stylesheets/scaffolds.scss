@@ -105,7 +105,7 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: maroon;
+  background-color: salmon;
   display: table;
 }
 
@@ -133,7 +133,12 @@ div {
   }
 }
 .float-right{
-  margin: 2px 0px;
+margin: 2px 0px;
 min-height: 24px;
 padding: 10px 0;
+}
+.float-split{
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
 }

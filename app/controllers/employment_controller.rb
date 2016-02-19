@@ -18,6 +18,7 @@ class EmploymentController < ApplicationController
     @new_employment = Employment.new(new_employment_params)
     @companies = Company.all.order(:name)
     @user_id = new_employment_params[:user_id]
+    
 
     if @new_employment.save
       redirect_to user_path(@new_employment.user_id), alert: "New Position Added"

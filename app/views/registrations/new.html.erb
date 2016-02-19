@@ -6,33 +6,33 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :email %><br/>
+      <%= f.label :email, "*Email" %><br/>
       <%= f.email_field :email, autofocus: true %>
     </div>
 
 
     <div class="field">
-      <%= f.label "First Name"%><br/>
+      <%= f.label :fname, "*First Name"%><br/>
       <%= f.text_field :fname%>
     </div>
 
     <div class="field">
-      <%= f.label "Last Name" %><br/>
+      <%= f.label :lname, "*Last Name" %><br/>
       <%= f.text_field :lname %>
     </div>
 
     <div class="field">
-      <%= label_tag(:user_cohort_id, "Cohort") %><br>
+      <%= label_tag(:user_cohort_id, "*Cohort") %><br>
       <%= collection_select(:user, :cohort_id, @cohorts, :id, :name, { prompt: "Please Select One" } ) %>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password,"*Password" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %>
         characters minimum)</em>
       <% end %><br/>
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "8 characters minimum" %>
     </div>
 
     <div class="field">

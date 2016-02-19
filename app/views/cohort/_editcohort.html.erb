@@ -13,15 +13,15 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, "*Cohort Name" %><br>
+    <%= f.text_field :name, placeholder: "MIAC1" %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.label :location, "*Location" %><br>
+    <%= f.text_field :location, placeholder: "Miami" %>
   </div>
   <div class="field">
-      <%= f.label :graddate %><br>
+      <%= f.label :graddate, "*Graduation Date" %><br>
       <%= f.date_field :graddate %>
     </div>
   <div class="actions">

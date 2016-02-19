@@ -9,7 +9,7 @@
 <div class="employment-edit">
   <div class="edit-column">
   <div class="field">
-    <%= label_tag(:employment_to_edit_company_id, "Company") %>
+    <%= label_tag(:employment_to_edit_company_id, "*Company:") %>
     <%= collection_select(:employment_to_edit, :company_id, @companies, :id, :name) %>
   </div>
 

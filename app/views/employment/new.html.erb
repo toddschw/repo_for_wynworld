@@ -18,7 +18,7 @@
   <%= f.hidden_field(:user_id, :value => @user_id) %>
 
   <div class="field">
-    <%= f.label(:company_id, "Company:") %>
+    <%= f.label(:company_id, "*Company:") %>
     <%= f.collection_select(:company_id, @companies, :id, :name, { prompt: "Please Select - Or Else Check Below" }) %>
   </div>
 
@@ -32,7 +32,7 @@
 
     <div class="field">
       <%= f.label(:jobtitle, "Job Title:") %>
-      <%= f.text_field(:jobtitle) %>
+      <%= f.text_field(:jobtitle, placeholder: "Job Title") %>
     </div>
 
     <div class="field">
@@ -79,5 +79,5 @@
 </div>
 </div>
 <div class="float-right">
-  <%= link_to "cancel", @company, :class => "menu-btn", :method => :get%>
+  <%= link_to "cancel", @user, :class => "menu-btn", :method => :get%>
 </div>
