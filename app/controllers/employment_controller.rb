@@ -10,6 +10,7 @@ class EmploymentController < ApplicationController
     @companies = Company.all.order(:name)
     @user_id = params[:user_id]
     @new_employment = Employment.new
+    @user = User.find @user_id
   end
 
   def create
@@ -18,7 +19,7 @@ class EmploymentController < ApplicationController
     @new_employment = Employment.new(new_employment_params)
     @companies = Company.all.order(:name)
     @user_id = new_employment_params[:user_id]
-    
+    @user = User.find @user_id
 
     if @new_employment.save
       redirect_to user_path(@new_employment.user_id), alert: "New Position Added"
