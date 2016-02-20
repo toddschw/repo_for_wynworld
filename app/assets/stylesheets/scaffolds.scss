@@ -48,10 +48,13 @@ table {
     background-color: steelblue;
     border: 1px solid #555;
     padding: 4px 8px;
-    font-weight: 100;
+    // font-weight: 100;
     a, a:visited, {
       color: #0ff;
       text-decoration: none;
+    }
+    a:hover{
+      color: coral;
     }
   }
   td {
@@ -88,8 +91,9 @@ a {
   }
 
   &:hover {
-    color: #04B4AE;
-    font-weight: bold;
+    color: coral;
+    // color: #04B4AE;
+    // font-weight: bold;
   }
 }
 
