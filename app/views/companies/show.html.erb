@@ -28,6 +28,11 @@
   </p>
   <p>company Type <%= @company.orgtype %>
   </div>
+
+  <% if current_user.admin?%>
+  <div id="map2"></div>
+  <%end%>
+
   <% if current_user.admin? %>
   <div class="com-right">
   <p>Contact Name: <%= "#{@company.contact_first} #{@company.contact_last}" %>
@@ -40,6 +45,17 @@
   </div>
 <% end %>
 
+<% if !current_user.admin?%>
+<div id="map2"></div>
+<%end%>
+
+<script type="text/javascript">
+  $(function () {
+    var map = L.map('map2').setView([<%=@company.latitude%>, <%=@company.longitude%>], 14);
+    L.tileLayer('//server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 10}).addTo(map);
+    L.marker([<%=@company.latitude%>, <%=@company.longitude%>]).addTo(map);
+      });
+</script>
 
 
 </div>

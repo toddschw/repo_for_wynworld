@@ -21,6 +21,9 @@
 
 a {text-decoration: none; }
 
+#map2 { height: 420px;
+        width: 30%;}
+
 
 /*@import "bootstrap-sprockets"
 @import "bootstrap"*/
